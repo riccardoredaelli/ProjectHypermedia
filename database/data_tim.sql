@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 14, 2016 alle 09:12
+-- Creato il: Giu 20, 2016 alle 12:29
 -- Versione del server: 10.1.13-MariaDB
 -- Versione PHP: 5.6.21
 
@@ -28,6 +28,7 @@ USE `data_tim`;
 -- Struttura della tabella `categoriadispositivo`
 --
 
+DROP TABLE IF EXISTS `categoriadispositivo`;
 CREATE TABLE IF NOT EXISTS `categoriadispositivo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
@@ -52,6 +53,7 @@ INSERT INTO `categoriadispositivo` (`id`, `nome`, `descrizione`, `immagine`) VAL
 -- Struttura della tabella `categoriaservizioassistenza`
 --
 
+DROP TABLE IF EXISTS `categoriaservizioassistenza`;
 CREATE TABLE IF NOT EXISTS `categoriaservizioassistenza` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
@@ -76,6 +78,7 @@ INSERT INTO `categoriaservizioassistenza` (`id`, `nome`, `descrizione`, `immagin
 -- Struttura della tabella `categoriasmartlifeservice`
 --
 
+DROP TABLE IF EXISTS `categoriasmartlifeservice`;
 CREATE TABLE IF NOT EXISTS `categoriasmartlifeservice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
@@ -100,6 +103,7 @@ INSERT INTO `categoriasmartlifeservice` (`id`, `nome`, `descrizione`, `immagine`
 -- Struttura della tabella `dispositivo`
 --
 
+DROP TABLE IF EXISTS `dispositivo`;
 CREATE TABLE IF NOT EXISTS `dispositivo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
@@ -131,6 +135,7 @@ INSERT INTO `dispositivo` (`id`, `nome`, `categoria`, `promozione`, `prezzo`, `i
 -- Struttura della tabella `dispositivo_servizioassistenza`
 --
 
+DROP TABLE IF EXISTS `dispositivo_servizioassistenza`;
 CREATE TABLE IF NOT EXISTS `dispositivo_servizioassistenza` (
   `id_dispositivo` int(11) NOT NULL,
   `id_servizioassistenza` int(11) NOT NULL,
@@ -151,6 +156,7 @@ INSERT INTO `dispositivo_servizioassistenza` (`id_dispositivo`, `id_servizioassi
 -- Struttura della tabella `dispositivo_smartlifeservice`
 --
 
+DROP TABLE IF EXISTS `dispositivo_smartlifeservice`;
 CREATE TABLE IF NOT EXISTS `dispositivo_smartlifeservice` (
   `id_dispositivo` int(11) NOT NULL,
   `id_smartlifeservice` int(11) NOT NULL,
@@ -172,6 +178,7 @@ INSERT INTO `dispositivo_smartlifeservice` (`id_dispositivo`, `id_smartlifeservi
 -- Struttura della tabella `servizioassistenza`
 --
 
+DROP TABLE IF EXISTS `servizioassistenza`;
 CREATE TABLE IF NOT EXISTS `servizioassistenza` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
@@ -195,6 +202,7 @@ INSERT INTO `servizioassistenza` (`id`, `nome`, `descrizione`, `categoria`, `hig
 -- Struttura della tabella `smartlifeservice`
 --
 
+DROP TABLE IF EXISTS `smartlifeservice`;
 CREATE TABLE IF NOT EXISTS `smartlifeservice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
