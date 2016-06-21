@@ -5,7 +5,7 @@
 		<title>TIM</title>
 		<meta name="description" content="TIM Website">
         
-         <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon" />
 
 		<!-- Mobile viewport optimized -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -44,7 +44,7 @@
 							<li>
 								<a href="devices.html">DEVICES</a>
 							</li>
-                            <li class="active">
+                            <li class="active class="active>
 								<a href="smartlife.html">SMARTLIFE SERVICES</a>
 							</li>
                             <li>
@@ -57,19 +57,67 @@
 					</div><!-- end nav-collapse -->
 				</div><!-- end container -->
 			</div><!-- end navbar -->
-            
-  
+
             
             <div class="row top-buffer-from-navbar" id="features">
-				<div id="smartlifeServices"></div>
-            </div>
-    
-		
- 
+				
+                    <div class="col-sm-12 feature">
+                        <div class="panel">
+                            <div class="row" id="features"> 
+                              <div class="col-sm-6 feature">
+                                  <div id="serviceName"></div>
+                                  <div id="serviceImage"></div>
+                              </div>
+                                
+                <div class="col-sm-6">
+					
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab1" data-toggle="tab">Descrizione</a></li>
+							<li><a href="#tab2" data-toggle="tab">Regole di attivazione</a></li>
+                            <li><a href="#tab3" data-toggle="tab">FAQ</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab1">
+								<div id="serviceDescription"></div>
+							</div><!-- end tab-pane -->
+							
+							<div class="tab-pane" id="tab2">
+                                <div id="serviceActivationRules"></div>
+							</div><!-- end tab-pane -->
+                            <div class="tab-pane" id="tab3">
+								<div id="serviceFaq"></div>
+							</div><!-- end tab-pane -->
+						</div><!-- end tab-content -->
+					</div><!-- end tabbable -->
+                    <a href="#" target="_blank" class="btn btn-smsll btn-default">Attiva servizio</a>
+				</div><!-- end col-sm-6 -->    
+                                
+                                
+                                
+                                
+                            
+                            </div>
+                           <div class="row" id="features"> 
+                            <div class="col-sm-12 feature">
+                                <div class="panel">
+                                    <div class="panel-heading">
+							             <h3 class="panel-title">DEVICE COMPATIBILI</h3>
+						            </div><!-- end panel-heading -->
+                                    <div id="compatibleDevices"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                              
+                        
+            </div><!-- end panel -->
             
+            
+            </div>
 	</div><!-- end container -->
 
-		<footer>
+				<footer>
 			<div class="container">
 						<ul class="nav navbar-nav">
 
@@ -139,7 +187,7 @@
 
 	<!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
-    <script src="includes/js/smartlifeServices.js"></script>
+    <script src="includes/js/smartlifeService.js"></script>
 
 	</body>
 </html>

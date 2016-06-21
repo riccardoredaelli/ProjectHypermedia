@@ -1,4 +1,5 @@
 <?php
+
 //connection to db
 $mysqli = new mysqli("localhost", "root", "", "data_tim");
 
@@ -10,7 +11,10 @@ else {
     //echo "Successful connection"; // connection ok
 
     # extract results mysqli_result::fetch_array
-    $query = "SELECT * FROM categoriadispositivo ORDER BY idcategoriadispositivo ASC";
+    $query ="SELECT *
+FROM dispositivo, categoriadispositivo
+WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo
+ORDER BY categoriadispositivo.idcategoriadispositivo";
     //query execution
     $result = $mysqli->query($query);
     //if there are data available
@@ -18,7 +22,7 @@ else {
     {
         $myArray = array();//create an array
         while($row = $result->fetch_array(MYSQL_ASSOC)) {
-            $myArray[] = array_map('utf8_encode', $row);
+            $myArray[] = array_map('utf8_encode', $row);		
         }
         echo json_encode($myArray);
     }

@@ -1,10 +1,9 @@
 function ready(){
     console.log("Sono pronto a caricare tutte le categorie");
     var idcategoria=1;
-    
+    var container = document.getElementById("devices");  
     $.ajax({
         method: "POST",
-        //dataType: "json", //type of data
         crossDomain: true, //localhost purposes
         url: "includes/php/getDevices.php", //percorso file.php
         data: {categoriadispositivo:idcategoria},
@@ -13,15 +12,13 @@ function ready(){
         var i=0;  
 
             
-          var container = document.getElementById("devices");  
-            
           for(i=0;i<categoriadispositivo.length;i++){
                 console.log("sono nel for");
-                var urlCategoria = "devices_by_category.html?category=" +categoriadispositivo[i].idcategoria;
+                var urlCategoria = "devices_by_category.html?category=" +categoriadispositivo[i].idcategoriadispositivo;
                 
                 var imgTemp = document.createElement("img");
                 
-                var urlImmagine = "images/" + categoriadispositivo[i].immaginecategoria;
+                var urlImmagine = "images/" + categoriadispositivo[i].immaginecategoriadispositivo;
                 imgTemp.setAttribute('src', urlImmagine);
                 imgTemp.setAttribute("class", "img-responsive");
                 
@@ -32,7 +29,7 @@ function ready(){
                 nomeTemp.appendChild(nome);
                 
                 var descrTemp = document.createElement("p");
-                var descr = document.createTextNode(categoriadispositivo[i].descrizione);
+                var descr = document.createTextNode(categoriadispositivo[i].descrizionecategoriadispositivo);
                 descrTemp.appendChild(descr);
                 
                 
@@ -41,23 +38,23 @@ function ready(){
               
                 var categoriaPanel = document.createElement("div");
                 categoriaPanel.setAttribute("class", "panel");
-              
-              
-              
+         
                 var panelHeading = document.createElement("div");
                 panelHeading.setAttribute("class", "panel-heading");
                 var panelTitle = document.createElement("h4");
-                panelTitle.appendChild(document.createTextNode(categoriadispositivo[i].nomecategoria));
+                panelTitle.appendChild(document.createTextNode(categoriadispositivo[i].nomecategoriadispositivo));
                 panelHeading.appendChild(panelTitle);
-              
+
                 var categoryRow = document.createElement("div");
                 categoryRow.setAttribute("class", "row");
               
                 var categoryInfoColumn = document.createElement("div");
-                categoryInfoColumn.setAttribute("class", "col-sm-4 feature");
+                categoryInfoColumn.setAttribute("class", "col-sm-3 feature");
               
                 var categoriyInfoPanel = document.createElement("div");
-                categoriyInfoPanel.setAttribute("class", "panel text-center");
+                categoriyInfoPanel.setAttribute("class", "text-center");
+              
+            
                
                 categoriaPanel.appendChild(panelHeading);
                 categoriyInfoPanel.appendChild(imgTemp);
@@ -79,5 +76,7 @@ function ready(){
             console.log("Error");
         }
     });
+
 }
+
 $(document).ready(ready);

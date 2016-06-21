@@ -12,7 +12,7 @@ else {
     # extract results mysqli_result::fetch_array
     $query = " SELECT * 
                 FROM `dispositivo`,`categoriadispositivo`
-                WHERE dispositivo.categoria=categoriadispositivo.idcategoria
+                WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo
                 ORDER BY dispositivo.categoria ASC";
     //query execution
     $result = $mysqli->query($query);

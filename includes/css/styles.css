@@ -79,8 +79,12 @@ ul.unstyled {
    -------------------------------------- */
 
 .top-buffer-from-navbar { 
-    margin-top:100px;
-}  
+    margin-top:5%;
+}
+
+.margin-top {
+    margin-top:20%;
+}
 /* --------------------------------------
    Carousel
    -------------------------------------- */

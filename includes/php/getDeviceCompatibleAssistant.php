@@ -7,10 +7,11 @@ if (mysqli_connect_errno()) { //verify connection
     exit(); //do nothing else 
 }
 else {
-    //echo "Successful connection"; // connection ok
-
     # extract results mysqli_result::fetch_array
-    $query = "SELECT * FROM categoriadispositivo ORDER BY idcategoriadispositivo ASC";
+    $query = "SELECT *
+                FROM dispositivo,dispositivo_servizioassistenza,servizioassistenza
+                WHERE dispositivo.id=dispositivo_servizioassistenza.id_dispositivo_dsa AND servizioassistenza.idservizioassistenza=dispositivo_servizioassistenza.id_servizioassistenza_dsa
+                ORDER BY dispositivo.id";
     //query execution
     $result = $mysqli->query($query);
     //if there are data available
