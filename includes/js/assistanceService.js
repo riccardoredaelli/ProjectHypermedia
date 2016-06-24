@@ -22,8 +22,7 @@ function evan(){
             description.setAttribute("class", "margin-top");
             var descriptionText =document.createTextNode(assistanceservice[myParam-1].descrizioneservizioassistenza);
             description.appendChild(descriptionText);
-            containerDescription.appendChild(description);
-            
+            containerDescription.appendChild(description); 
         },
         error: function(request,error) 
         {

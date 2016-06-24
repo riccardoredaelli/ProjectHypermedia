@@ -11,16 +11,21 @@ function ready(){
         var categoriadispositivo=JSON.parse(response);
         var i=0;  
 
-            
+        var categoriaProva = '';
           for(i=0;i<categoriadispositivo.length;i++){
                 console.log("sono nel for");
+              if (categoriaProva !== categoriadispositivo[i].nomecategoriadispositivo || categoriadispositivo[i].idcategoriadispositivo==5){
+                  console.log(categoriadispositivo[i].nomecategoriadispositivo);
+
+                categoriaProva = categoriadispositivo[i].nomecategoriadispositivo;
+              
                 var urlCategoria = "devices_by_category.html?category=" +categoriadispositivo[i].idcategoriadispositivo;
                 
                 var imgTemp = document.createElement("img");
                 
                 var urlImmagine = "images/" + categoriadispositivo[i].immaginecategoriadispositivo;
                 imgTemp.setAttribute('src', urlImmagine);
-                imgTemp.setAttribute("class", "img-responsive");
+                imgTemp.setAttribute("class", "category-img");
                 
                 var nomeTemp = document.createElement("a");
                 nomeTemp.setAttribute('class', 'btn btn-smsll btn-block btn-default');
@@ -49,24 +54,105 @@ function ready(){
                 categoryRow.setAttribute("class", "row");
               
                 var categoryInfoColumn = document.createElement("div");
-                categoryInfoColumn.setAttribute("class", "col-sm-3 feature");
+                categoryInfoColumn.setAttribute("class", "col-sm-3 feature text-center");
               
                 var categoriyInfoPanel = document.createElement("div");
-                categoriyInfoPanel.setAttribute("class", "text-center");
+                categoriyInfoPanel.setAttribute("class", "panel");
               
-            
-               
                 categoriaPanel.appendChild(panelHeading);
                 categoriyInfoPanel.appendChild(imgTemp);
                 categoriyInfoPanel.appendChild(descrTemp);
                 categoriyInfoPanel.appendChild(nomeTemp);
                 categoryInfoColumn.appendChild(categoriyInfoPanel);
                 categoryRow.appendChild(categoryInfoColumn);
+                  
+                  
+                // start device preview
+                console.log(categoriadispositivo[i].nome);
+                if (categoriadispositivo[i].idcategoriadispositivo!=5){
+                var j = 0;
+                
+                for (j=0; j<3; j++){
+                  
+                    if (categoriadispositivo[i].categoria == categoriadispositivo[i+j].categoria) {
+                    var devicePreviewImg = document.createElement("img");
+                    var urlPreviewImg = "images/devices/" + categoriadispositivo[i+j].immagine;
+                    devicePreviewImg.setAttribute('src', urlPreviewImg);
+                    devicePreviewImg.setAttribute("class", "img-responsive");
+                    var devicePreviewName = document.createElement("h4");
+                    devicePreviewName.appendChild(document.createTextNode(categoriadispositivo[i+j].nome));  
+                    
+                    var devicePreviewButton = document.createElement("a");
+                    devicePreviewButton.setAttribute('class', 'btn btn-smsll btn-block btn-default');
+                    var deviceUrl = "device.html?device=" +categoriadispositivo[i+j].id;
+                    devicePreviewButton.setAttribute("href", deviceUrl);
+                    var buttonName = document.createTextNode("Scopri");
+                    devicePreviewButton.appendChild(buttonName);
+                    
+                    
+                    var previewColumn = document.createElement("div");
+                    previewColumn.setAttribute("class", "col-sm-3 feature text-center");
+              
+                    var previewColumnPanel = document.createElement("div");
+                    previewColumnPanel.setAttribute("class", "panel");
+                    
+                    previewColumnPanel.appendChild(devicePreviewImg);
+                    previewColumnPanel.appendChild(devicePreviewName);
+                    previewColumnPanel.appendChild(devicePreviewButton);
+                    
+                    previewColumn.appendChild(previewColumnPanel);
+                    
+                    categoryRow.appendChild(previewColumn);
+                }
+                }
+                }
+                if (categoriadispositivo[i].idcategoriadispositivo==5){
+                      console.log('diocancaro');
+                    
+                    var z = 0;
+                    for (z=0; z<categoriadispositivo.length; z++){
+                    if (categoriadispositivo[z].promozione==1) {
+                    var devicePreviewImg = document.createElement("img");
+                    var urlPreviewImg = "images/devices/" + categoriadispositivo[z].immagine;
+                    devicePreviewImg.setAttribute('src', urlPreviewImg);
+                    devicePreviewImg.setAttribute("class", "img-responsive");
+                    var devicePreviewName = document.createElement("h4");
+                    devicePreviewName.appendChild(document.createTextNode(categoriadispositivo[z].nome));  
+                    
+                    var devicePreviewButton = document.createElement("a");
+                    devicePreviewButton.setAttribute('class', 'btn btn-smsll btn-block btn-default');
+                    var deviceUrl = "device.html?device=" +categoriadispositivo[z].id;
+                    devicePreviewButton.setAttribute("href", deviceUrl);
+                    var buttonName = document.createTextNode("Scopri");
+                    devicePreviewButton.appendChild(buttonName);
+                    
+                    
+                    var previewColumn = document.createElement("div");
+                    previewColumn.setAttribute("class", "col-sm-3 feature text-center");
+              
+                    var previewColumnPanel = document.createElement("div");
+                    previewColumnPanel.setAttribute("class", "panel");
+                    
+                    previewColumnPanel.appendChild(devicePreviewImg);
+                    previewColumnPanel.appendChild(devicePreviewName);
+                    previewColumnPanel.appendChild(devicePreviewButton);
+                    
+                    previewColumn.appendChild(previewColumnPanel);
+                    
+                    categoryRow.appendChild(previewColumn);
+                  }
+                }
+                }
+                  
+                
+                //end device preview
                 categoriaPanel.appendChild(categoryRow);
                 categoria.appendChild(categoriaPanel);
               
                 container.appendChild(categoria);
-               
+              
+                  
+              }
         }
             
              

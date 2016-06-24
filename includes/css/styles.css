@@ -18,7 +18,7 @@ footer {
 	background: #F0F0F0;
 	color: #eee;
 	font-size: 20px;
-	padding: 10px;
+	padding: 5px;
 }
 
 
@@ -131,6 +131,16 @@ ul.unstyled {
   background-color: #FE0005;
   border-color: #FE0005;
 }
+/* --------------------------------------
+   Custom Images Styles
+   -------------------------------------- */
+.category-img{
+    margin-top: 37%;
+    margin-bottom: 33%;
+}
+
+
+
 
 /* --------------------------------------
    Modal Form

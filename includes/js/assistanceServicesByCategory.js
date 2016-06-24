@@ -20,7 +20,7 @@ function ready(){
         if (myParam == 4){
             for (i=0;i<assistanceservices.length;i++){
                 if (assistanceservices[i].highlightservizioassistenza == 1){
-                    var urlCategoria = "assistance_service.html?category=" +assistanceservices[i].idservizioassistenza;
+                    var urlCategoria = "assistance_service.html?service=" +assistanceservices[i].idservizioassistenza;
                 
             
                 var listGroupItem = document.createElement("div");

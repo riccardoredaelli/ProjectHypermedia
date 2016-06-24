@@ -1,12 +1,6 @@
 /*
-
-My Custom JS
-============
-
-Author:  Brad Hussey
-Updated: August 2013
-Notes:	 Hand coded for Udemy.com
-
+Author:  Marco Santomo
+Updated: June 2016
 */
 
 $(function() {
@@ -29,3 +23,10 @@ $(function() {
 	
 	
 });
+
+function sendMail() {    
+    var yourMessage = document.getElementById("inputMessage").value
+    var subject = document.getElementById("inputObject").value
+    var mail="mailto:indirizzodellatim@timhypermedia2016.it?subject="+subject+"&body="+yourMessage;
+    window.location.href = mail;
+}

@@ -15,7 +15,7 @@ function ready(){
             
             var myParam = location.search.split('category=')[1];
             
-            var container = document.getElementById("category");
+            var container = document.getElementById("searchresults");
             
             var panel = document.createElement("div");
             panel.setAttribute("class", "panel");

@@ -10,7 +10,10 @@ else {
     //echo "Successful connection"; // connection ok
 
     # extract results mysqli_result::fetch_array
-    $query = "SELECT * FROM categoriadispositivo ORDER BY idcategoriadispositivo ASC";
+    $query = "SELECT *
+FROM categoriadispositivo
+LEFT JOIN dispositivo ON dispositivo.categoria=categoriadispositivo.idcategoriadispositivo  
+ORDER BY categoriadispositivo.idcategoriadispositivo ASC";
     //query execution
     $result = $mysqli->query($query);
     //if there are data available

@@ -146,7 +146,7 @@ function compatibleServices(){
                 
                 var urlImmagine = "images/smartlife/" + compatibleservice[i].immaginesmartlifeservices;
                 imgTemp.setAttribute('src', urlImmagine);
-                imgTemp.setAttribute("class", "img-circle");
+                imgTemp.setAttribute("class", "img-circle img-responsive");
                 
                 var nomeTemp = document.createElement("a");
                 nomeTemp.setAttribute('class', 'btn btn-smsll btn-block btn-default');
@@ -208,7 +208,7 @@ function compatibleAssistant(){
             for (i = 0; i<compatibleassistant.length; i++){
                 if (compatibleassistant[i].id_dispositivo_dsa == myParam){
           
-                var urlCategoria = "assistant.html?service=" +compatibleassistant[i].idservizioassistenza;
+                var urlCategoria = "assistance_service.html?service=" +compatibleassistant[i].idservizioassistenza;
                 
                 
                 var nomeTemp = document.createElement("a");
