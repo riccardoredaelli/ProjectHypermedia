@@ -208,7 +208,7 @@ function compatibleAssistant(){
             for (i = 0; i<compatibleassistant.length; i++){
                 if (compatibleassistant[i].id_dispositivo_dsa == myParam){
           
-                var urlCategoria = "assistance_service.html?service=" +compatibleassistant[i].idservizioassistenza;
+                var urlCategoria = "assistance_service.html?category=" +compatibleassistant[i].idservizioassistenza;
                 
                 
                 var nomeTemp = document.createElement("a");
