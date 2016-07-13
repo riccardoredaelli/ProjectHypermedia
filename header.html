@@ -23,6 +23,28 @@
 		<!-- Include Modernizr in the head, before any other Javascript -->
 		<script src="includes/js/modernizr-2.6.2.min.js"></script>
   
+        <script>
+        if(location.search.split('idclasse=')[1] != null){
+		  var myClass = location.search.split('idclasse=')[1].charAt(0);
+		        
+		        
+		         switch(parseInt(myClass)){
+		        case 1:
+		            document.getElementById("prodottilink").setAttribute("class","selezionato");
+		            break;
+		        case 2:
+		            document.getElementById("smartlifelink").setAttribute("class","selezionato");
+		            break;
+		        case 3:
+		            document.getElementById("assistancelink").setAttribute("class","selezionato");
+		            break;
+		        case 4:
+		            document.getElementById("chisiamolink").setAttribute("class","selezionato");
+		            break;
+		        default:
+		            break;
+		    }}
+	</script>
 	</head>
 	<body>
 
