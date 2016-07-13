@@ -11,14 +11,23 @@ function ready(){
         var smartlifeservices=JSON.parse(response);
         var myParam = location.search.split('category=')[1];
         var i=0;  
+        var y=0;
 
             
-          var container = document.getElementById("smartlifeServicesByCategory");  
+          var container = document.getElementById("smartlifeServicesByCategory"); 
+          var nomecategoria = document.getElementById("nomecategoria"); 
             
           for(i=0;i<smartlifeservices.length;i++){
                 console.log("sono nel for");
-              
+
               if(smartlifeservices[i].categoriasmartlifeservices == myParam){
+              
+                //orientatioinfo
+                if(y==0){
+                    nomecategoria.appendChild(document.createTextNode(smartlifeservices[i].nomesmartlife));
+                    y=1;
+                }
+                 
                 var urlCategoria = "smartlife_service.html?category=" +smartlifeservices[i].idsmartlifeservices;
                 
                 var imgTemp = document.createElement("img");

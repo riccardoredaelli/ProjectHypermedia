@@ -16,6 +16,7 @@ function ready(){
             var myParam = location.search.split('category=')[1];
             
             var container = document.getElementById("searchresults");
+            var orientation = document.getElementById("nomecategoria");
             
             var panel = document.createElement("div");
             panel.setAttribute("class", "panel");
@@ -28,7 +29,8 @@ function ready(){
             for (i=0; i<dispositivo.length; i++){
                 if (dispositivo[i].categoria==myParam){
                     panelTitle.appendChild(document.createTextNode(dispositivo[i].nomecategoriadispositivo));
-                    
+                    var nome= document.createTextNode(dispositivo[i].nomecategoriadispositivo);
+                    orientation.appendChild(nome);
                     break;
                 }
                 if (myParam==5 && dispositivo[i].promozione == 1){

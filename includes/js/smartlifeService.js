@@ -12,6 +12,9 @@ function evan(){
             var myParam = location.search.split('category=')[1];
             
             var containerImg = document.getElementById("serviceImage"); 
+            var nomecategoria = document.getElementById("nomecategoria"); 
+            var nomeservizio = document.getElementById("nomeservizio"); 
+            
             var img = document.createElement("img");
             var urlImg = "images/smartlife/"+smartlifeservice[myParam-1].immaginesmartlifeservices;
             img.setAttribute('src', urlImg);
@@ -43,8 +46,15 @@ function evan(){
             features.appendChild(featuresText);
             containerFeatures.appendChild(features);
             
+            //Orientation info
+            var link=document.createElement("a");
+            var nomecat = document.createTextNode(smartlifeservice[myParam-1].nomesmartlife);
+            var orientation1= document.getElementById("nomecategoria");
+            link.setAttribute("href", "smartlife_services_by_category.html?category="+smartlifeservice[myParam-1].idsmartlife);
+            link.appendChild(nomecat);
+            orientation1.appendChild(link);
             
-          
+            nomeservizio.appendChild(document.createTextNode(smartlifeservice[myParam-1].nomesmartlifeservices));
         },
         error: function(request,error) 
         {

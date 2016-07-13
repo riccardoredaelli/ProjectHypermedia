@@ -12,6 +12,9 @@ function evan(){
             var myParam = location.search.split('category=')[1];
             
             var containerName = document.getElementById("serviceName");
+            var nomecategoria=document.getElementById("nomecategoria");
+            var nomeservizio=document.getElementById("nomeservizio");            
+            
             var phoneName = document.createElement("h2");
             var phoneNameText = document.createTextNode(assistanceservice[myParam-1].nomeservizioassistenza);
             phoneName.appendChild(phoneNameText);
@@ -23,6 +26,15 @@ function evan(){
             var descriptionText =document.createTextNode(assistanceservice[myParam-1].descrizioneservizioassistenza);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description); 
+            
+            //orientationinfo
+            var categoria=document.createElement("a");
+            var nomecat=document.createTextNode(assistanceservice[myParam-1].nomeservizio);
+            categoria.setAttribute("href", "assistance_services_by_category.html?category="+assistanceservice[myParam-1].idservizio);
+            categoria.appendChild(nomecat);
+            nomecategoria.appendChild(categoria);
+            
+            nomeservizio.appendChild(document.createTextNode(assistanceservice[myParam-1].nomeservizioassistenza));
         },
         error: function(request,error) 
         {

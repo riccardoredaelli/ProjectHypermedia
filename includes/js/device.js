@@ -98,6 +98,19 @@ function evan(){
             listGroupPeso.appendChild(pesoString);
             listGroup.appendChild(listGroupPeso);
             //fine items
+            
+            //Orientation info
+            var link=document.createElement("a");
+            var nomecat = document.createTextNode(dispositivo[myParam-1].nomecategoriadispositivo);
+            var orientation1= document.getElementById("nomecategoria");
+            link.setAttribute("href", "devices_by_category.html?category="+dispositivo[myParam-1].idcategoriadispositivo);
+            link.appendChild(nomecat);
+            orientation1.appendChild(link);
+            
+            var nomedisp = document.createTextNode(dispositivo[myParam-1].nome);
+            var orientation1= document.getElementById("nomedispositivo");
+            orientation1.appendChild(nomedisp);
+
            
             var containerFeatures = document.getElementById("deviceFeatures");
            
@@ -153,7 +166,7 @@ function compatibleServices(){
                 nomeTemp.setAttribute("href", urlCategoria);
                 var nome = document.createTextNode("Scopri");
                 nomeTemp.appendChild(nome);
-                
+
                 
                 var categoria = document.createElement("div");
                 categoria.setAttribute("class", "col-sm-6 feature");

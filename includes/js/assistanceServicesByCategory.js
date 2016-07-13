@@ -14,6 +14,8 @@ function ready(){
         var myParam = location.search.split('category=')[1];
             
         var container = document.getElementById("assistanceServicesByCategory"); 
+        var orientation = document.getElementById("nomecategoria");
+            
         var listGroup = document.createElement("div");
         listGroup.setAttribute("class", "list-group");  
         
@@ -21,26 +23,23 @@ function ready(){
             for (i=0;i<assistanceservices.length;i++){
                 if (assistanceservices[i].highlightservizioassistenza == 1){
                     var urlCategoria = "assistance_service.html?service=" +assistanceservices[i].idservizioassistenza;
-                
-            
-                var listGroupItem = document.createElement("div");
-                listGroupItem.setAttribute("class", "list-group-item");
-                var nomeTemp = document.createElement("a");
-                nomeTemp.setAttribute('class', 'list-group-item-heading btn btn-large btn-link');
-                nomeTemp.setAttribute("href", urlCategoria);
-                var nome = document.createTextNode(assistanceservices[i].nomeservizioassistenza);
-                nomeTemp.appendChild(nome);
-                
-                var descrTemp = document.createElement("p");
-                descrTemp.setAttribute("class", "list-group-item-text");
-                var descr = document.createTextNode(assistanceservices[i].descrizioneservizioassistenza);
-                descrTemp.appendChild(descr);
-                listGroupItem.appendChild(nomeTemp);
-                listGroupItem.appendChild(descrTemp);
-                
-                
-              
-                listGroup.appendChild(listGroupItem);
+        
+                    var listGroupItem = document.createElement("div");
+                    listGroupItem.setAttribute("class", "list-group-item");
+                    var nomeTemp = document.createElement("a");
+                    nomeTemp.setAttribute('class', 'list-group-item-heading btn btn-large btn-link');
+                    nomeTemp.setAttribute("href", urlCategoria);
+                    var nome = document.createTextNode(assistanceservices[i].nomeservizioassistenza);
+                    nomeTemp.appendChild(nome);
+
+                    var descrTemp = document.createElement("p");
+                    descrTemp.setAttribute("class", "list-group-item-text");
+                    var descr = document.createTextNode(assistanceservices[i].descrizioneservizioassistenza);
+                    descrTemp.appendChild(descr);
+                    listGroupItem.appendChild(nomeTemp);
+                    listGroupItem.appendChild(descrTemp);
+
+                    listGroup.appendChild(listGroupItem);
                 }
             }
         }
@@ -83,12 +82,15 @@ function ready(){
         for (i=0; i<assistanceservices.length; i++){
                 if (assistanceservices[i].categoriaservizioassistenza==myParam){
                     panelTitle.appendChild(document.createTextNode(assistanceservices[i].nomeservizio));
-                    
+                    var nome= document.createTextNode(assistanceservices[i].nomeservizio);
+                    orientation.appendChild(nome);
+        
                     break;
                 }
                 if (myParam==4){
                     panelTitle.appendChild(document.createTextNode("Highlights"));
-                    
+                    orientation.appendChild(document.createTextNode("Highlights"));
+        
                     break;
                 }
             }    
