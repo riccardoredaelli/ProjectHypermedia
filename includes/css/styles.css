@@ -21,6 +21,10 @@ footer {
 	padding: 5px;
 }
 
+#orientation {
+    text-align: left;
+}
+
 /* --------------------------------------
    Typography
    -------------------------------------- */
