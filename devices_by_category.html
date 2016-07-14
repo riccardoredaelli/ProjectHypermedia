@@ -34,6 +34,7 @@
                     <li><a href="devices.html">Dispositivi</a></li>
                     <li class="active" id="nomecategoria"></li>
                 </ol>
+            </div>
                 <div class="col-sm-3 feature">
                     <div class="panel">
                         <div class="panel-heading">
@@ -46,17 +47,15 @@
                                 <label for="check1">iOS</label>
                             </div>
                             <div class="filterblock">
-                                <input id="check2" type="checkbox" name="check" value="500" class="filtro">
-                                <label for="check2">500</label>
+                                <input id="check2" type="checkbox" name="check" value="android" class="filtro">
+                                <label for="check2">Android</label>
                             </div>
                         </div>
                     </div>
 
                </div>
-                <div class="col-sm-9 feature">
-                    <div id="searchresults"></div>
-                </div>
-            </div>
+            <div class="col-sm-9 feature panel" id="searchresults"></div>
+            
             
 	</div><!-- end container -->
 
@@ -84,6 +83,51 @@
         $(function(){
             $("#footer").load("footer.html");
         });
+    </script>
+        
+    <script>
+        $(function(){
+           $("#filters div input").click(function() {
+            //var val = $.trim(this.value);
+            if (this.checked == true) console.log("zio");
+            var filters = document.getElementsByName("check");
+            console.log(filters.length);
+               //console.log(val);
+            var pageDivs = document.getElementsByClassName("col-sm-4 feature");
+               
+               var painted = false;
+               
+            for (i = 0; i < pageDivs.length;i++){
+                pageDivs[i].style.display = 'none';
+            }
+               
+               
+               for( j = 0; j < filters.length; j++)
+               {
+                   var val = filters[j].getAttribute('value');
+                   
+                   for (i = 0; i < pageDivs.length;i++) {
+                    var attribute = pageDivs[i].getAttribute('system');
+                    
+                    //console.log(attribute);
+                       
+                       
+                       if (attribute.toLowerCase() == val.toLowerCase() && filters[j].checked == true){
+                          // console.log("dovrei cancellare");
+                               pageDivs[i].style.display = 'initial';
+                               painted = true;    
+                       }
+                   
+                   }
+               }
+               
+               if (!painted){
+                       for (i = 0; i < pageDivs.length;i++){
+                            pageDivs[i].style.display = 'initial';
+                        }
+                   }
+           });
+        }); 
     </script>
 
 	</body>

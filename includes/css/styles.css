@@ -294,18 +294,3 @@ ul.unstyled {
 	#slide3 {
 		background: url('../../images/carousel_large_03.jpg') top center no-repeat;
 	}
-
-}
-
-.description-text{
-    white-space:nowrap;
-    overflow:hidden;
-   /* width:500px;*/
-    text-overflow:ellipsis;
-    -o-text-overflow:ellipsis;
-}
-
-.space-text{
-    min-height: 45px;
-    max-height: 45px;
-}
