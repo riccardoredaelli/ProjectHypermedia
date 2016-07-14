@@ -77,8 +77,8 @@ ul.unstyled {
 }
   
 .selected {
-    color: #ffffff;
-    background-color: #00468B;
+    color: red;
+    background-color: black;
 }
 
 
