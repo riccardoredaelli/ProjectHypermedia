@@ -50,7 +50,7 @@ function evan(){
             var link=document.createElement("a");
             var nomecat = document.createTextNode(smartlifeservice[myParam-1].nomesmartlife);
             var orientation1= document.getElementById("nomecategoria");
-            link.setAttribute("href", "smartlife_services_by_category.html?category="+smartlifeservice[myParam-1].idsmartlife);
+            link.setAttribute("href", "smartlife_services_by_category.html?c=2?category="+smartlifeservice[myParam-1].idsmartlife);
             link.appendChild(nomecat);
             orientation1.appendChild(link);
             
@@ -84,7 +84,7 @@ function compatible(){
             for (i = 0; i<compatibledevice.length; i++){
                 if (compatibledevice[i].id_smartlifeservice_dss == myParam){
           
-                var urlCategoria = "device.html?device=" +compatibledevice[i].id;
+                var urlCategoria = "device.html?c=1?device=" +compatibledevice[i].id;
                 
                 var imgTemp = document.createElement("img");
                 

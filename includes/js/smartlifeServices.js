@@ -16,7 +16,7 @@ function ready(){
             
           for(i=0;i<smartlifeservices.length;i++){
                 console.log("sono nel for");
-                var urlCategoria = "smartlife_services_by_category.html?category=" +smartlifeservices[i].idsmartlife;
+                var urlCategoria = "smartlife_services_by_category.html?c=2?category=" +smartlifeservices[i].idsmartlife;
                 
                 var imgTemp = document.createElement("img");
                 

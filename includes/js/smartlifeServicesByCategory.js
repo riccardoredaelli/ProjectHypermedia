@@ -28,7 +28,7 @@ function ready(){
                     y=1;
                 }
                  
-                var urlCategoria = "smartlife_service.html?category=" +smartlifeservices[i].idsmartlifeservices;
+                var urlCategoria = "smartlife_service.html?c=2?category=" +smartlifeservices[i].idsmartlifeservices;
                 
                 var imgTemp = document.createElement("img");
                 

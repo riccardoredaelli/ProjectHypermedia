@@ -19,7 +19,7 @@ function ready(){
 
                 categoriaProva = categoriadispositivo[i].nomecategoriadispositivo;
               
-                var urlCategoria = "devices_by_category.html?category=" +categoriadispositivo[i].idcategoriadispositivo;
+                var urlCategoria = "devices_by_category.html?c=1?category=" +categoriadispositivo[i].idcategoriadispositivo;
                 
                 var imgTemp = document.createElement("img");
                 
@@ -84,7 +84,7 @@ function ready(){
                     
                     var devicePreviewButton = document.createElement("a");
                     devicePreviewButton.setAttribute('class', 'btn btn-smsll btn-block btn-default');
-                    var deviceUrl = "device.html?device=" +categoriadispositivo[i+j].id;
+                    var deviceUrl = "device.html?c=1?device=" +categoriadispositivo[i+j].id;
                     devicePreviewButton.setAttribute("href", deviceUrl);
                     var buttonName = document.createTextNode("Scopri");
                     devicePreviewButton.appendChild(buttonName);
@@ -121,7 +121,7 @@ function ready(){
                     
                     var devicePreviewButton = document.createElement("a");
                     devicePreviewButton.setAttribute('class', 'btn btn-smsll btn-block btn-default');
-                    var deviceUrl = "device.html?device=" +categoriadispositivo[z].id;
+                    var deviceUrl = "device.html?c=1?device=" +categoriadispositivo[z].id;
                     devicePreviewButton.setAttribute("href", deviceUrl);
                     var buttonName = document.createTextNode("Scopri");
                     devicePreviewButton.appendChild(buttonName);

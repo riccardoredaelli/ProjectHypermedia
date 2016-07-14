@@ -106,7 +106,7 @@ function evan(){
             var link=document.createElement("a");
             var nomecat = document.createTextNode(dispositivo[i].nomecategoriadispositivo);
             var orientation1= document.getElementById("nomecategoria");
-            link.setAttribute("href", "devices_by_category.html?category="+dispositivo[i].idcategoriadispositivo);
+            link.setAttribute("href", "devices_by_category.html?c=1?category="+dispositivo[i].idcategoriadispositivo);
             link.appendChild(nomecat);
             orientation1.appendChild(link);
             
@@ -158,7 +158,7 @@ function compatibleServices(){
             for (i = 0; i<compatibleservice.length; i++){
                 if (compatibleservice[i].id_dispositivo_dss == myParam){
           
-                var urlCategoria = "smartlife_service.html?category=" +compatibleservice[i].idsmartlifeservices;
+                var urlCategoria = "smartlife_service.html?c=2?category=" +compatibleservice[i].idsmartlifeservices;
                 
                 var imgTemp = document.createElement("img");
                 
@@ -226,7 +226,7 @@ function compatibleAssistant(){
             for (i = 0; i<compatibleassistant.length; i++){
                 if (compatibleassistant[i].id_dispositivo_dsa == myParam){
           
-                var urlCategoria = "assistance_service.html?category=" +compatibleassistant[i].idservizioassistenza;
+                var urlCategoria = "assistance_service.html?c=3?category=" +compatibleassistant[i].idservizioassistenza;
                 
                 
                 var nomeTemp = document.createElement("a");

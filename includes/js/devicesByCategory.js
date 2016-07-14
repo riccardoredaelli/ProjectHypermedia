@@ -43,7 +43,7 @@ function ready(){
             if (myParam == 5){
                 for (i=0; i<dispositivo.length;i++){
                     if (dispositivo[i].promozione == 1){
-                        var urlProdotto = "device.html?device=" +dispositivo[i].id;
+                        var urlProdotto = "device.html?c=1?device=" +dispositivo[i].id;
                     
                     var img = document.createElement("img");  
                     var urlImmagine = "images/devices/" + dispositivo[i].immagine;
@@ -93,7 +93,7 @@ function ready(){
                 
                 if(dispositivo[i].categoria == myParam){ 
                        
-                    var urlProdotto = "device.html?device=" +dispositivo[i].id;
+                    var urlProdotto = "device.html?c=1?device=" +dispositivo[i].id;
                     
                     var img = document.createElement("img");  
                     var urlImmagine = "images/devices/" + dispositivo[i].immagine;

@@ -16,7 +16,7 @@ function ready(){
             
           for(i=0;i<assistanceservice.length;i++){
                 console.log("sono nel for");
-                var urlCategoria = "assistance_services_by_category.html?category=" +assistanceservice[i].idservizio;
+                var urlCategoria = "assistance_services_by_category.html?c=3?category=" +assistanceservice[i].idservizio;
                 
                 var imgTemp = document.createElement("img");
                 
