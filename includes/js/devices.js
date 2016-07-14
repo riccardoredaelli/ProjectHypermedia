@@ -5,8 +5,8 @@ function ready(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getDevices.php", //percorso file.php
-        data: {categoriadispositivo:idcategoria},
+        url: "includes/php/query.php", //percorso file.php
+        data: {query : "SELECT * FROM categoriadispositivo LEFT JOIN dispositivo ON dispositivo.categoria=categoriadispositivo.idcategoriadispositivo ORDER BY categoriadispositivo.idcategoriadispositivo ASC"},
         success: function(response) {
         var categoriadispositivo=JSON.parse(response);
         var i=0;  

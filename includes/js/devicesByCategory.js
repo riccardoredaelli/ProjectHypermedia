@@ -7,8 +7,8 @@ function ready(){
         method: "POST",
         //dataType: "json", //type of data
         crossDomain: true, //localhost purposes
-        url: "includes/php/getDevicesByCategory.php", //percorso del file php
-        data: {dispositivo:idprodotti},
+        url: "includes/php/query.php", //percorso del file php
+        data: {query : "SELECT * FROM `dispositivo`,`categoriadispositivo` WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo ORDER BY dispositivo.categoria ASC"},
         success: function(response) {
             var dispositivo=JSON.parse(response);
             var i=0;   

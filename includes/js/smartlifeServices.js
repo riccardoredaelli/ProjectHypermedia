@@ -5,8 +5,8 @@ function ready(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getSmartlifeServices.php", //percorso file.php
-        data: {smartlifeservices:idcategoria},
+        url: "includes/php/query.php", //percorso file.php
+        data: {query : "SELECT * FROM categoriasmartlifeservice ORDER BY idsmartlife ASC"},
         success: function(response) {
         var smartlifeservices=JSON.parse(response);
         var i=0;  

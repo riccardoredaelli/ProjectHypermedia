@@ -5,8 +5,8 @@ function evan(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getSmartlifeService.php", //Relative or absolute path to file.php file
-        data: {smartlifeservice:iddispositivo},
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query:"SELECT * FROM smartlifeservice, categoriasmartlifeservice WHERE smartlifeservice.categoriasmartlifeservices=categoriasmartlifeservice.idsmartlife ORDER BY smartlifeservice.idsmartlifeservices"},
         success: function(response) {
             var smartlifeservice=JSON.parse(response);
             var myParam = location.search.split('category=')[1];
@@ -70,8 +70,8 @@ function compatible(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getSmartlifeServiceCompatibleDevices.php", //Relative or absolute path to file.php file
-        data: {compatibledevice:iddispositivo},
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query : "SELECT * FROM dispositivo,dispositivo_smartlifeservice,smartlifeservice WHERE dispositivo.id=dispositivo_smartlifeservice.id_dispositivo_dss AND smartlifeservice.idsmartlifeservices=dispositivo_smartlifeservice.id_smartlifeservice_dss ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibledevice=JSON.parse(response);
             var myParam = location.search.split('category=')[1];

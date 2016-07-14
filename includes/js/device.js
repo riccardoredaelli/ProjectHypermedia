@@ -5,8 +5,8 @@ function evan(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getDevice.php", //Relative or absolute path to file.php file
-        data: {dispositivo:iddispositivo},
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query : "SELECT * FROM dispositivo, categoriadispositivo WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo ORDER BY categoriadispositivo.idcategoriadispositivo"},
         success: function(response) {
             var dispositivo=JSON.parse(response);
             var myParam = location.search.split('device=')[1];
@@ -144,8 +144,8 @@ function compatibleServices(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getSmartlifeServiceCompatibleDevices.php", //Relative or absolute path to file.php file
-        data: {compatibleservice:iddispositivo},
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query : "SELECT * FROM dispositivo,dispositivo_smartlifeservice,smartlifeservice WHERE dispositivo.id=dispositivo_smartlifeservice.id_dispositivo_dss AND smartlifeservice.idsmartlifeservices=dispositivo_smartlifeservice.id_smartlifeservice_dss ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibleservice=JSON.parse(response);
             var myParam = location.search.split('device=')[1];
@@ -212,8 +212,8 @@ function compatibleAssistant(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getDeviceCompatibleAssistant.php", //Relative or absolute path to file.php file
-        data: {compatibleassistant:iddispositivo},
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query : "SELECT * FROM dispositivo,dispositivo_servizioassistenza,servizioassistenza WHERE dispositivo.id=dispositivo_servizioassistenza.id_dispositivo_dsa AND servizioassistenza.idservizioassistenza=dispositivo_servizioassistenza.id_servizioassistenza_dsa ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibleassistant=JSON.parse(response);
             var myParam = location.search.split('device=')[1];

@@ -5,8 +5,8 @@ function evan(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getAssistanceService.php", //Relative or absolute path to file.php file
-        data: {assistanceservice:iddispositivo},
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query : "SELECT * FROM servizioassistenza, categoriaservizioassistenza WHERE servizioassistenza.categoriaservizioassistenza=categoriaservizioassistenza.idservizio ORDER BY servizioassistenza.idservizioassistenza"},
         success: function(response) {
             var assistanceservice=JSON.parse(response);
             var myParam = location.search.split('category=')[1];
@@ -30,7 +30,7 @@ function evan(){
             //orientationinfo
             var categoria=document.createElement("a");
             var nomecat=document.createTextNode(assistanceservice[myParam-1].nomeservizio);
-            categoria.setAttribute("href", "assistance_services_by_category.html?category="+assistanceservice[myParam-1].idservizio);
+            categoria.setAttribute("href", "assistance_services_by_category.html?c=3?category="+assistanceservice[myParam-1].idservizio);
             categoria.appendChild(nomecat);
             nomecategoria.appendChild(categoria);
             

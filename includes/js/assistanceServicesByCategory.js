@@ -5,8 +5,8 @@ function ready(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getAssistanceServicesByCategory.php", //percorso file.php
-        data: {assistanceservices:idcategoria},
+        url: "includes/php/query.php", //percorso file.php
+        data: {query : "SELECT * FROM servizioassistenza, categoriaservizioassistenza WHERE servizioassistenza.categoriaservizioassistenza=categoriaservizioassistenza.idservizio ORDER BY categoriaservizioassistenza.idservizio"},
         success: function(response) {
         var assistanceservices=JSON.parse(response);
         var i=0;  
@@ -22,7 +22,7 @@ function ready(){
         if (myParam == 4){
             for (i=0;i<assistanceservices.length;i++){
                 if (assistanceservices[i].highlightservizioassistenza == 1){
-                    var urlCategoria = "assistance_service.html?service=" +assistanceservices[i].idservizioassistenza;
+                    var urlCategoria = "assistance_service.html?c=3?category=" +assistanceservices[i].idservizioassistenza;
         
                     var listGroupItem = document.createElement("div");
                     listGroupItem.setAttribute("class", "list-group-item");
@@ -47,7 +47,7 @@ function ready(){
           for(i=0;i<assistanceservices.length;i++){
                 console.log("sono nel for");
               if(assistanceservices[i].categoriaservizioassistenza==myParam){
-                var urlCategoria = "assistance_service.html?category=" +assistanceservices[i].idservizioassistenza;
+                var urlCategoria = "assistance_service.html?c=3?category=" +assistanceservices[i].idservizioassistenza;
                 
             
                 var listGroupItem = document.createElement("div");

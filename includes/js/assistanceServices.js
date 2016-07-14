@@ -1,13 +1,13 @@
 function ready(){
     console.log("Sono pronto a caricare tutti gli assistance services");
-    var idcategoria=1;
     
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/getAssistanceServices.php", //percorso file.php
-        data: {assistanceservice:idcategoria},
+        url: "includes/php/query.php", //percorso file.php
+        data: {query : "SELECT * FROM categoriaservizioassistenza ORDER BY idservizio ASC"},
         success: function(response) {
+    
         var assistanceservice=JSON.parse(response);
         var i=0;  
 
