@@ -18,13 +18,10 @@ function ready(){
             var container = document.getElementById("searchresults");
             var orientation = document.getElementById("nomecategoria");
             
-            var panel = document.createElement("div");
-            panel.setAttribute("class", "panel");
             var panelHeading = document.createElement("div");
             panelHeading.setAttribute("class", "panel-heading");
             var panelTitle = document.createElement("h4");
-            var panelContenent = document.createElement("div");
-            panelContenent.setAttribute("class", "col-sm-12 feature");
+           
            
             for (i=0; i<dispositivo.length; i++){
                 if (dispositivo[i].categoria==myParam){
@@ -41,10 +38,7 @@ function ready(){
             }
             
             panelHeading.appendChild(panelTitle);
-            panel.appendChild(panelHeading);
-            
-            var row = document.createElement("div");
-            row.setAttribute("class", "row");
+            container.appendChild(panelHeading);
             
             if (myParam == 5){
                 for (i=0; i<dispositivo.length;i++){
@@ -89,11 +83,8 @@ function ready(){
                     
                     showedDevice.appendChild(showedDevicePanel);
 
-                    panelContenent.appendChild(showedDevice);
+                    container.appendChild(showedDevice);
                     }
-                    row.appendChild(panelContenent);
-                    panel.appendChild(row);
-                    container.appendChild(panel);
                 }
             }
             
@@ -141,13 +132,9 @@ function ready(){
                     showedDevicePanel.appendChild(showedButton);
                     
                     showedDevice.appendChild(showedDevicePanel);
-
-                    panelContenent.appendChild(showedDevice);  
+                    showedDevice.setAttribute('system', dispositivo[i].os);
+                    container.appendChild(showedDevice);  
                 }
-                
-                row.appendChild(panelContenent);
-                panel.appendChild(row);
-                container.appendChild(panel);
             }   
         },
         error: function(request,error) 
