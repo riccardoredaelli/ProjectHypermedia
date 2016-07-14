@@ -1,4 +1,4 @@
-<!DOCTYPE html> <meta charset=utf-8>
+<!DOCTYPE html>
 
 <html>
 	<head>
@@ -27,17 +27,44 @@
 
 		<div class="container" id="main">
 
-			            <div id="header"></div><!-- HEADER QUI HEADER QUI HEADER QUI -->
+			<div class="navbar navbar-fixed-top">
+				<div class="container">
+
+					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+					<button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+
+					<div class="nav-collapse collapse navbar-responsive-collapse">
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="devices.html">DEVICES</a>
+							</li>
+                            <li>
+								<a href="smartlife.html">SMARTLIFE SERVICES</a>
+							</li>
+                            <li>
+								<a href="assistance.html">ASSISTANCE SERVICES</a>
+							</li>
+                            <li class="active">
+								<a href="who_we_are.html">WHO WE ARE</a>
+							</li>	
+						</ul>
+					</div><!-- end nav-collapse -->
+				</div><!-- end container -->
+			</div><!-- end navbar -->
             
-        <!-- Navbars-->
-            <div class="tabbable top-buffer-from-navbar">
-				<ul class="nav nav-tabs">
-				<li class="active"><a href="#innovazioni">INNOVAZIONE</a></li>
-                <li><a href="testimonial.html">TESTIMONIAL</a></li>
-				<li><a href="progetti.html">PROGETTI</a></li>
-			</ul>
-		<div class="tab-content">
-            <div class="tab-pane active" id="#innovazioni">
+            
+            <div class="row top-buffer-from-navbar" id="features">
+				<div class="col-sm-12 feature">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title text-left">INNOVAZIONI</h3>
+						</div><!-- end panel-heading -->
                         
 						  <div class="row" id="features">
                               
@@ -65,6 +92,8 @@
                         </div>
                         
                         
+                        
+                        
                         <div class="row" id="features">
                               
                               
@@ -89,9 +118,20 @@
                                 </div>
                               </div>
                         </div>
+					</div><!-- end panel -->
+				</div><!-- end feature -->
+            </div>
+            
+            
+            
+            <div class="row" id="features">
+				<div class="col-sm-12 feature">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title text-left">TESTIMONIALS</h3>
+						</div><!-- end panel-heading -->
                         
-                          
-                        <div class="row" id="features">
+						  <div class="row" id="features">
                               
                               
                               <div class="col-sm-12 feature">
@@ -99,12 +139,11 @@
                                     
                                     <div class="row">
                                         <div class="col-sm-4 feature">
-                                            <img class="img-circle" src="images/whoweare/KM.jpg" alt="Immagine mancante">
+                                            <img class="img-circle" src="images/whoweare/fabio.png" alt="Immagine mancante">
                                         </div>
                                         <div class="col-sm-8 feature">
-                                                <h3>#KMDIFUTURO</h3>
-                                                <p>Persone comuni, startuppers, giornalisti, creaticvi, imprenditori o scrittori raccontano, in un ideale chilometro di strada a bordo di una Panda Tim, come il digitale e le nuove reti stiano cambiando le nostre vite e il nostro futuro. chilometri di strada che rimandano a chilometri di fibra che Telecom Italia e Tim poseranno entro il 2017 pre connettere l'Italia all'Italia di domani.
-                                                Abbiamo raggiunto quasi il 49% delle abitazioni e superato gli 11,5 milioni di km di estensione. Il nostro obiettivo e' raggiungere circa l'84% della popolazione, posando 17,8 milioni di km di fibra.
+                                                <h3>FABIO FAZIO</h3>
+                                                <p>Citazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione     CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione             CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione               Citazione
                                                 </p>
                                         </div>
                                     </div>
@@ -112,7 +151,7 @@
                               </div>
                         </div>
                         
-                          
+                        
                         <div class="row" id="features">
                               
                               
@@ -121,11 +160,11 @@
                                     
                                     <div class="row">
                                         <div class="col-sm-4 feature">
-                                            <img class="img-circle" src="images/whoweare/ventures.jpg" alt="Immagine mancante">
+                                            <img class="img-circle" src="images/whoweare/pif.png" alt="Immagine mancante">
                                         </div>
                                         <div class="col-sm-8 feature">
-                                                <h3>TIM ventures</h3>
-                                                <p>Il futuro e' di chi ha la forza di sognarlo. Il primo corporate venture capital italiano. Tim partecipa alla crescita di startup innovative in ambito internet e digital life, sostenendole nella fase di sviluppo.
+                                                <h3>PIF</h3>
+                                                <p>Citazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione     CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione             CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione CitazioneCitazione               Citazione
                                                 </p>
                                         </div>
                                     </div>
@@ -135,7 +174,60 @@
 					</div><!-- end panel -->
 				</div><!-- end feature -->
             </div>
-  
+            
+            
+            
+             <div class="row" id="features">
+				<div class="col-sm-12 feature">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title text-left">PROGETTI</h3>
+						</div><!-- end panel-heading -->
+                        
+						  <div class="row" id="features">
+                              
+                              
+                              <div class="col-sm-12 feature">
+                                <div class="panel">
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-4 feature">
+                                            <img class="img-circle" src="images/whoweare/junior.png" alt="Immagine mancante">
+                                        </div>
+                                         <div class="col-sm-8 feature">
+                                                <h3>JUNIOR TIM CUP</h3>
+                                                <p>Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione 
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                        
+                        
+                        <div class="row" id="features">
+                              
+                              
+                              <div class="col-sm-12 feature">
+                                <div class="panel">
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-4 feature">
+                                            <img class="img-circle" src="images/whoweare/global.png" alt="Immagine mancante">
+                                        </div>
+                                        <div class="col-sm-8 feature">
+                                                <h3>GLOBAL GOALS</h3>
+                                                <p>Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione Descrizione 
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div><!-- end panel -->
+				</div><!-- end feature -->
+            </div>
+            
             
             
 	</div><!-- end container -->
@@ -149,11 +241,7 @@
 
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
-        <script> 
-        $(function(){
-          $("#header").load("header.html");
-        });</script>
-        
+
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
