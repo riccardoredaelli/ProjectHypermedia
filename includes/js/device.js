@@ -10,24 +10,27 @@ function evan(){
         success: function(response) {
             var dispositivo=JSON.parse(response);
             var myParam = location.search.split('device=')[1];
+            var i=0;
+            for (i=0; i<dispositivo.length; i++){
+                if (dispositivo[i].id == myParam){
             
             var containerImg = document.getElementById("deviceImg"); 
             var img = document.createElement("img");
-            var urlImg = "images/devices/"+dispositivo[myParam-1].immagine;
+            var urlImg = "images/devices/"+dispositivo[i].immagine;
             img.setAttribute('src', urlImg);
             img.setAttribute("class", "img-responsive");
             containerImg.appendChild(img);
             
             var containerName = document.getElementById("deviceName");
             var phoneName = document.createElement("h2");
-            var phoneNameText = document.createTextNode(dispositivo[myParam-1].nome);
+            var phoneNameText = document.createTextNode(dispositivo[i].nome);
             phoneName.appendChild(phoneNameText);
             containerName.appendChild(phoneName);
             
             var containerDescription = document.getElementById("deviceDescription");
             var description = document.createElement("h4");
             description.setAttribute("class", "margin-top");
-            var descriptionText =document.createTextNode(dispositivo[myParam-1].descrizione);
+            var descriptionText =document.createTextNode(dispositivo[i].descrizione);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
             
@@ -39,7 +42,7 @@ function evan(){
             listGroupMemoria.setAttribute("class", "list-group-item");
             var memoriaString = document.createElement("h4");
             memoriaString.setAttribute('class', 'list-group-item-heading');
-            var memoriaTemp = document.createTextNode("Memoria: "+dispositivo[myParam-1].memoria+" GB");
+            var memoriaTemp = document.createTextNode("Memoria: "+dispositivo[i].memoria+" GB");
             memoriaString.appendChild(memoriaTemp);
             listGroupMemoria.appendChild(memoriaString);
             listGroup.appendChild(listGroupMemoria);
@@ -48,7 +51,7 @@ function evan(){
             listGroupOs.setAttribute("class", "list-group-item");
             var osString = document.createElement("h4");
             osString.setAttribute('class', 'list-group-item-heading');
-            var osTemp = document.createTextNode("Sistema Operativo: "+dispositivo[myParam-1].os);
+            var osTemp = document.createTextNode("Sistema Operativo: "+dispositivo[i].os);
             osString.appendChild(osTemp);
             listGroupOs.appendChild(osString);
             listGroup.appendChild(listGroupOs);
@@ -57,7 +60,7 @@ function evan(){
             listGroupSchermo.setAttribute("class", "list-group-item");
             var schermoString = document.createElement("h4");
             schermoString.setAttribute('class', 'list-group-item-heading');
-            var schermoTemp = document.createTextNode("Schermo: "+dispositivo[myParam-1].schermo);
+            var schermoTemp = document.createTextNode("Schermo: "+dispositivo[i].schermo);
             schermoString.appendChild(schermoTemp);
             listGroupSchermo.appendChild(schermoString);
             listGroup.appendChild(listGroupSchermo);
@@ -66,7 +69,7 @@ function evan(){
             listGroupProcessore.setAttribute("class", "list-group-item");
             var processoreString = document.createElement("h4");
             processoreString.setAttribute('class', 'list-group-item-heading');
-            var processoreTemp = document.createTextNode("Processore: "+dispositivo[myParam-1].processore);
+            var processoreTemp = document.createTextNode("Processore: "+dispositivo[i].processore);
             processoreString.appendChild(processoreTemp);
             listGroupProcessore.appendChild(processoreString);
             listGroup.appendChild(listGroupProcessore);
@@ -75,7 +78,7 @@ function evan(){
             listGroupRam.setAttribute("class", "list-group-item");
             var ramString = document.createElement("h4");
             ramString.setAttribute('class', 'list-group-item-heading');
-            var ramTemp = document.createTextNode("Memoria Ram: "+dispositivo[myParam-1].ram+" GB");
+            var ramTemp = document.createTextNode("Memoria Ram: "+dispositivo[i].ram+" GB");
             ramString.appendChild(ramTemp);
             listGroupRam.appendChild(ramString);
             listGroup.appendChild(listGroupRam);
@@ -84,7 +87,7 @@ function evan(){
             listGroupDimensioni.setAttribute("class", "list-group-item");
             var dimensioniString = document.createElement("h4");
             dimensioniString.setAttribute('class', 'list-group-item-heading');
-            var dimensioniTemp = document.createTextNode("Dimensioni: "+dispositivo[myParam-1].dimensioni);
+            var dimensioniTemp = document.createTextNode("Dimensioni: "+dispositivo[i].dimensioni);
             dimensioniString.appendChild(dimensioniTemp);
             listGroupDimensioni.appendChild(dimensioniString);
             listGroup.appendChild(listGroupDimensioni);
@@ -93,7 +96,7 @@ function evan(){
             listGroupPeso.setAttribute("class", "list-group-item");
             var pesoString = document.createElement("h4");
             pesoString.setAttribute('class', 'list-group-item-heading');
-            var pesoTemp = document.createTextNode("peso: "+dispositivo[myParam-1].peso+" g");
+            var pesoTemp = document.createTextNode("peso: "+dispositivo[i].peso+" g");
             pesoString.appendChild(pesoTemp);
             listGroupPeso.appendChild(pesoString);
             listGroup.appendChild(listGroupPeso);
@@ -101,9 +104,9 @@ function evan(){
             
             //Orientation info
             var link=document.createElement("a");
-            var nomecat = document.createTextNode(dispositivo[myParam-1].nomecategoriadispositivo);
+            var nomecat = document.createTextNode(dispositivo[i].nomecategoriadispositivo);
             var orientation1= document.getElementById("nomecategoria");
-            link.setAttribute("href", "devices_by_category.html?category="+dispositivo[myParam-1].idcategoriadispositivo);
+            link.setAttribute("href", "devices_by_category.html?category="+dispositivo[i].idcategoriadispositivo);
             link.appendChild(nomecat);
             orientation1.appendChild(link);
             
@@ -118,9 +121,11 @@ function evan(){
             
             var containerPrice = document.getElementById("devicePrice");
             var price = document.createElement("h1");
-            var priceValue = document.createTextNode(dispositivo[myParam-1].prezzo+"\u20AC");
+            var priceValue = document.createTextNode(dispositivo[i].prezzo+"\u20AC");
             price.appendChild(priceValue);
             containerPrice.appendChild(price);
+            }
+            }
             
             
           

@@ -75,13 +75,8 @@ ul.unstyled {
   color: #ffffff;
   background-color: #00468B;
 }
-  
-.selected {
-    color: #ffffff;
-    background-color: #00468B;
-}
 
-
+   
 /* --------------------------------------
    Margins top and bottom
    -------------------------------------- */
@@ -102,9 +97,6 @@ ul.unstyled {
     background-color: #fff;
     border: 1px solid #cccccc;
 }
-
-
-
 
 
 /* --------------------------------------

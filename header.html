@@ -22,28 +22,6 @@
         
 		<!-- Include Modernizr in the head, before any other Javascript -->
 		<script src="includes/js/modernizr-2.6.2.min.js"></script>
-        
-        <script>
-             document.getElementById("devicesButton").setAttribute("class","selected");
-        if(location.search.split('c=')[1] != null){
-		  var classe = location.search.split('c=')[1].charAt(0);
-		         switch(parseInt(classe)){
-		        case 1:
-		            document.getElementById("devicesButton").setAttribute("class","selected");
-		            break;
-		        case 2:
-		            document.getElementById("smartlifeButton").setAttribute("class","selected");
-		            break;
-		        case 3:
-		            document.getElementById("assistanceButton").setAttribute("class","selected");
-		            break;
-		        case 4:
-		            document.getElementById("whoWeAreButton").setAttribute("class","selected");
-		            break;
-		        default:
-		            break;
-		    }}
-	</script>
 	</head>
 	<body>
 
@@ -63,10 +41,18 @@
 
 					<div class="nav-collapse collapse navbar-responsive-collapse">
 						<ul class="nav navbar-nav">
-							<li id="devicesButton"><a href="devices.html?c=1">DISPOSITIVI</a></li>
-                            <li id="smartlifeButton"><a href="smartlife.html?c=2">SMARTLIFE SERVICES</a></li>
-                            <li id="assistanceButton"><a href="assistance.html?c=3">SERVIZIO ASSISTENZA</a></li>
-                            <li id="whoWeAreButton"><a href="innovazioni.html?c=4">CHI SIAMO</a></li>
+							<li>
+								<a id="devicesButton" href="devices.html">DISPOSITIVI</a>
+							</li>
+                            <li>
+								<a id="smartlifeButton" href="smartlife.html">SMARTLIFE SERVICES</a>
+							</li>
+                            <li>
+								<a id="assistanceButton" href="assistance.html">SERVIZIO ASSISTENZA</a>
+							</li>
+                            <li>
+								<a id="whoWeAreButton" href="innovazioni.html">CHI SIAMO</a>
+							</li>	
 						</ul>
 					</div><!-- end nav-collapse -->
 				</div><!-- end container -->
