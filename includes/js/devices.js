@@ -25,7 +25,7 @@ function ready(){
                 
                 var urlImmagine = "images/" + categoriadispositivo[i].immaginecategoriadispositivo;
                 imgTemp.setAttribute('src', urlImmagine);
-                imgTemp.setAttribute("class", "category-img");
+                imgTemp.setAttribute("class", "category-img img-responsive");
                 
                 var nomeTemp = document.createElement("a");
                 nomeTemp.setAttribute('class', 'btn btn-smsll btn-block btn-default');
@@ -91,7 +91,7 @@ function ready(){
                     
                     
                     var previewColumn = document.createElement("div");
-                    previewColumn.setAttribute("class", "col-sm-3 feature text-center");
+                    previewColumn.setAttribute("class", "col-sm-3 feature text-center hidden-sm");
               
                     var previewColumnPanel = document.createElement("div");
                     previewColumnPanel.setAttribute("class", "panel");
@@ -107,11 +107,11 @@ function ready(){
                 }
                 }
                 if (categoriadispositivo[i].idcategoriadispositivo==5){
-                      console.log('diocancaro');
                     
                     var z = 0;
+                    var k = 0;
                     for (z=0; z<categoriadispositivo.length; z++){
-                    if (categoriadispositivo[z].promozione==1) {
+                    if (categoriadispositivo[z].promozione==1 && k<3) {
                     var devicePreviewImg = document.createElement("img");
                     var urlPreviewImg = "images/devices/" + categoriadispositivo[z].immagine;
                     devicePreviewImg.setAttribute('src', urlPreviewImg);
@@ -128,7 +128,7 @@ function ready(){
                     
                     
                     var previewColumn = document.createElement("div");
-                    previewColumn.setAttribute("class", "col-sm-3 feature text-center");
+                    previewColumn.setAttribute("class", "col-sm-3 feature text-center hidden-sm");
               
                     var previewColumnPanel = document.createElement("div");
                     previewColumnPanel.setAttribute("class", "panel");
@@ -140,6 +140,8 @@ function ready(){
                     previewColumn.appendChild(previewColumnPanel);
                     
                     categoryRow.appendChild(previewColumn);
+                        
+                        k++;
                   }
                 }
                 }

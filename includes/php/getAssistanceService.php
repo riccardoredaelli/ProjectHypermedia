@@ -14,7 +14,7 @@ else {
     $query ="SELECT *
                 FROM servizioassistenza, categoriaservizioassistenza
                 WHERE servizioassistenza.categoriaservizioassistenza=categoriaservizioassistenza.idservizio
-                ORDER BY servizioassistenza.categoriaservizioassistenza";
+                ORDER BY servizioassistenza.idservizioassistenza";
     //query execution
     $result = $mysqli->query($query);
     //if there are data available

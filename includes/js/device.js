@@ -232,7 +232,7 @@ function compatibleAssistant(){
                 
                 
                 var categoria = document.createElement("div");
-                categoria.setAttribute("class", "col-sm-6 feature");
+                categoria.setAttribute("class", "col-sm-12 feature");
               
                 categoria.appendChild(nomeTemp);
               
