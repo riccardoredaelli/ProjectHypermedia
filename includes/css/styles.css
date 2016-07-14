@@ -300,11 +300,3 @@ ul.unstyled {
 	}
 
 }
-
-.description-text{
-    white-space:nowrap;
-    overflow:hidden;
-   /* width:300px;*/
-    text-overflow:ellipsis;
-    -o-text-overflow:ellipsis;
-}

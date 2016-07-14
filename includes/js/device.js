@@ -174,7 +174,7 @@ function compatibleServices(){
 
                 
                 var categoria = document.createElement("div");
-                categoria.setAttribute("class", "col-sm-6 feature");
+                categoria.setAttribute("class", "col-sm-4 feature");
               
                 var categoriaPanel = document.createElement("div");
                 categoriaPanel.setAttribute("class", "panel");
