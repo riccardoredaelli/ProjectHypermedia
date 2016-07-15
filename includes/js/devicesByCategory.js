@@ -41,7 +41,7 @@ function ready(){
             container.appendChild(panelHeading);
             
             if (myParam == 5){
-                for (i=0; i<dispositivo.length;i++){
+                for (i=0; i<dispositivo.length-1;i++){
                     if (dispositivo[i].promozione == 1){
                         var urlProdotto = "device.html?c=1?device=" +dispositivo[i].id;
                     
