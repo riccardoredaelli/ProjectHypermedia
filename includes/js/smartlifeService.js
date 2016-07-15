@@ -100,7 +100,7 @@ function compatible(){
                 
                 
                 var categoria = document.createElement("div");
-                categoria.setAttribute("class", "col-sm-3 feature");
+                categoria.setAttribute("class", "col-sm-2 feature");
               
                 var categoriaPanel = document.createElement("div");
                 categoriaPanel.setAttribute("class", "panel");
