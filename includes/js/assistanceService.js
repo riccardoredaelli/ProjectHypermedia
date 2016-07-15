@@ -22,7 +22,6 @@ function evan(){
             
             var containerDescription = document.getElementById("serviceDescription");
             var description = document.createElement("h4");
-            description.setAttribute("class", "margin-top");
             var descriptionText =document.createTextNode(assistanceservice[myParam-1].descrizioneservizioassistenza);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description); 

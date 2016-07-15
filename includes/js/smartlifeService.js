@@ -29,7 +29,6 @@ function evan(){
             
             var containerDescription = document.getElementById("serviceDescription");
             var description = document.createElement("h4");
-            description.setAttribute("class", "margin-top");
             var descriptionText =document.createTextNode(smartlifeservice[myParam-1].descrizionesmartlifeservices);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
