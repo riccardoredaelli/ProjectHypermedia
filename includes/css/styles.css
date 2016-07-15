@@ -29,6 +29,15 @@ footer {
     text-align: justify;
 }
 
+.description-text{
+    white-space:nowrap;
+    overflow:hidden;
+   /* width:300px;*/
+   /* width:500px;*/
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+}
+
 /* --------------------------------------
    Typography
    -------------------------------------- */
