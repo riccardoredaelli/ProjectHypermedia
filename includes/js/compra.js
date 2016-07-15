@@ -34,9 +34,11 @@ console.log("entro nel for con i ="+ i );
             prezzoTemp= document.createElement("h2");
             prezzoTemp.appendChild(prezzot);
             
+            var nomeDisp= document.getElementById("nomeDispositivo");
+            var prezzpDisp= document.getElementById("prezzoDispositivo");
             container.appendChild(imgTemp);
-            container.appendChild(nomeTemp);
-             container.appendChild(prezzoTemp);
+            nomeDisp.appendChild(nomeTemp);
+            prezzpDisp.appendChild(prezzoTemp);
             
             
             document.getElementById("annulla").setAttribute("href", "device.html?c=1?device="+ parseInt(myParam));
