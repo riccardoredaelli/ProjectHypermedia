@@ -117,14 +117,36 @@ function evan(){
             var containerFeatures = document.getElementById("deviceFeatures");
            
             containerFeatures.appendChild(listGroup);
-            
+            //prezzo
             var containerPrice = document.getElementById("devicePrice");
             var bottone=document.getElementById("buyButton");
             bottone.setAttribute("href", "compra.html?c=1?device="+dispositivo[i].id);
-            var price = document.createElement("h1");
-            var priceValue = document.createTextNode(dispositivo[i].prezzo+"\u20AC");
-            price.appendChild(priceValue);
-            containerPrice.appendChild(price);
+            
+            if (dispositivo[i].promozione == 1){
+                //sbarro il prezzo iniziale
+                var price = document.createElement("h1");
+                price.setAttribute('class', 'deleted-price');
+                var priceValue = document.createTextNode(dispositivo[i].prezzo+"\u20AC");
+                price.appendChild(priceValue);
+                containerPrice.appendChild(price);
+                
+                
+                //sconto
+                var sconto = dispositivo[i].prezzo-(dispositivo[i].prezzo*
+                                                          (dispositivo[i].sconto/100));
+                var prezzoScontato = document.createTextNode(sconto);
+                var newPrice = document.createElement("h1");
+                newPrice.setAttribute('class', 'sale-price');
+                newPrice.appendChild(prezzoScontato);
+                containerPrice.appendChild(newPrice);
+                
+            }        
+            else {
+                var price = document.createElement("h1");
+                var priceValue = document.createTextNode(dispositivo[i].prezzo+"\u20AC");
+                price.appendChild(priceValue);
+                containerPrice.appendChild(price);
+            }
             }
             }
             

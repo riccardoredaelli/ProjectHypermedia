@@ -18,7 +18,7 @@ footer {
 	background: #F0F0F0;
 	color: #eee;
 	font-size: 20px;
-	padding: 5px;
+    padding: 5px;
 }
 
 #orientation {
@@ -28,14 +28,16 @@ footer {
 .text-justify {
     text-align: justify;
 }
+/* --------------------------------------
+   Price
+   -------------------------------------- */
 
-.description-text{
-    white-space:nowrap;
-    overflow:hidden;
-   /* width:300px;*/
-   /* width:500px;*/
-    text-overflow:ellipsis;
-    -o-text-overflow:ellipsis;
+.deleted-price {
+    text-decoration: line-through;
+}
+
+.sale-price {
+    color: red;
 }
 
 /* --------------------------------------
