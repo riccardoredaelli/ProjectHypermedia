@@ -29,14 +29,13 @@ function evan(){
             
             var containerDescription = document.getElementById("deviceDescription");
             var description = document.createElement("h4");
-            description.setAttribute("class", "margin-top");
             var descriptionText =document.createTextNode(dispositivo[i].descrizione);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
             
             //inizio caratteristiche tecniche
             var listGroup = document.createElement("div");
-            listGroup.setAttribute("class", "list-group margin-top");
+            listGroup.setAttribute("class", "list-group");
             //memoria item
             var listGroupMemoria = document.createElement("div");
             listGroupMemoria.setAttribute("class", "list-group-item");
@@ -110,7 +109,7 @@ function evan(){
             link.appendChild(nomecat);
             orientation1.appendChild(link);
             
-            var nomedisp = document.createTextNode(dispositivo[myParam-1].nome);
+            var nomedisp = document.createTextNode(dispositivo[i].nome);
             var orientation1= document.getElementById("nomedispositivo");
             orientation1.appendChild(nomedisp);
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 28, 2016 alle 14:06
+-- Creato il: Lug 15, 2016 alle 11:08
 -- Versione del server: 10.1.13-MariaDB
 -- Versione PHP: 5.6.21
 
@@ -28,16 +28,14 @@ USE `data_tim`;
 -- Struttura della tabella `categoriadispositivo`
 --
 
-CREATE TABLE `categoriadispositivo` (
-  `idcategoriadispositivo` int(11) NOT NULL,
+DROP TABLE IF EXISTS `categoriadispositivo`;
+CREATE TABLE IF NOT EXISTS `categoriadispositivo` (
+  `idcategoriadispositivo` int(11) NOT NULL AUTO_INCREMENT,
   `nomecategoriadispositivo` varchar(99) DEFAULT NULL,
   `descrizionecategoriadispositivo` text,
-  `immaginecategoriadispositivo` varchar(99) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `categoriadispositivo`:
---
+  `immaginecategoriadispositivo` varchar(99) DEFAULT NULL,
+  PRIMARY KEY (`idcategoriadispositivo`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `categoriadispositivo`
@@ -56,16 +54,14 @@ INSERT INTO `categoriadispositivo` (`idcategoriadispositivo`, `nomecategoriadisp
 -- Struttura della tabella `categoriaservizioassistenza`
 --
 
-CREATE TABLE `categoriaservizioassistenza` (
-  `idservizio` int(11) NOT NULL,
+DROP TABLE IF EXISTS `categoriaservizioassistenza`;
+CREATE TABLE IF NOT EXISTS `categoriaservizioassistenza` (
+  `idservizio` int(11) NOT NULL AUTO_INCREMENT,
   `nomeservizio` varchar(99) DEFAULT NULL,
   `descrizioneservizio` text,
-  `immagineservizio` varchar(99) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `categoriaservizioassistenza`:
---
+  `immagineservizio` varchar(99) DEFAULT NULL,
+  PRIMARY KEY (`idservizio`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `categoriaservizioassistenza`
@@ -83,16 +79,14 @@ INSERT INTO `categoriaservizioassistenza` (`idservizio`, `nomeservizio`, `descri
 -- Struttura della tabella `categoriasmartlifeservice`
 --
 
-CREATE TABLE `categoriasmartlifeservice` (
-  `idsmartlife` int(11) NOT NULL,
+DROP TABLE IF EXISTS `categoriasmartlifeservice`;
+CREATE TABLE IF NOT EXISTS `categoriasmartlifeservice` (
+  `idsmartlife` int(11) NOT NULL AUTO_INCREMENT,
   `nomesmartlife` varchar(99) DEFAULT NULL,
   `descrizionesmartlife` text,
-  `immaginesmartlife` varchar(99) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `categoriasmartlifeservice`:
---
+  `immaginesmartlife` varchar(99) DEFAULT NULL,
+  PRIMARY KEY (`idsmartlife`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `categoriasmartlifeservice`
@@ -110,8 +104,9 @@ INSERT INTO `categoriasmartlifeservice` (`idsmartlife`, `nomesmartlife`, `descri
 -- Struttura della tabella `dispositivo`
 --
 
-CREATE TABLE `dispositivo` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `dispositivo`;
+CREATE TABLE IF NOT EXISTS `dispositivo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(99) DEFAULT NULL,
   `descrizione` text NOT NULL,
   `categoria` int(11) DEFAULT NULL,
@@ -124,14 +119,9 @@ CREATE TABLE `dispositivo` (
   `ram` int(11) NOT NULL,
   `processore` varchar(99) NOT NULL,
   `dimensioni` varchar(99) NOT NULL,
-  `peso` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `dispositivo`:
---   `categoria`
---       `categoriadispositivo` -> `id`
---
+  `peso` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `dispositivo`
@@ -153,13 +143,12 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 (13, 'TIM Modem ADSL Wifi', 'Navigazione veloce e senza fili\r\n\r\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l''interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\r\n\r\nNavigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione(1).\r\nProtezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\r\nTutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\r\nInstallazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\r\nRisparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo (2).\r\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).\r\n\r\nAcquista il Modem ADSL Wi-Fi direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.\r\n\r\nNote:\r\n(1) La tecnologia Wi-Fi 802.11n migliora le prestazioni rispetto ai prodotti della generazione precedente 802.11b/g di Telecom Italia.Per utilizzare la rete senza fili è necessario disporre di un computer con interfaccia Wi-Fi. Le prestazioni effettive possono variare a seconda del computer, della distanza, della velocità di connessione ADSL e di altri fattori.\r\n(2) I valori sono misurati nei laboratori Telecom Italia. ', 4, 0, 69, 'tim_modem_adsl_wifi.jpg', NULL, NULL, '', 0, '', '', 0),
 (14, 'Tecnoware ERA Plus 900', 'ERA PLUS 900 è un UPS (Uninterruptible Power Supply), cioè un gruppo di continuità, di tipo Line Interactive, realizzato appositamente per proteggere il Modem Fibra di TIM da qualsiasi avaria della rete elettrica (black-out, sottotensioni, sovratensioni, microinterruzioni), causa dei frequenti danneggiamenti di Hardware e Software.\r\n\r\nQuando è presente la tensione di rete elettrica, ERA PLUS 900 svolge le funzioni di stabilizzatore e filtra i disturbi frequentemente presenti sulla linea elettrica (transienti, spike, interferenze, etc.), preservando in tal modo il modem ed eventuali altri dispositivi collegati alla sua uscita ad esempio il telefono cordless acquistato insieme all’offerta Fibra di TIM; inoltre ricarica le batterie in modo ottimale.\r\n\r\nIn caso di avaria della rete elettrica o caduta di tensione, l’UPS continua ad alimentare il modem ed altre apparecchiature protette ad esempio il telefono cordless garantendo per un lasso di tempo variabile il servizio telefonico e la connettività che sono compromesse in caso di black-out.\r\n\r\nERA PLUS presenta tutte le moderne caratteristiche che garantiscono massima affidabilità e sicurezza:\r\n\r\nControllo a microprocessore di tutte le funzioni, garanzia di alta affidabilità.\r\nStabilizzazione in uscita tramite AVR (Automatic Voltage Regulation).\r\nProtezione da sovraccarico sia nel modo di funzionamento normale che in modo batterie.\r\nCarica batterie di alte prestazioni che prolunga il tempo medio di vita delle batterie e ne garantisce una ricarica ottimale.\r\nAccensione anche in condizioni di rete elettrica assente.\r\nRiaccensione automatica dopo lo spegnimento per fine autonomia al ritorno della tensione di rete.\r\nAdattabilità automatica alla frequenza d’ingresso 50 o 60 Hz. Segnalazioni acustiche di vario tipo durante il normale funzionamento e che evidenziano le eventuali condizioni di allarme.\r\nAlta affidabilità.\r\nElevato rendimento e basso costo d’esercizio.\r\nDimensioni compatte.\r\nDesign curato ed ergonomico.\r\nSemplicità d’uso.\r\nAcquista ERA Plus 900 direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.\r\n\r\nCaratteristiche tecniche', 4, 0, 80, 'tecnoware_era_plus_900.jpg', NULL, NULL, '', 0, '', '', 0),
 (15, 'Samsung Galaxy View 18.4" LTE', 'Dal punto di vista hardware, il Galaxy View integra un processore Exynos 7580, un octa-core da 1.6GHz con GPU Mali T720, 2GB di memoria RAM, 32/64GB di memoria integrata espandibile, doppio speaker stereo (4Wx2), Bluetooth 4.1 BLE, Wi-Fi ac, supporto alle reti LTE opzionale ed una fotocamera frontale da 2.1 megapixel. Come sensori e presente solo quello di luminosità. La batteria integrata da 5700mAh offre fino ad 8 ore di visualizzazioni di video.\r\n\r\nStiamo parlando quindi di un prodotto interessante e completo il cui unico limite è la memoria RAM. Inutile dire che per un prodotto del genere 3GB sarebbero stati perfetti ma Samsung probabilmente sa che questo strumento è indirizzato ad un pubblico non solo di nicchia ma che non è particolarmente smanettone e il ricaricamento di un''app di pochi istanti non viene considerato un problema.\r\nParlare di Ergonomia è impossibile per questo prodotto in quanto il peso e la dimensione lo collocano molto lontano da i parametri che fino ad oggi utilizziamo per definire Mobile un dispositivo. View è infatti un oggetto da scrivania che può essere portato da una stanza all''altra grazie ad un maniglione posteriore.\r\n\r\nProprio questo accorgimento è molto particolare in quanto il meccanismo posteriore non solo agevola il trasporto, ma consente anche si mantenere verticale il View o ancora di posizionarlo su un piano orizzontale con un''inclinazione tale da permetterne l''utilizzo in comodità.', 2, 0, 799, 'Samsung-Galaxy-View-White_Angle-1_760x760.jpg', 'android', 64, 'Display 18.4” TFT, 1920x1080 Full HD', 3, 'Processore OctaCore 1.6 GHz', '230x158x11 mm', 289),
-(16, 'Samsung Galaxy TabPro S 12', 'DESIGN SOTTILE&LEGGERO\r\nGalaxy TabPro S rappresenta il perfetto connubio tra design e tecnologia. Estremamente sottile e leggero, stupisce per la ricercatezza dei dettagli e la qualità dei materiali.\r\nELEGANTE PROTEZIONE\r\nLa book cover protegge perfettamente Galaxy TabPro S, mantenendone intatta l''eleganza.\r\nDISPLAY SUPER AMOLED\r\nGalaxy TabPro S è il primo prodotto Windows 10 al mondo dotato di display SUPER AMOLED. Lavorare in mobilità è davvero comodo, grazie al display touchscreen da 12 pollici. Indipendentemente dal contenuto visualizzato, che sia una immagine o un video, i colori e la brillantezza delle immagini saranno esaltate dalla definizione e dalla qualità del display SUPER AMOLED di Galaxy TabPro S\r\nINTRATTENIMENTO XBOX ONE GAME STREAMING\r\nCon questa rivoluzionaria funzione, utilizzando la stessa connessione WiFi, potrai giocare in streaming ai giochi della tua XBOX ONE direttamente su Galaxy TabPro S.\r\nPERFORMANCE SENZA COMPROMESSI\r\nIl sistema operativo Windows 10, supportato dalla potenza del nuovo processore Intel Core M, sono una garanzia per lavorare professionalmente in qualunque situazione e in qualsiasi momento.\r\n2-IN-1\r\nNessun compromesso: potente come un PC e portatile come un tablet. Galaxy TabPro S è perfetto in qualunque situazione.\r\nDURATA BATTERIA & RICARICA\r\nLa batteria a lunga durata di Galaxy TabPro S permette di focalizzarsi solamente sulle proprie attività. Completamente carico in sole due ore e mezza, consente un uso continuativo di oltre 10 ore', 2, 0, 0, NULL, NULL, NULL, '', 0, '', '', 0),
 (17, 'Samsung Galaxy TabPro S 12 ', 'DESIGN SOTTILE&LEGGERO\r\nGalaxy TabPro S rappresenta il perfetto connubio tra design e tecnologia. Estremamente sottile e leggero, stupisce per la ricercatezza dei dettagli e la qualità dei materiali.\r\nELEGANTE PROTEZIONE\r\nLa book cover protegge perfettamente Galaxy TabPro S, mantenendone intatta l''eleganza.\r\nDISPLAY SUPER AMOLED\r\nGalaxy TabPro S è il primo prodotto Windows 10 al mondo dotato di display SUPER AMOLED. Lavorare in mobilità è davvero comodo, grazie al display touchscreen da 12 pollici. Indipendentemente dal contenuto visualizzato, che sia una immagine o un video, i colori e la brillantezza delle immagini saranno esaltate dalla definizione e dalla qualità del display SUPER AMOLED di Galaxy TabPro S\r\nINTRATTENIMENTO XBOX ONE GAME STREAMING\r\nCon questa rivoluzionaria funzione, utilizzando la stessa connessione WiFi, potrai giocare in streaming ai giochi della tua XBOX ONE direttamente su Galaxy TabPro S.\r\nPERFORMANCE SENZA COMPROMESSI\r\nIl sistema operativo Windows 10, supportato dalla potenza del nuovo processore Intel Core M, sono una garanzia per lavorare professionalmente in qualunque situazione e in qualsiasi momento.\r\n2-IN-1\r\nNessun compromesso: potente come un PC e portatile come un tablet. Galaxy TabPro S è perfetto in qualunque situazione.\r\nDURATA BATTERIA & RICARICA\r\nLa batteria a lunga durata di Galaxy TabPro S permette di focalizzarsi solamente sulle proprie attività. Completamente carico in sole due ore e mezza, consente un uso continuativo di oltre 10 ore', 2, 0, 1300, '0_start_012_front3_black.jpg', 'Windows 10 Pro', 128, 'Display 12” FHD+, 2160x1440 SuperAmoled', 4, 'intel core i5', '290x120x22', 564),
 (18, 'Samsung Galaxy Tab S2 9.7 VE LTE', 'Samsung Galaxy Tab S2 8.0 è un tablet Android di buon livello, fortemente votato all''imaging, in grado di soddisfare anche l''utente più esigente. Sorprende il display Touchscreen da 8 pollici che pone questo Samsung al vertice della categoria. Anche la risoluzione è fra le più elevate attualmente in circolazione: 2048x1536 pixel. Sul versante delle funzionalità a questo Samsung Galaxy Tab S2 8.0 non manca davvero nulla. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente, passando per la connettività Wi-fi e il GPS. \r\nOttima la fotocamera da 8 megapixel che permette al Samsung Galaxy Tab S2 8.0 di scattare foto con una risoluzione di 3264x2448 pixel e di registrare video in fullHD alla risoluzione di 2560x1440 pixel. Lo spessore di appena 5.6mm rende questo Samsung Galaxy Tab S2 8.0 un prodotto completo e tra i più sottili sul mercato. ', 2, 0, 550, 'samsung-t815_lte_black_front.jpg', 'android', 16, '1536 x 2048 pixel Super AMOLED', 1, 'Quad-core 1.9 GHz Cortex-A57 + Quad-core 1.3 GHz Cortex-A53', '134.8 x 198.6 x 5.6 mm', 272),
 (19, 'Apple iPad mini 4 16GB', 'La mini superpotenza.\r\nA vederlo sembra davvero piccolo, ma è pronto a stupirti con prestazioni eccezionali: il nuovo iPad mini 4, più sottile e leggero che mai, ha tutta la potenza che ti serve per fare grandi cose.\r\nSottile come sempre. Leggero come mai.\r\niPad mini 4 contiene tutto quello che ami dell’iPad in un design ancora più leggero e portatile. Chiama gli amici con FaceTime o portati avanti con il lavoro: puoi farlo ovunque, in qualsiasi momento.\r\nPiccolo, ma con i superpoteri.\r\niPad mini 4 ha un chip A8 di seconda generazione con architettura a 64 bit di livello desktop, per gestire anche le app più elaborate. Puoi montare un film, sfogliare le tue foto o fare entrambe le cose contemporaneamente: tutto è fluido e immediato.\r\nDue fotocamere straordinarie. Abilmente camuffate da iPad.\r\nLa fotocamera iSight di iPad mini 4 ha un’ottica sofisticata, un sensore ancora più evoluto e un processore di immagine ISP progettato da Apple. Include comode funzioni come Panorama, Time-lapse, Moviola e le modalità scatto in sequenza e Timer. Anche la videocamera frontale FaceTime HD è stata riprogettata con un sensore perfezionato e pixel più grandi, per riprendere ancora meglio negli ambienti poco illuminati. Risultato? Le foto e i video, per non parlare delle videochiamate e dei selfie, saranno incredibilmente brillanti.\r\nAncora più sicuro. Ancora più alla mano.\r\nGrazie alla tecnologia Touch ID, iPad mini 4 è protetto da una password inattaccabile e a prova di memoria: la tua impronta digitale. Ti basterà un tocco per sbloccarlo, ma i tuoi dati non corrono alcun pericolo, anche se lo presti a un amico o un collega. E con Touch ID fare acquisti su iTunes, iBooks e App Store è ancora più facile e sicuro.\r\nWireless ultraveloce.\r\nCon iPad mini ti colleghi alle reti Wi?Fi e cellulari ad alta velocità, per scaricare contenuti, navigare il web e condividere documenti praticamente ovunque. Se non c’è il Wi?Fi, con il modello Wi?Fi + Cellular* puoi connetterti alle reti dati cellulari ad alta velocità in tutto il mondo. E con la Apple SIM puoi scegliere un piano dati a breve termine in oltre 90 Paesi e territori, in modo facile e veloce.\r\nTap dopo tap, lo amerai sempre di più.\r\nCon iPad mini 4 hai iOS 9, il sistema operativo mobile più intuitivo, evoluto e sicuro al mondo. iOS 9 è stato creato su misura per iPad. App ancora migliori e nuove funzioni come Slide Over, Split View e Picture in Picture ti aiutano a fare molto di più, più facilmente. Devi controllare un messaggio mentre rispondi a un’email? O preparare una presentazione dando un occhio alla partita? Con iOS 9, tu e il tuo iPad potete fare un mondo di cose in più.\r\nApp fatte per iPad. E per fare di tutto.\r\niPad mini 4 nasce con potenti app incluse per fare tutto quello che fai ogni giorno: navigare, controllare le email, modificare foto e video, prendere appunti o anche leggere un libro. E sull’App Store ne trovi tantissime altre che non si limitano a ingrandire la versione per iPhone, ma sono create apposta per lo splendido display Retina dell’iPad. Fotografia, giochi, viaggi, cucina, arredamento, hobby, sport: ci sono app per fare di tutto. E per farlo al meglio.\r\nCover fatte apposta per lui. Colori fatti apposta per te.\r\nLa Smart Cover e la custodia in silicone per iPad mini 4 proteggono il tuo dispositivo in ogni situazione. Sono progettate per essere usate insieme: la Smart Cover aderisce perfettamente allo schermo, mentre la custodia in silicone avvolge la parte posteriore. Ed entrambe sono disponibili in dieci splendidi colori.', 2, 0, 458, 'slider-ipad-mini-4-spacegrey-1.jpg', 'iOS', 32, 'Display Retina 7.9” (2048x1536) Led IPS', 2, 'A8 con architettura a 64bit a 1.6GHz', '203,2x134,8x6,1mm.', 304),
 (21, 'Samsung Galaxy Tab S2 9.7 LTE', 'La linea Galaxy Tab S2 è facile da recensire. Riesce ad essere tutto quel che Samsung ha la pretesa di farla diventare e rappresenta l''alternativa più credibile, l''equivalente Android, ad iPad. I prezzi di listino restano alti per la categoria, ma le configurazioni sono più convenienti di quelle Apple.\r\n\r\nDa due settimane provo la versione da 8 pollici 32 GB LTE e credo, senza mezzi termini, che sia il miglior tablet Android in vendita. Anche il modello da 9.7 pollici merita, ma il confronto con Sony Xperia Z4 Tablet ha contorni molto meno nitidi e, comunque, ci sono differenze tecniche e funzionali che possono far preferire l''uno o l''altro senza per forza decidere.', 2, 1, 540, 'samsung_galaxy_tab_S2_gold-1.png', 'android', 64, '9.7" 2048x1536 SAMOLED', 2, '4x Cortex A53 @ 1.3GHz', '169 x 237.3 x 5.6 mm', 389),
 (22, 'HUAWEI MediaPad 10 LINK+ ', 'HUAWEI MediaPad 10 Link+ è un tablet da 10,1 pollici con microprocessore quad-core HiSilicon Kirin 910 e supporto per le reti mobili 3G.\r\n\r\nCon un design unibody ultra-sottile di 9,9 millimetri in lega di alluminio, è elegante e portatile. MediaPad 10 Link+ ha uno schermo IPS HD con risoluzione di 1280×800 pixel.\r\n\r\nMonta una fotocamera frontale da 0,3 megapixel e una fotocamera posteriore da 3 megapixel. L''ottimo display in combinazione con la tecnologia audio DTS del MediaPad 10 Link+ offre una superba qualità audiovisiva, sia che si voglia scattare foto, giocare, guardare film in HD, o ascoltare musica', 2, 1, 200, 'huawei-mediapad-10-link-plus-1.jpg', 'android', 32, 'Display 10.1” (1280x800) IPS 16M di colori', 2, 'Balon Cortex A9 Quad-Core 1.6GHz', '257.4x175.9x9.9mm', 630),
-(23, 'Videocamera D-Link Motorizzata', 'La Videocamera cloud Wireless Pan/Tilt/Zoom (DCS-5010L) è una soluzione di monitoring versatile per la casa o il piccolo ufficio.\r\n\r\nGrazie alla funzione Pan/Tilt (motorizzazione), è possibile monitorare un’intera stanza a prescindere dalla posizione in cui viene collocata, perché ha un raggio d’azione pari a 360 gradi.\r\n\r\nLa DCS-5010L garantisce, immagini video VGA e audio, anche in completa oscurità, grazie ai LED a infrarossi.\r\n\r\nCon mydlink™ Home è, inoltre, possibile accedere alla maschera di gestione e configurazione della videocamera tramite Internet o tramite connessione 4G da tablet e smartphone, grazie all’app gratuita mydlink ™ Home, disponibile per iOS e Android.\r\n\r\nSpecifiche tecniche', 3, 0, 100, 'ipcam-motorizzata-01.jpgq', NULL, NULL, '', 0, '', '', 0),
+(23, 'Videocamera D-Link Motorizzata', 'La Videocamera cloud Wireless Pan/Tilt/Zoom (DCS-5010L) è una soluzione di monitoring versatile per la casa o il piccolo ufficio.\r\n\r\nGrazie alla funzione Pan/Tilt (motorizzazione), è possibile monitorare un’intera stanza a prescindere dalla posizione in cui viene collocata, perché ha un raggio d’azione pari a 360 gradi.\r\n\r\nLa DCS-5010L garantisce, immagini video VGA e audio, anche in completa oscurità, grazie ai LED a infrarossi.\r\n\r\nCon mydlink™ Home è, inoltre, possibile accedere alla maschera di gestione e configurazione della videocamera tramite Internet o tramite connessione 4G da tablet e smartphone, grazie all’app gratuita mydlink ™ Home, disponibile per iOS e Android.\r\n\r\nSpecifiche tecniche', 3, 0, 100, 'ipcam-motorizzata-01.jpg', NULL, NULL, '', 0, '', '', 0),
 (24, 'TIMTag', 'TIMTag, il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care. \r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.\r\n\r\nCon TIMTag hai un dispositivo di localizzazione GPS di ultima generazione, un’ App dedicata intuitiva e semplice da utilizzare, inclusi 12 mesi di servizio TIMTag e una TIM Card!\r\nTutto a soli 129€!\r\n\r\n', 3, 0, 129, 'TIM-Tag-Device-new-logo.jpg', NULL, NULL, '', 0, '', '49 x 47 x 17 mm', 234),
 (25, 'D-Link SmartHome Starter Kit', 'Con lo Smart Home HD Starter Kit potrai impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.\r\nNel Kit sono inclusi:\r\n\r\nUn Monitor HD (DCS-935L) \r\nUn Wi-Fi Motion Sensor (DCH-S150)\r\nUna smart plug (DSP-W215) \r\nTramite l''App mydlink Home per smartphone e tablet hai a disposizione il controllo di tutti i dispositivi così da semplificarti la gestione della casa rendendola più sicura e intelligente.\r\n\r\nFacile configurazione e gestione dei tuoi dispositivi\r\n\r\nBasta semplicemente scaricare l’app mydlink Home e la configurazione guidata ti aiuterà a utilizzare al meglio tutti i dispositivi presenti nel kit in modo facile e intuitivo.\r\nCon l’app potrai creare tu stesso le regole per accendere e spegnere i tuoi elettrodomestici quando e ovunque vuoi. \r\n\r\nNotifiche automatiche e real time sul tuo smartphone\r\n\r\nL’app mydlink Home ti notificherà quando:\r\nUn movimento o un suono viene rilevato\r\nUn dispositivo è stato acceso o spento\r\nIl consumo elettrico è stato superato\r\nUn dispositivo non funziona correttamente o si surriscalda\r\nIl sensore di movimento a infrarossi passivo riduce di gran lunga i falsi allarmi garantendoti di essere avvisato solo quando necessario: rilevazione dei movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nMonitor HD\r\n\r\nCon il Monitor HD, potrai controllare la tua casa in alta definizione (720p) e grazie alla visione notturna anche in assenza di luce (fino a 5 mt). Il Monitor HD ti avvisa mediante notifica push ogni volta che verrà rilevato un suono o un movimento.\r\nSensore di movimento\r\n\r\nGrazie alla tecnologia a infrarossi passiva saranno ridotti i falsi allarmi e verrai avvisato solo quando necessario. Con il sensore di movimento rileverai i movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nSmart Plug\r\n\r\nPotrai accendere e spegnere i dispositivi dal tuo smartphone tablet, ovunque ti trovi. Essere avvisato se un elettrodomestico è stato acceso o spento. Impostare nuove regole di funzionamento in base alle tue esigenze.\r\nConnettività Mobile\r\n\r\nVuoi monitorare la tua casa al mare o in montagna quando non ci sei? Vuoi avere sempre sott’occhio la tua macchina quando è in garage? \r\nLa tua barca o il tuo camper nei mesi in cui non li utilizzi? \r\nAnche se non disponi di una connessione ADSL in questi luoghi puoi utilizzare D-Link Smart Home Starter Kit con una connessione mobile 3G o 4G Wi-Fi. ', 3, 1, 160, 'DLinkHD.jpg', NULL, NULL, '', 0, '', '23x532x232 mm', 231),
 (26, 'Cassa Nokia MD 12', 'Speaker bluetooth Nokia MD-12 colore bianco. NFC. Ascoltare la tua musica preferita è ora più semplice chemai. Con il suo design ultra - compatto ed una vasta gamma di bellissimi colori , MD -12 è abbastanza piccoloda stare in tasca. Grande esperienza bassi. Non lasciate che la sua piccola dimensione vi inganni . Questopiccolo altoparlante dispone di un grande carico di energia . Progettato con le ultime tecnologie , MD -12 èstato progettato con un attuatore integrato, creando un grande effetto dei bassi quando è impostato su quasiqualsiasi superficie . La durata della batteria superiore per un più divertente ascolto. Con NFC incluso , bastatoccare il tuo telefono cellulare abilitato NFC al diffusore e siete a posto. Oppure utilizzare il Bluetooth edascoltate in streaming i propri brani in modalità wireless e ballate tutta la notte con 15 ore di riproduzionemusicale garantite.', 3, 0, 50, 'Nokia-md-12_760x760.png', NULL, NULL, '', 0, '', '589x580x489', 934),
@@ -169,8 +158,12 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 (33, 'Repeater Wi-Fi ZyXEL AC750', 'ZyXEL WRE6505 Wireless AC750 Range Extender consente di estendere facilmente reti esistenti wireless 802.11 b / g / n / ac in modo facile e veloce. Basta collegare il Repeater direttamente alla presa di corrente e l''indicatore di potenza del segnale LED consente di determinare la posizione di installazione ideale. Il one-click Wi-Fi Protected Setup (WPS Button a pagina 12), prevede l''installazione del client wireless senza frustrazione e completa in pochi passi la configurazione di accesso alla rete.\r\n\r\nTre funzionalità in 1 unico prodotto\r\nCon Zyxel AC750 puoi:\r\n\r\nestendere la rete Wi-Fi nella modalità Repeater\r\ncreare una rete Wi-Fi indipendente da quella, del modem, mediante la funzionalità Access Point\r\ntrasformare in Wi-Fi un device non dotato di tale feature, sfruttando la funzionalità di Terminal Adapter\r\nAcquista il repeater ZyXEL AC750 direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.', 5, 1, 50, 'slider-repeater-zyxel-ac750-front.jpg', NULL, NULL, '1', 1, '1', '46,5 x 62,3 x 90,9 mm', 98),
 (34, 'Wi-Fi Bridge Technicolor', 'Tre funzionalità in unico prodotto\r\n\r\nCon il multimedia connect puoi:\r\n\r\nCollegare al modem tramite il Wi-Fi AC a 5GHz una TV, un decoder od un altro apparato\r\nAssociarlo ad un altro Multimedia Connect (TG234) e creare un ponte Wi-Fi AC a 5GHz\r\nCreare una rete Wi-Fi AC a 5 GHz indipendente da quella del modem (funzionalità access point)', 4, 0, 80, 'wifi-bridge-technicolor_01.jpg', NULL, NULL, '', 0, '', '342x54x423', 343),
 (35, 'Powerline Adapter', 'Colleghi PC, modem e console sfruttando la rete elettrica\r\n\r\nVuoi trasformare la rete elettrica di casa tua in una rete per navigare e trasmettere, dove il wi-fi non arriva, dati in formato digitale?\r\n\r\nCon Powerline Adpter puoi farlo.\r\n\r\nColleghi tra loro PC, modem e console senza problemi di copertura, distanza, né cablaggi: ti basta inserire Powerline Adapter nelle prese elettriche per creare una rete domestica che connette i vari apparati, con prestazioni fino a 200 Mbps.\r\n\r\nE la riservatezza dei dati che trasmetti e ricevi è garantita mediante un sistema di crittografia.\r\n\r\nAcquista Powerline Adapter in coppia direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.', 4, 1, 49, 'PowerlineAdapter-1.png', NULL, NULL, '', 0, '', '342x33x541', 754),
-(36, 'TIM Modem Wi-Fi 4GPLUS', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, 100, 'TIM-Pack-M-Modem-4Gplus-760x760.jpgTIM-Pack-M-Modem-4G-760x760_0.jpg', NULL, NULL, '', 0, '', '64x346x643 mm', 643),
-(37, 'Modem TIM 4G WI-FI', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, 80, NULL, NULL, NULL, '', 0, '', '64x346x643 mm', 63);
+(36, 'TIM Modem Wi-Fi 4GPLUS', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, 100, 'TIM-Pack-M-Modem-4Gplus-760x760.jpg', NULL, NULL, '', 0, '', '64x346x643 mm', 643),
+(37, 'Modem TIM 4G WI-FI', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, 80, 'TIM-Pack-M-Modem-4G-760x760_0.jpg', NULL, NULL, '', 0, '', '64x346x643 mm', 63),
+(38, 'Sony XPERIA X', 'Il capolavoro\r\nUno smartphone dalle prestazioni inimitabili che integra una sensazionale fotocamera in grado di predire il prossimo movimento del soggetto..\r\nUna fotocamera senza rivali\r\nXperia X Performance integra la nuova fotocamera firmata Sony, più veloce e smart che mai. Tempi di risposta più rapidi, messa a fuoco più intelligente e rivoluzionaria velocità di otturazione adattiva: avrai tutto il necessario per scatti incredibilmente nitidi, in qualsiasi condizione. La messa a fuoco automatica ibrida intuitiva di Xperia X Performance utilizza le tecnologie delle fotocamere Sony e ti permette di cogliere qualsiasi movimento. Basta scegliere il soggetto da mettere a fuoco e la fotocamera lo seguirà automaticamente, anche quando si muove. La messa a fuoco è sempre chiara e il soggetto sempre nitido: non dovrai più preoccuparti di seguire la scena. Pensa a tutto il tuo smartphone.\r\nLa fotocamera da 23 MP che non teme i movimenti improvvisi\r\nLa nostra rapidissima fotocamera è in grado di passare dallo standby allo scatto in meno di 0,6 secondi. Grazie all''incredibile rapidità di avvio, messa a fuoco automatica ibrida ed elaborazione dell''immagine, potrai cogliere i momenti più inattesi.\r\n\r\nUn tocco di classe\r\nBasta prendere Xperia X Performance in mano per accorgersi di quanto sia speciale: lasciati conquistare dal display curvo e dalla parte posteriore monoblocco in metallo. Scegli fra Nero grafite o Bianco per un esclusivo effetto satinato. Oppure le versioni Oro lime e Oro rosa per un tocco di eleganza. Xperia X Performance riflette i tuoi gusti e il tuo stile di vita. L''ultima versione del classico modello Sony è caratterizzata da un design straordinariamente semplice, ancora più comodo grazie ai bordi ricurvi e al display da 5". E l''interfaccia utente non è da meno, con un look sempre più personalizzato e un approccio più intuitivo.\r\n\r\nInarrestabile potenza\r\nXperia X Performance è dotato di un rapidissimo processore Snapdragon 820 e di velocità di connessione Cat91 per prestazioni senza rivali. Preparati a restare a bocca aperta.\r\n\r\nStreaming alla velocità della luce\r\nConnettività ultra rapida per un intrattenimento ininterrotto. Vuoi guardare un film in streaming su Netflix o scaricare il tuo podcast preferito? Dì addio ai tempi di attesa. Grazie all''ultimo processore Snapdragon 820 e a una connettività senza rivali, Xperia X Performance ti permette di accedere ai contenuti multimediali desiderati in un batter d''occhio e con estrema facilità, senza buffering o ritardi.', 1, 1, 629, 'sony-xperia-x-grphblk-double.jpg', 'android', 16, 'Full HD da 5” 1080p, Display TRILUMINOS', 2, 'Processore Snapdragon® 650 HexaCore 1.8+1.4 Ghz', '143,7 x 70,5 x 8,6 mm', 165),
+(39, 'Huawei P9', 'PREMIUM. ELEGANT. STYLISH.\r\nHuawei P9 presenta un design con linee dal forte impatto visivo, caratterizzate da spigoli tagliati a diamante e arrotondati a regola d’arte. Lo smartphone ha una struttura unibody in alluminio aerospaziale e vetro 2.5D di categoria superiore, ed è disponibile in due varianti cromatiche: Titanium Grey e Mystic Silver.\r\n\r\nDISPLAY LUMINOSO E DAI COLORI INTENSI\r\nCon una resa cromatica del 96%, il sensazionale display IPS Full HD da 5,2" porta alla scoperta di un mondo ricco di colori intensi e ancora più naturali.\r\n\r\nUN INNOVATIVO SISTEMA CON DOPPIA FOTOCAMERA, UNA COLLABORAZIONE UNICA\r\nLa collaborazione tra Huawei e Leica ha dato vita a uno smartphone con doppia fotocamera. Il risultato: maggiore luminosità e nitidezza per foto e video sensazionali.\r\n\r\nINNOVATIVO SISTEMA CON DOPPIA FOTOCAMERA\r\nHuawei P9 è in grado di catturare immagini dai colori luminosi e garantire al contempo una resa in bianco e nero straordinaria; il tutto con lo stile senza tempo di Leica.La tecnologia con doppia fotocamera di Huawei P9 consente di catturare una maggiore quantità di luce, combinando al meglio la qualità del colore acquisito dal sensore RGB con i dettagli ottenuti dal sensore in bianco e nero. Il tutto per garantire il massimo risultato ad ogni scatto.', 1, 1, 599, 'huawei-p9-grey-01.jpg', 'android', 8, 'Display IPS Full HD da 5.2’’', 4, 'Kirin 955 - Octa-Core (4x2,5 GHz + 4x1,8 GHz)', '145 x 70,9 x 6,95 mm', 144),
+(40, 'Samsung Galaxy J5', 'Samsung Galaxy J5 è un smartphone Android di buon livello, fortemente votato all''imaging, in grado di soddisfare anche l''utente più esigente. Dispone di un grande display Touchscreen da 5 pollici con una risoluzione di 1280x720 pixel non particolarmente elevata. Sul versante delle funzionalità a questo Samsung Galaxy J5 non manca davvero nulla. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente, passando per la connettività Wi-fi e il GPS. \r\nQuesto Samsung Galaxy J5 è un prodotto con pochi competitor per ciò che riguarda la multimedialità grazie alla fotocamera da ben 13 megapixel che permette al Samsung Galaxy J5 di scattare foto di alta qualità con una risoluzione di 4128x3096 pixel e di registrare video in fullHD alla risoluzione di 1920x1080 pixel. Lo spessore di 8.5mm è contenuto e rende questo Samsung Galaxy J5 molto interessante.', 1, 0, 269, 'sgh-galaxy-j5_6-blkfront.png', 'android', 32, ' 5.2” 16 Milioni colori Touch', 2, 'QuadCore 1.2 Ghz', '145,8x72,3x8,1 mm', 158),
+(41, 'Huawei P9 Plus', 'DESIGN ELEGANTE, CURA NEI DETTAGLI\r\nL’esperienza di Huawei P9 si eleva ad un livello superiore con Huawei P9 Plus grazie al luminoso display da 5.5” e l’elegante corpo in metallo\r\n\r\nREINVENT SMARTPHONE PHOTOGRAPHY\r\nGrazie al perfetto connubio tra hardware e software di classe superiore della doppia fotocamera Leica, P9 Plus consente di catturare immagini di assoluta qualità senza rinunciare al design compatto ed elegante.\r\n\r\nUN INNOVATIVO SISTEMA A DOPPIA FOTOCAMERA\r\nP9 Plus è in grado di catturare immagini dai colori luminosi e garantire al contempo una resa in bianco e nero straordinaria; il tutto con lo stile senza tempo di Leica.La tecnologia con doppia fotocamera di P9 Plus consente di catturare una maggiore quantità di luce, combinando al meglio la qualità del colore acquisito dal sensore RGB con i dettagli ottenuti dal sensore in bianco e nero. Il tutto per garantire il massimo risultato ad ogni scatto.La doppia fotocamera da 12MP con pixel da 1,25µm ottimizza gli scatti in condizioni di scarsa illuminazione, mentre la tecnologia IMAGEsmart 5.0 di P9 Plus garantisce la massima qualità di immagine in ogni circostanza.L’algoritmo sviluppato in collaborazione con Leica assicura una qualità di immagine propria di una macchina fotografica, anche in condizioni di scarsa illuminazione.\r\n\r\nUN DISPLAY FULL HD DA 5,5", PIÙ AMPIO E PIÙ LUMINOSO\r\nGrazie alla tecnologia AMOLED, l’ampio display Full HD da 5,5" offre una maggiore saturazione del colore e un contrasto più elevato, per un’esperienza visiva sempre più intensa.\r\n\r\nMAGGIORE AUTONOMIA E RICARICA RAPIDA\r\nLa batteria da 3400mAh con di ricarica rapida garantisce un’autonomia più elevata.\r\n\r\nAVANZATA TECNOLOGIA ‘PRESS TOUCH’\r\nP9 Plus è dotato dell’innovativa tecnologia ‘Press Touch’, basata sul riconoscimento della pressione effettuata sul display.La nuova e ottimizzata tecnologia ‘Press Touch’ rileva le più impercettibili variazioni di pressione sullo schermo garantendo la massima interattività e reattività dello smartphone.Visualizza le anteprime delle immagini, ingrandiscine i dettagli, ed accedi rapidamente alle applicazioni con il menu di scelta rapida a comparsa.\r\n\r\n', 1, 0, 749, 'huawei-p9-plus-qrtzgry-front.jpg', 'android', 64, 'Full HD Amoled da 5.5’’', 4, 'Kirin 955 - Octa-Core (4x2,5 GHz + 4x1,8 GHz)', '152.3 x 75.3 x 6.98 mm', 162);
 
 -- --------------------------------------------------------
 
@@ -178,22 +171,12 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 -- Struttura della tabella `dispositivo_servizioassistenza`
 --
 
-CREATE TABLE `dispositivo_servizioassistenza` (
+DROP TABLE IF EXISTS `dispositivo_servizioassistenza`;
+CREATE TABLE IF NOT EXISTS `dispositivo_servizioassistenza` (
   `id_dispositivo_dsa` int(11) NOT NULL,
-  `id_servizioassistenza_dsa` int(11) NOT NULL
+  `id_servizioassistenza_dsa` int(11) NOT NULL,
+  PRIMARY KEY (`id_dispositivo_dsa`,`id_servizioassistenza_dsa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `dispositivo_servizioassistenza`:
---   `id_dispositivo`
---       `dispositivo` -> `id`
---   `id_dispositivo_dsa`
---       `dispositivo` -> `id`
---   `id_servizioassistenza`
---       `servizioassistenza` -> `id`
---   `id_servizioassistenza_dsa`
---       `servizioassistenza` -> `idservizioassistenza`
---
 
 --
 -- Dump dei dati per la tabella `dispositivo_servizioassistenza`
@@ -391,7 +374,23 @@ INSERT INTO `dispositivo_servizioassistenza` (`id_dispositivo_dsa`, `id_servizio
 (37, 28),
 (37, 41),
 (37, 42),
-(37, 45);
+(37, 45),
+(38, 10),
+(38, 18),
+(39, 2),
+(39, 4),
+(39, 7),
+(39, 31),
+(40, 2),
+(40, 4),
+(40, 9),
+(40, 36),
+(40, 41),
+(41, 2),
+(41, 7),
+(41, 9),
+(41, 27),
+(41, 29);
 
 -- --------------------------------------------------------
 
@@ -399,22 +398,13 @@ INSERT INTO `dispositivo_servizioassistenza` (`id_dispositivo_dsa`, `id_servizio
 -- Struttura della tabella `dispositivo_smartlifeservice`
 --
 
-CREATE TABLE `dispositivo_smartlifeservice` (
+DROP TABLE IF EXISTS `dispositivo_smartlifeservice`;
+CREATE TABLE IF NOT EXISTS `dispositivo_smartlifeservice` (
   `id_dispositivo_dss` int(11) NOT NULL,
-  `id_smartlifeservice_dss` int(11) NOT NULL
+  `id_smartlifeservice_dss` int(11) NOT NULL,
+  PRIMARY KEY (`id_dispositivo_dss`,`id_smartlifeservice_dss`),
+  KEY `id_smartlifeservice` (`id_smartlifeservice_dss`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `dispositivo_smartlifeservice`:
---   `id_dispositivo`
---       `dispositivo` -> `id`
---   `id_dispositivo_dss`
---       `dispositivo` -> `id`
---   `id_smartlifeservice`
---       `smartlifeservice` -> `id`
---   `id_smartlifeservice_dss`
---       `smartlifeservice` -> `idsmartlifeservices`
---
 
 --
 -- Dump dei dati per la tabella `dispositivo_smartlifeservice`
@@ -508,7 +498,24 @@ INSERT INTO `dispositivo_smartlifeservice` (`id_dispositivo_dss`, `id_smartlifes
 (25, 7),
 (25, 12),
 (26, 7),
-(26, 12);
+(26, 12),
+(38, 1),
+(38, 3),
+(39, 1),
+(39, 4),
+(39, 5),
+(39, 7),
+(39, 9),
+(40, 1),
+(40, 4),
+(40, 7),
+(40, 8),
+(40, 11),
+(40, 12),
+(41, 1),
+(41, 5),
+(41, 10),
+(41, 11);
 
 -- --------------------------------------------------------
 
@@ -516,21 +523,15 @@ INSERT INTO `dispositivo_smartlifeservice` (`id_dispositivo_dss`, `id_smartlifes
 -- Struttura della tabella `servizioassistenza`
 --
 
-CREATE TABLE `servizioassistenza` (
-  `idservizioassistenza` int(11) NOT NULL,
+DROP TABLE IF EXISTS `servizioassistenza`;
+CREATE TABLE IF NOT EXISTS `servizioassistenza` (
+  `idservizioassistenza` int(11) NOT NULL AUTO_INCREMENT,
   `nomeservizioassistenza` varchar(99) DEFAULT NULL,
   `descrizioneservizioassistenza` text,
   `categoriaservizioassistenza` int(11) DEFAULT NULL,
-  `highlightservizioassistenza` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `servizioassistenza`:
---   `categoria`
---       `categoriaservizioassistenza` -> `id`
---   `categoriaservizioassistenza`
---       `categoriaservizioassistenza` -> `idservizio`
---
+  `highlightservizioassistenza` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idservizioassistenza`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `servizioassistenza`
@@ -597,24 +598,18 @@ INSERT INTO `servizioassistenza` (`idservizioassistenza`, `nomeservizioassistenz
 -- Struttura della tabella `smartlifeservice`
 --
 
-CREATE TABLE `smartlifeservice` (
-  `idsmartlifeservices` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartlifeservice`;
+CREATE TABLE IF NOT EXISTS `smartlifeservice` (
+  `idsmartlifeservices` int(11) NOT NULL AUTO_INCREMENT,
   `immaginesmartlifeservices` varchar(99) DEFAULT NULL,
   `nomesmartlifeservices` varchar(99) DEFAULT NULL,
   `introduzionesmartlifeservices` text NOT NULL,
   `descrizionesmartlifeservices` text,
   `categoriasmartlifeservices` int(11) NOT NULL,
   `attivazionesmartlifeservices` text,
-  `faqsmartlifeservices` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `smartlifeservice`:
---   `categoria`
---       `categoriasmartlifeservice` -> `id`
---   `categoriasmartlifeservices`
---       `categoriasmartlifeservice` -> `idsmartlife`
---
+  `faqsmartlifeservices` text NOT NULL,
+  PRIMARY KEY (`idsmartlifeservices`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `smartlifeservice`
@@ -634,93 +629,6 @@ INSERT INTO `smartlifeservice` (`idsmartlifeservices`, `immaginesmartlifeservice
 (11, 'coupon.jpg', 'Coupon', 'Risparmia su un’ampia gamma di prodotti e servizi selezionati da QUI! Group', 'Trova il collegamento al servizio “I coupon consigliati da TIM” dal menu laterale di TIM Wallet. Nella pagina informativa selezionando il tasto “SCOPRI” accedi al sito dove potrai scegliere tra tante offerte speciali. \r\n\r\nPuoi ricercare i prodotti delle migliori marche, viaggi da sogno e sconti sui locali piu? esclusivi della tua città navigando tra le categorie di offerte. \r\n\r\nUtilizzando il GPS del tuo smartphone puoi trovare sempre le migliori offerte intorno a te. ', 4, 'Il servizio è offerto ai clienti TIM da QUI! Group attraverso la propria rete commerciale. Il pagamento viene effettuato utilizzando il sistema di carta di credito di QUI! Group. In caso di necessità è necessario contattare il centro assistenza clienti di QUI! Group al numero 010/5389945 (opzione 3).', 'Q: Come si attiva il servizio Coupon?\r\nR: Nel menu laterale di TIM Wallet trovi il collegamento al servizio “I Coupon consigliati da TIM”. Nella pagina informativa selezionando il tasto “SCOPRI” si accede al sito dove potrai scegliere tra tante offerte speciali.\r\nQ: Trovo solo le offerte della mia città?\r\nR: Se imposti il GPS del tuo smartphone, automaticamente ti vengono mostrate le migliori offerte intorno a te, nella tua città.\r\nPuoi effettuare ricerche anche su altre città e categorie di tuo interesse e navigare tra le offerte.'),
 (12, 'dlink-smarthome.jpg', 'D-Link SmartHome', 'D-Link SmartHome Starter Kit ti offre la possibilità di impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.', 'Con lo Smart Home HD Starter Kit potrai impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.\r\nNel Kit sono inclusi:\r\n\r\nUn Monitor HD (DCS-935L) \r\nUn Wi-Fi Motion Sensor (DCH-S150)\r\nUna smart plug (DSP-W215) \r\nTramite l''App mydlink Home per smartphone e tablet hai a disposizione il controllo di tutti i dispositivi così da semplificarti la gestione della casa rendendola più sicura e intelligente.\r\n\r\nFacile configurazione e gestione dei tuoi dispositivi\r\n\r\nBasta semplicemente scaricare l’app mydlink Home e la configurazione guidata ti aiuterà a utilizzare al meglio tutti i dispositivi presenti nel kit in modo facile e intuitivo.\r\nCon l’app potrai creare tu stesso le regole per accendere e spegnere i tuoi elettrodomestici quando e ovunque vuoi. \r\n\r\nNotifiche automatiche e real time sul tuo smartphone\r\n\r\nL’app mydlink Home ti notificherà quando:\r\nUn movimento o un suono viene rilevato\r\nUn dispositivo è stato acceso o spento\r\nIl consumo elettrico è stato superato\r\nUn dispositivo non funziona correttamente o si surriscalda\r\nIl sensore di movimento a infrarossi passivo riduce di gran lunga i falsi allarmi garantendoti di essere avvisato solo quando necessario: rilevazione dei movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nMonitor HD\r\n\r\nCon il Monitor HD, potrai controllare la tua casa in alta definizione (720p) e grazie alla visione notturna anche in assenza di luce (fino a 5 mt). Il Monitor HD ti avvisa mediante notifica push ogni volta che verrà rilevato un suono o un movimento.\r\nSensore di movimento\r\n\r\nGrazie alla tecnologia a infrarossi passiva saranno ridotti i falsi allarmi e verrai avvisato solo quando necessario. Con il sensore di movimento rileverai i movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nSmart Plug\r\n\r\nPotrai accendere e spegnere i dispositivi dal tuo smartphone tablet, ovunque ti trovi. Essere avvisato se un elettrodomestico è stato acceso o spento. Impostare nuove regole di funzionamento in base alle tue esigenze.', 3, 'La configurazione è facilissima!\r\n\r\nBasta semplicemente scaricare la app mydlink Home e la configurazione guidata ti aiuterà a far funzionare tutti i dispositivi presenti nel kit.', 'Q: Come s fa a configurare il dispositivo con la propria abitazione?\r\nR: Chiama il tecnico al 190 oppure controlla sul sito tim nel reparto assistenza tecnica');
 
---
--- Indici per le tabelle scaricate
---
-
---
--- Indici per le tabelle `categoriadispositivo`
---
-ALTER TABLE `categoriadispositivo`
-  ADD PRIMARY KEY (`idcategoriadispositivo`);
-
---
--- Indici per le tabelle `categoriaservizioassistenza`
---
-ALTER TABLE `categoriaservizioassistenza`
-  ADD PRIMARY KEY (`idservizio`);
-
---
--- Indici per le tabelle `categoriasmartlifeservice`
---
-ALTER TABLE `categoriasmartlifeservice`
-  ADD PRIMARY KEY (`idsmartlife`);
-
---
--- Indici per le tabelle `dispositivo`
---
-ALTER TABLE `dispositivo`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `dispositivo_servizioassistenza`
---
-ALTER TABLE `dispositivo_servizioassistenza`
-  ADD PRIMARY KEY (`id_dispositivo_dsa`,`id_servizioassistenza_dsa`);
-
---
--- Indici per le tabelle `dispositivo_smartlifeservice`
---
-ALTER TABLE `dispositivo_smartlifeservice`
-  ADD PRIMARY KEY (`id_dispositivo_dss`,`id_smartlifeservice_dss`),
-  ADD KEY `id_smartlifeservice` (`id_smartlifeservice_dss`);
-
---
--- Indici per le tabelle `servizioassistenza`
---
-ALTER TABLE `servizioassistenza`
-  ADD PRIMARY KEY (`idservizioassistenza`);
-
---
--- Indici per le tabelle `smartlifeservice`
---
-ALTER TABLE `smartlifeservice`
-  ADD PRIMARY KEY (`idsmartlifeservices`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
-
---
--- AUTO_INCREMENT per la tabella `categoriadispositivo`
---
-ALTER TABLE `categoriadispositivo`
-  MODIFY `idcategoriadispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT per la tabella `categoriaservizioassistenza`
---
-ALTER TABLE `categoriaservizioassistenza`
-  MODIFY `idservizio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT per la tabella `categoriasmartlifeservice`
---
-ALTER TABLE `categoriasmartlifeservice`
-  MODIFY `idsmartlife` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT per la tabella `dispositivo`
---
-ALTER TABLE `dispositivo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
---
--- AUTO_INCREMENT per la tabella `servizioassistenza`
---
-ALTER TABLE `servizioassistenza`
-  MODIFY `idservizioassistenza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
---
--- AUTO_INCREMENT per la tabella `smartlifeservice`
---
-ALTER TABLE `smartlifeservice`
-  MODIFY `idsmartlifeservices` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
