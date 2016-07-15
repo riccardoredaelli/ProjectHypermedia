@@ -24,26 +24,33 @@
 
 	</head>
 	<body>
-        
+
 		<div class="container" id="main">
 
-            <div id="header"></div><!-- HEADER QUI HEADER QUI HEADER QUI -->
-       
-            
-            <div class="row top-buffer-from-navbar"> 
-                <ol class="breadcrumb nav-track well-small visible-sm" id="orientation">
-                    <li class="active">Dispositivi</li>
-                </ol>
-                
-                <div id="devices"></div> 
+            <div id="header"></div><!-- HEADER QUI HEADER QUI HEADER QUI -->        
+        
+		    <div class="row top-buffer-from-navbar">
+                <div class= "col-sm-12 feature">
+                     
+                    <div class="col-sm-8">
+                        <a id="annulla" target="_blank" class="btn btn-smsll btn-default">Annulla</a>
+                        <a href="#" target="_blank" class="btn btn-smsll btn-default">Procedi al pagamento</a>
+                    </div>
+                    <div class= "col-sm-4">
+                        <div id="device-image"></div>
+                    </div>
+                </div>
             </div>
-	   </div><!-- end container -->
-    <footer id="footer"></footer><!-- FOOTER QUI FOOTER QUI FOOTER QUI -->
+           
+            
+	</div><!-- end container -->
 
+    <footer id="footer"></footer><!-- FOOTER QUI FOOTER QUI FOOTER QUI -->
+        
 	<!-- All Javascript at the bottom of the page for faster page loading -->
 
 	<!-- First try for the online version of jQuery-->
-	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>   
 
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
@@ -54,15 +61,16 @@
 
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Custom JS -->
+    <script src="includes/js/compra.js"></script>
+                 
+	<script src="includes/js/script.js"></script>  
     <script>
         $(function(){
             $("#footer").load("footer.html");
         });
     </script>
-
-	<!-- Custom JS -->
-	<script src="includes/js/script.js"></script>
-    <script src="includes/js/devices.js"></script>
-
+        
 	</body>
 </html>

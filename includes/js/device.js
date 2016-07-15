@@ -119,6 +119,8 @@ function evan(){
             containerFeatures.appendChild(listGroup);
             
             var containerPrice = document.getElementById("devicePrice");
+            var bottone=document.getElementById("buyButton");
+            bottone.setAttribute("href", "compra.html?c=1?device="+dispositivo[i].id);
             var price = document.createElement("h1");
             var priceValue = document.createTextNode(dispositivo[i].prezzo+"\u20AC");
             price.appendChild(priceValue);
