@@ -42,4 +42,72 @@ function evan(){
     });
 }
 
+function compatible(){
+    console.log("Sono pronto a caricare i dispositivi compatibili");
+    var iddispositivo=1;
+    
+    $.ajax({
+        method: "POST",
+        crossDomain: true, //localhost purposes
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        data: {query : "SELECT * FROM dispositivo, dispositivo_servizioassistenza, servizioassistenza WHERE servizioassistenza.idservizioassistenza=dispositivo_servizioassistenza.id_servizioassistenza_dsa AND dispositivo.id=dispositivo_servizioassistenza.id_dispositivo_dsa ORDER BY dispositivo.id"},
+        success: function(response) {
+            var compatibledevice=JSON.parse(response);
+            var myParam = location.search.split('category=')[1];
+            var i = 0;
+            
+            var containerImg = document.getElementById("compatibleDevices");
+            var row = document.createElement("div");
+            row.setAttribute("class", "row");
+            
+            for (i = 0; i<compatibledevice.length; i++){
+                if (compatibledevice[i].id_servizioassistenza_dsa == myParam){
+          
+                var urlCategoria = "device.html?c=1?device=" +compatibledevice[i].id;
+                
+                var imgTemp = document.createElement("img");
+                
+                var urlImmagine = "images/devices/" + compatibledevice[i].immagine;
+                imgTemp.setAttribute('src', urlImmagine);
+                imgTemp.setAttribute("class", "img-responsive");
+                
+                var nomeTemp = document.createElement("a");
+                nomeTemp.setAttribute('class', 'btn btn-smsll btn-block btn-default');
+                nomeTemp.setAttribute("href", urlCategoria);
+                var nome = document.createTextNode("Scopri");
+                nomeTemp.appendChild(nome);
+                
+                
+                var categoria = document.createElement("div");
+                categoria.setAttribute("class", "col-sm-2 feature");
+              
+                var categoriaPanel = document.createElement("div");
+                categoriaPanel.setAttribute("class", "panel");
+              
+                var panelTitle = document.createElement("h4");
+                panelTitle.appendChild(document.createTextNode(compatibledevice[i].nome));
+                
+              
+                categoriaPanel.appendChild(imgTemp);
+                categoriaPanel.appendChild(panelTitle);
+                categoriaPanel.appendChild(nomeTemp);
+                categoria.appendChild(categoriaPanel);
+              
+                row.appendChild(categoria);
+                    
+                }
+                
+                containerImg.appendChild(row);
+            }
+            
+          
+        },
+        error: function(request,error) 
+        {
+            console.log("Error");
+        }
+    });
+}
+
 $(document).ready(evan);
+$(document).ready(compatible);
