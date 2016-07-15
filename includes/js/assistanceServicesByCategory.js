@@ -36,6 +36,7 @@ function ready(){
                     descrTemp.setAttribute("class", "list-group-item-text");
                     var descr = document.createTextNode(assistanceservices[i].descrizioneservizioassistenza);
                     descrTemp.appendChild(descr);
+                    descrTemp.setAttribute("class","description-text");
                     listGroupItem.appendChild(nomeTemp);
                     listGroupItem.appendChild(descrTemp);
 
@@ -62,6 +63,7 @@ function ready(){
                 descrTemp.setAttribute("class", "list-group-item-text");
                 var descr = document.createTextNode(assistanceservices[i].descrizioneservizioassistenza);
                 descrTemp.appendChild(descr);
+                descrTemp.setAttribute("class","description-text");
                 listGroupItem.appendChild(nomeTemp);
                 listGroupItem.appendChild(descrTemp);
                 
