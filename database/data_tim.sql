@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 15, 2016 alle 21:53
+-- Creato il: Lug 15, 2016 alle 22:29
 -- Versione del server: 10.1.13-MariaDB
 -- Versione PHP: 5.6.21
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `data_tim`
 --
-CREATE DATABASE IF NOT EXISTS `data_tim` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `data_tim`;
 
 -- --------------------------------------------------------
 
@@ -28,14 +26,12 @@ USE `data_tim`;
 -- Struttura della tabella `categoriadispositivo`
 --
 
-DROP TABLE IF EXISTS `categoriadispositivo`;
-CREATE TABLE IF NOT EXISTS `categoriadispositivo` (
-  `idcategoriadispositivo` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categoriadispositivo` (
+  `idcategoriadispositivo` int(11) NOT NULL,
   `nomecategoriadispositivo` varchar(99) DEFAULT NULL,
   `descrizionecategoriadispositivo` text,
-  `immaginecategoriadispositivo` varchar(99) DEFAULT NULL,
-  PRIMARY KEY (`idcategoriadispositivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `immaginecategoriadispositivo` varchar(99) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `categoriadispositivo`
@@ -54,14 +50,12 @@ INSERT INTO `categoriadispositivo` (`idcategoriadispositivo`, `nomecategoriadisp
 -- Struttura della tabella `categoriaservizioassistenza`
 --
 
-DROP TABLE IF EXISTS `categoriaservizioassistenza`;
-CREATE TABLE IF NOT EXISTS `categoriaservizioassistenza` (
-  `idservizio` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categoriaservizioassistenza` (
+  `idservizio` int(11) NOT NULL,
   `nomeservizio` varchar(99) DEFAULT NULL,
   `descrizioneservizio` text,
-  `immagineservizio` varchar(99) DEFAULT NULL,
-  PRIMARY KEY (`idservizio`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `immagineservizio` varchar(99) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `categoriaservizioassistenza`
@@ -79,14 +73,12 @@ INSERT INTO `categoriaservizioassistenza` (`idservizio`, `nomeservizio`, `descri
 -- Struttura della tabella `categoriasmartlifeservice`
 --
 
-DROP TABLE IF EXISTS `categoriasmartlifeservice`;
-CREATE TABLE IF NOT EXISTS `categoriasmartlifeservice` (
-  `idsmartlife` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categoriasmartlifeservice` (
+  `idsmartlife` int(11) NOT NULL,
   `nomesmartlife` varchar(99) DEFAULT NULL,
   `descrizionesmartlife` text,
-  `immaginesmartlife` varchar(99) DEFAULT NULL,
-  PRIMARY KEY (`idsmartlife`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `immaginesmartlife` varchar(99) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `categoriasmartlifeservice`
@@ -104,9 +96,8 @@ INSERT INTO `categoriasmartlifeservice` (`idsmartlife`, `nomesmartlife`, `descri
 -- Struttura della tabella `dispositivo`
 --
 
-DROP TABLE IF EXISTS `dispositivo`;
-CREATE TABLE IF NOT EXISTS `dispositivo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dispositivo` (
+  `id` int(11) NOT NULL,
   `nome` varchar(99) DEFAULT NULL,
   `descrizione` text NOT NULL,
   `categoria` int(11) DEFAULT NULL,
@@ -120,9 +111,8 @@ CREATE TABLE IF NOT EXISTS `dispositivo` (
   `ram` int(11) NOT NULL,
   `processore` varchar(99) NOT NULL,
   `dimensioni` varchar(99) NOT NULL,
-  `peso` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+  `peso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `dispositivo`
@@ -171,11 +161,9 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 -- Struttura della tabella `dispositivo_servizioassistenza`
 --
 
-DROP TABLE IF EXISTS `dispositivo_servizioassistenza`;
-CREATE TABLE IF NOT EXISTS `dispositivo_servizioassistenza` (
+CREATE TABLE `dispositivo_servizioassistenza` (
   `id_dispositivo_dsa` int(11) NOT NULL,
-  `id_servizioassistenza_dsa` int(11) NOT NULL,
-  PRIMARY KEY (`id_dispositivo_dsa`,`id_servizioassistenza_dsa`)
+  `id_servizioassistenza_dsa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -393,12 +381,9 @@ INSERT INTO `dispositivo_servizioassistenza` (`id_dispositivo_dsa`, `id_servizio
 -- Struttura della tabella `dispositivo_smartlifeservice`
 --
 
-DROP TABLE IF EXISTS `dispositivo_smartlifeservice`;
-CREATE TABLE IF NOT EXISTS `dispositivo_smartlifeservice` (
+CREATE TABLE `dispositivo_smartlifeservice` (
   `id_dispositivo_dss` int(11) NOT NULL,
-  `id_smartlifeservice_dss` int(11) NOT NULL,
-  PRIMARY KEY (`id_dispositivo_dss`,`id_smartlifeservice_dss`),
-  KEY `id_smartlifeservice` (`id_smartlifeservice_dss`)
+  `id_smartlifeservice_dss` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -512,15 +497,13 @@ INSERT INTO `dispositivo_smartlifeservice` (`id_dispositivo_dss`, `id_smartlifes
 -- Struttura della tabella `servizioassistenza`
 --
 
-DROP TABLE IF EXISTS `servizioassistenza`;
-CREATE TABLE IF NOT EXISTS `servizioassistenza` (
-  `idservizioassistenza` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `servizioassistenza` (
+  `idservizioassistenza` int(11) NOT NULL,
   `nomeservizioassistenza` varchar(99) DEFAULT NULL,
   `descrizioneservizioassistenza` text,
   `categoriaservizioassistenza` int(11) DEFAULT NULL,
-  `highlightservizioassistenza` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`idservizioassistenza`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+  `highlightservizioassistenza` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `servizioassistenza`
@@ -587,37 +570,122 @@ INSERT INTO `servizioassistenza` (`idservizioassistenza`, `nomeservizioassistenz
 -- Struttura della tabella `smartlifeservice`
 --
 
-DROP TABLE IF EXISTS `smartlifeservice`;
-CREATE TABLE IF NOT EXISTS `smartlifeservice` (
-  `idsmartlifeservices` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `smartlifeservice` (
+  `idsmartlifeservices` int(11) NOT NULL,
   `immaginesmartlifeservices` varchar(99) DEFAULT NULL,
   `nomesmartlifeservices` varchar(99) DEFAULT NULL,
   `introduzionesmartlifeservices` text NOT NULL,
   `descrizionesmartlifeservices` text,
   `categoriasmartlifeservices` int(11) NOT NULL,
   `attivazionesmartlifeservices` text,
-  `faqsmartlifeservices` text NOT NULL,
-  PRIMARY KEY (`idsmartlifeservices`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `faqsmartlifeservices` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `smartlifeservice`
 --
 
 INSERT INTO `smartlifeservice` (`idsmartlifeservices`, `immaginesmartlifeservices`, `nomesmartlifeservices`, `introduzionesmartlifeservices`, `descrizionesmartlifeservices`, `categoriasmartlifeservices`, `attivazionesmartlifeservices`, `faqsmartlifeservices`) VALUES
-(1, 'tim_music.jpg', 'TIM Music', 'La colonna sonora della tua vita!\r\n\r\nAscolta milioni di brani in streaming, tutte le novità discografiche,\r\nanteprime esclusive e tante playlist di tutti i generi. Su smartphone\r\nsenza consumare GB, pc e tablet. Quando vuoi e quanto vuoi', 'Ascolta la tua musica in libertà', 1, 'attivalo gratis con la tua promozione internet', 'è meglio di spotify?\r\nNon credo proprio'),
-(2, 'tim_reading.jpg', 'TIM Reading', 'Leggi quando vuoi, cosa vuoi\r\n\r\nPorta sempre con te su Smartphone e Tablet i tuoi eBook preferiti,\r\nsegui tutte le tue passioni scegliendo tra i magazine più amati e sfoglia\r\nil tuo quotidiano dalle prime ore del mattino.', 'Porta sempre con te su Smartphone e Tablet i tuoi eBook preferiti,\r\nsegui tutte le tue passioni scegliendo tra i magazine più amati e sfoglia\r\nil tuo quotidiano dalle prime ore del mattino.\r\nSu TIMreading trovi ciò che ami leggere, dove e quando vuoi.', 1, 'Vuoi essere informato dalle prime ore del mattino? Con l’offerta Sfoglio Digitale TIM puoi leggere i tuoi giornali preferiti ogni giorno sul tuo PC, tablet o smartphone. Il meglio dell''informazione è sempre con te.\r\n\r\nScegli tra le principali testate giornalistiche italiane complete di allegati ed edizioni locali: Corriere della Sera, la Repubblica, Il Messaggero, La Gazzetta dello Sport, La Stampa, Il Mattino, Il Gazzettino, Il Corriere Adriatico,Il Nuovo Quotidiano di Puglia, La Nazione, Il Resto del Carlino e il Giorno.', 'Q: I giornali escono in orario?\r\nR: I giornali sono disponibili dalle prime ore del mattino.'),
-(3, 'tim_games.jpg', 'TIM Games', 'Mettiti in gioco,\r\nuna nuova sfida ti aspetta!\r\nSparatutto, sport estremi, i migliori Classici e molto altro ancora...\r\nCon TIMgames hai a disposizione centinaia di giochi per il tuo\r\nsmartphone e tablet, per divertirti dove e quando vuoi.', 'Un servizio di giochi inedito che ti permette di avere sul tuo dispositivo tutti  i titoli del momento! Un fantastico supporto dalla nostra community e un divertimento garantito grazie a numerosi generi di giochi presenti!', 1, 'Per attivare il servizio TIM Games basta cliccare sul pulsante ''attiva servizio'' qui in basso. Istantaneamente verrai catapultato in un mondo di giochi vastissimo che ti farà passare in maniera allegra le tue giornate. Categorie di giochi diverse per accontentare anche gli utenti più difficili e se hai un abbonamento internet scopri anche il multiplayer e confrontati con milioni di giocatori come te sparsi in tutto il mondo.', 'Q: Posso giocare su quasiasi dispositivo?\r\nR: Si può giocare su tutti i dispositivi compatibili elencati in basso.'),
-(4, 'seriea.jpg', 'Serie A TIM', 'Il calcio è di chi lo ama!\r\n\r\nVivi il meglio della Serie A TIM e i migliori momenti del Campionato 2015/2016\r\ncon tutte le notizie, i video-goal, le sintesi sul tuo Smartphone o Tablet\r\ne senza consumare GB. L’unica App ufficiale della Serie A TIM.', 'Vivi il meglio della Serie A TIM e i migliori momenti del Campionato 2015/2016 con tutte le notizie, i video-goal, le sintesi sul tuo Smartphone o Tablet e senza consumare GB. L’unica App ufficiale della Serie A TIM. Scarica l’App e vivi la magia del calcio!\r\nTutte le partite della tua squadra del cuore ovunque ti trovi, solo con TIM!', 1, 'Per attivare il servizio clicca sul pulsante in basso ''attiva servizio'' e catapultati in un mondo di goal e fantastiche partite con i tuoi idoli della serie A. ', 'Q: Posso vedere tutte le partite in diretta?\r\nR: Si.'),
-(5, 'wellup.jpg', 'TIM Wellup', 'Un''app gratuita sviluppata come fosse un diario personale, per disporre in ogni momento di tutte le informazioni sui controlli medici preventivi da effettuare periodicamente per sé e per tutta la famiglia', 'Un''app gratuita sviluppata come fosse un diario personale, per disporre in ogni momento di tutte le informazioni sui controlli medici preventivi da effettuare periodicamente per sé e per tutta la famiglia. Con TIM wellup non hai più scuse per non allenarti e per restare in forma ed in salute. Potrai essere sempre tranquillo di avere tutta la situazione famigliare sotto controllo e liberare la mente da tutte le date delle visite che avete in programma. Tutta la famiglia in un''unica app! WELLUP TIM!', 2, 'Per attivare il servizio clicca il pulsante ''attiva servizio'' qui in basso e controlla se il tuo dispositivo è presente tra quelli compatibili! L''attivazione è veloce e gratuita, perchè noi teniamo alla salute dei nostri clienti!', 'Q: Quante persone possono essere aggiunte nell''applicazione? R: WELLUP ha spazio per tutti i tuoi cari, sicuramente.'),
-(6, 'timtag.jpg', 'TIM TAG', 'TIMTag, è il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care. \r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.', 'TIMTag, è il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care. \r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.TIMTag è il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care.\r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.\r\n\r\nCon TIMTag hai un dispositivo di localizzazione GPS di ultima generazione, con 12 mesi di servizio TIMTag e una TIM Card inclusi e un'' App dedicata intuitiva e semplice da utilizzare!', 3, 'Acquista il Pack TIMTag\r\n\r\nAcquista subito online e ricevi direttamente a casa tua il pack oppure vai in uno dei negozi TIM.\r\n\r\nAttiva la TIM Card\r\n\r\nRegistra la TIM Card che trovi nel Pack in un negozio TIM (l''offerta TIMTag si attiverà automaticamente dopo la registrazione).\r\n\r\nScarica l''APP TIMTag sul tuo Smartphone\r\n\r\nInstalla l''app sul tuo smartphone ed associa il dispositivo di localizzazione (Android ed iOS).', 'Q: Quali sono le caratteristiche di TIMTag?\r\n\r\nR: È un''offerta TIM che ti offre un Tracker GPS con inclusi 12 mesi di servizio TIMTag. L’opzione TIMTag in promo, include il traffico sia dati che SMSs dal Tracker GPS verso la piattaforma di servizio (max 50MB e 100SMS ogni 30 giorni) e l’utilizzo dell’App TIMTag. Il Bundle dati e SMS previsto è calibrato per soddisfare le esigenze di un utilizzo continuativo del dispositivo.'),
-(7, 'timhomeconnect.jpg', 'TIM Home Connect', 'La soluzione ideale per gestire tutti i sistemi di domotica presenti nella tua casa, dalla semplice caldaia domestica, ai sistemi di protezione della casa, ai più avanzati sistemi di monitoraggio.', 'La soluzione ideale per gestire tutti i sistemi di domotica presenti nella tua casa, dalla semplice caldaia domestica, ai sistemi di protezione della casa, ai più avanzati sistemi di monitoraggio.\r\nTIM Home Connect è l’offerta pensata per essere utilizzata nei dispositivi di domotica presenti nella casa, la cui gestione prevede l''uso di una SIM\r\n\r\nCon Tim Home Connect infatti hai a disposizione minuti, MB e SMS da utilizzare per connettere e gestire il tuo antifurto, la tua caldaia o altri sistemi di domotica.\r\n', 3, 'Se sei già in possesso di una TIM Card, direttamente online cliccando sul tasto ''attiva servizio''\r\nPresso i Negozi TIM', 'Q: L''offerta è compatibile con tutte le altre offerte? R: L''offerta non prevede incompatibilità con altre opzioni. L''attivazione dell''offerta non comporta la disattivazione automatica di eventuali altre opzioni attive sul proprio numero; per gestire le opzioni presenti sulla linea basta accedere al Servizio Clienti 119 o chiamare il numero gratuito 409161.'),
-(8, 'trasporti.jpg', 'Trasporti', 'Acquista i biglietti dei trasporti della tua città, attraverso il servizio SMS ticketing. Verifica subito se il servizio è già disponibile nella tua città!', 'Compra un biglietto via SMS e pagalo direttamente con il tuo credito telefonico.\r\nSCEGLI LA CITTA’\r\n\r\nEntra nella Vetrina dei servizi e scopri se il servizio è già attivo nella tua città\r\nACQUISTA IL BIGLIETTO\r\n\r\nSeleziona la tipologia di biglietto e acquistalo direttamente con il tuo credito telefonico\r\nVISUALIZZA IL BIGLIETTO\r\n\r\nTrovi subito il biglietto valido nella sezione Trasporti del tuo TIM Wallet\r\nCOME FUNZIONA\r\nApri TIM Wallet e accedi alla Vetrina Servizi. \r\nSe la città che ti interessa é abilitata, clicca e acquista il biglietto. \r\nPaghi direttamente con il tuo credito telefonico (se sei un Cliente Ricaricabile) o con addebito in bolletta (se sei un Cliente con Abbonamento). \r\n\r\nAttenzione: ti verranno addebitati il costo del biglietto piu? il costo dell’SMS di richiesta (19,90 €cent IVA inclusa). \r\n\r\nRicevi un SMS, il biglietto è valido da quel momento senza necessità di ulteriori convalide. \r\nPuoi trovare il biglietto elettronico direttamente nel TIM Wallet nel tuo portafogli, puoi rinnovarlo quando scade. In caso di controllo, mostra l’SMS di conferma che hai ricevuto.\r\n\r\nA Milano puoi utilizzare anche la modalità QRCode. Dopo aver acquistato il biglietto della metropolitana e ricevuto l’SMS, ricevi anche il QRCode che permette di aprire i tornelli della metropolitana. E’ sufficiente visualizzare il QRCode e accostare il display dello smartphone all’apposito lettore.', 4, 'Il servizio sarà attivo non appena cliccherai su ''attiva servizio''. La tua sim sarà così abilitata all''acquisto di biglietti in maniera semplice, veloce e sicura.', 'Q: Quanto costa il servizio?\r\nR: L''utilizzo di TIM Wallet comporta il consumo di traffico Internet, per il quale si applica il tuo piano tariffario. Ti verranno inoltre addebitati il costo del biglietto più il costo dell’SMS di richiesta (19,90 &euro;cent IVA inclusa).\r\n								Il costo totale verrà scalato dal tuo credito telefonico (se sei un Cliente Ricaricabile) o con addebito in bolletta (se sei un Cliente con Abbonamento).'),
-(9, 'phone-card-pagamenti.png', 'Pagamenti', 'Scegli le carte di pagamento di Intesa Sanpaolo, BNL o Mediolanum: pagare è semplice e conveniente!', 'Per utilizzare in pieno tutti i servizi offerti da TIM Wallet ti suggeriamo di utilizzare una TIM Card NFC.	Richiedi il cambio carta in un Negozio TIM, oppure diventa un cliente TIM acquistandone una nuova! Ricorda, il servizio di pagamenti è disponibile solo per le TIM Card NFC.\r\nScopri tutti gli smartphone che sono abilitati all’utilizzo dei servizi di pagamento. Controlla la lista dei terminali compatibili, certificati per garantire i requisiti di sicurezza di banche e circuiti di pagamento.\r\n', 4, 'Ricordati di scaricare l’app TIM Wallet e di attivarlo accedendo almeno una volta al servizio.', 'Q: Quali sono i privilegi che si acquisiscono pagando con Tim?\r\nR: Puoi ottenere molti sconti in vari negozi convenzionati, e al cinema entri gratis il lunedì'),
-(10, 'fidelity-card.jpg', 'Fidelity Card', 'Salva nel TIM Wallet le tue carte fedeltà per averle sempre con te', 'Con TIM Wallet puoi virtualizzare le tue carte fedeltà e portarle sempre con te. \r\nAccedi alla Vetrina Servizi e in pochi passaggi puoi acquisire tutte le tue carte fedeltà. \r\nInquadra la carta nel riquadro e attendi che venga riconosciuta. \r\nIl riconoscimento della tessera é automatico, tuttavia se la tessera non viene riconosciuta tra le carte presenti puoi comunque aggiungerla utilizzando la fotocamera del tuo smartphone: seleziona il tipo di codice riportato sulla tessera (codice a barre, QRCode o codice numerico) e inquadralo. Se il codice non viene riconosciuto automaticamente, può essere inserito anche manualmente. \r\nIn breve puoi vedere la tessera nel portafogli. \r\nPuoi mostrarla nei punti vendita abilitati direttamente dal tuo smartphone: se clicchi sull''immagine della carta in automatico ruota e ti mostra il codice a barre (attenzione: non tutti i punti vendita hanno i lettori di codice a barre abilitati!)', 4, 'Utilizza la fotocamera per aggiungere una carta.\r\nLa tessera viene riconosciuta in automatico e la trovi nel tuo TIM Wallet.\r\nApri il wallet e mostra le carte fedeltà nei punti vendita.', 'Q: Come si aggiunge una carta fedeltà?\r\nR: Accedi alla Vetrina Servizi e inquadra la carta nel riquadro. Il riconoscimento della carta è automatico nella maggior parte dei casi. Se la carta non è riconosciuta tra quelle presenti puoi aggiungerla utilizzando la fotocamera del tuo smartphone.\r\nQ: Dove vengono memorizzate le carte?\r\nR: Tutte le carte sono memorizzate sul tuo smartphone, puoi mostrarle nel punto vendita anche senza avere connessione Internet.'),
-(11, 'coupon.jpg', 'Coupon', 'Risparmia su un’ampia gamma di prodotti e servizi selezionati da QUI! Group', 'Trova il collegamento al servizio “I coupon consigliati da TIM” dal menu laterale di TIM Wallet. Nella pagina informativa selezionando il tasto “SCOPRI” accedi al sito dove potrai scegliere tra tante offerte speciali. \r\n\r\nPuoi ricercare i prodotti delle migliori marche, viaggi da sogno e sconti sui locali piu? esclusivi della tua città navigando tra le categorie di offerte. \r\n\r\nUtilizzando il GPS del tuo smartphone puoi trovare sempre le migliori offerte intorno a te. ', 4, 'Il servizio è offerto ai clienti TIM da QUI! Group attraverso la propria rete commerciale. Il pagamento viene effettuato utilizzando il sistema di carta di credito di QUI! Group. In caso di necessità è necessario contattare il centro assistenza clienti di QUI! Group al numero 010/5389945 (opzione 3).', 'Q: Come si attiva il servizio Coupon?\r\nR: Nel menu laterale di TIM Wallet trovi il collegamento al servizio “I Coupon consigliati da TIM”. Nella pagina informativa selezionando il tasto “SCOPRI” si accede al sito dove potrai scegliere tra tante offerte speciali.\r\nQ: Trovo solo le offerte della mia città?\r\nR: Se imposti il GPS del tuo smartphone, automaticamente ti vengono mostrate le migliori offerte intorno a te, nella tua città.\r\nPuoi effettuare ricerche anche su altre città e categorie di tuo interesse e navigare tra le offerte.'),
-(12, 'dlink-smarthome.jpg', 'D-Link SmartHome', 'D-Link SmartHome Starter Kit ti offre la possibilità di impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.', 'Con lo Smart Home HD Starter Kit potrai impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.\r\nNel Kit sono inclusi:\r\n\r\nUn Monitor HD (DCS-935L) \r\nUn Wi-Fi Motion Sensor (DCH-S150)\r\nUna smart plug (DSP-W215) \r\nTramite l''App mydlink Home per smartphone e tablet hai a disposizione il controllo di tutti i dispositivi così da semplificarti la gestione della casa rendendola più sicura e intelligente.\r\n\r\nFacile configurazione e gestione dei tuoi dispositivi\r\n\r\nBasta semplicemente scaricare l’app mydlink Home e la configurazione guidata ti aiuterà a utilizzare al meglio tutti i dispositivi presenti nel kit in modo facile e intuitivo.\r\nCon l’app potrai creare tu stesso le regole per accendere e spegnere i tuoi elettrodomestici quando e ovunque vuoi. \r\n\r\nNotifiche automatiche e real time sul tuo smartphone\r\n\r\nL’app mydlink Home ti notificherà quando:\r\nUn movimento o un suono viene rilevato\r\nUn dispositivo è stato acceso o spento\r\nIl consumo elettrico è stato superato\r\nUn dispositivo non funziona correttamente o si surriscalda\r\nIl sensore di movimento a infrarossi passivo riduce di gran lunga i falsi allarmi garantendoti di essere avvisato solo quando necessario: rilevazione dei movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nMonitor HD\r\n\r\nCon il Monitor HD, potrai controllare la tua casa in alta definizione (720p) e grazie alla visione notturna anche in assenza di luce (fino a 5 mt). Il Monitor HD ti avvisa mediante notifica push ogni volta che verrà rilevato un suono o un movimento.\r\nSensore di movimento\r\n\r\nGrazie alla tecnologia a infrarossi passiva saranno ridotti i falsi allarmi e verrai avvisato solo quando necessario. Con il sensore di movimento rileverai i movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nSmart Plug\r\n\r\nPotrai accendere e spegnere i dispositivi dal tuo smartphone tablet, ovunque ti trovi. Essere avvisato se un elettrodomestico è stato acceso o spento. Impostare nuove regole di funzionamento in base alle tue esigenze.', 3, 'La configurazione è facilissima!\r\n\r\nBasta semplicemente scaricare la app mydlink Home e la configurazione guidata ti aiuterà a far funzionare tutti i dispositivi presenti nel kit.', 'Q: Come s fa a configurare il dispositivo con la propria abitazione?\r\nR: Chiama il tecnico al 190 oppure controlla sul sito tim nel reparto assistenza tecnica');
+(1, 'tim_music.jpg', 'TIM Music', 'La colonna sonora della tua vita!\r\n\r\nAscolta milioni di brani in streaming, tutte le novità discografiche,\r\nanteprime esclusive e tante playlist di tutti i generi. Su smartphone\r\nsenza consumare GB, pc e tablet. Quando vuoi e quanto vuoi', 'Ascolta la tua musica in libertà', 1, 'attivalo gratis con la tua promozione internet', 'è meglio di spotify?&\r\nNon credo proprio&\r\nIl traffico internet che consumo usando TIM Music viene scalato dai miei GB in abbonamento?&\r\nNo, il suo traffico internet rimane invariato.'),
+(2, 'tim_reading.jpg', 'TIM Reading', 'Leggi quando vuoi, cosa vuoi\r\n\r\nPorta sempre con te su Smartphone e Tablet i tuoi eBook preferiti,\r\nsegui tutte le tue passioni scegliendo tra i magazine più amati e sfoglia\r\nil tuo quotidiano dalle prime ore del mattino.', 'Porta sempre con te su Smartphone e Tablet i tuoi eBook preferiti,\r\nsegui tutte le tue passioni scegliendo tra i magazine più amati e sfoglia\r\nil tuo quotidiano dalle prime ore del mattino.\r\nSu TIMreading trovi ciò che ami leggere, dove e quando vuoi.', 1, 'Vuoi essere informato dalle prime ore del mattino? Con l’offerta Sfoglio Digitale TIM puoi leggere i tuoi giornali preferiti ogni giorno sul tuo PC, tablet o smartphone. Il meglio dell''informazione è sempre con te.\r\n\r\nScegli tra le principali testate giornalistiche italiane complete di allegati ed edizioni locali: Corriere della Sera, la Repubblica, Il Messaggero, La Gazzetta dello Sport, La Stampa, Il Mattino, Il Gazzettino, Il Corriere Adriatico,Il Nuovo Quotidiano di Puglia, La Nazione, Il Resto del Carlino e il Giorno.', 'I giornali escono in orario?&\r\nI giornali sono disponibili dalle prime ore del mattino.'),
+(3, 'tim_games.jpg', 'TIM Games', 'Mettiti in gioco,\r\nuna nuova sfida ti aspetta!\r\nSparatutto, sport estremi, i migliori Classici e molto altro ancora...\r\nCon TIMgames hai a disposizione centinaia di giochi per il tuo\r\nsmartphone e tablet, per divertirti dove e quando vuoi.', 'Un servizio di giochi inedito che ti permette di avere sul tuo dispositivo tutti  i titoli del momento! Un fantastico supporto dalla nostra community e un divertimento garantito grazie a numerosi generi di giochi presenti!', 1, 'Per attivare il servizio TIM Games basta cliccare sul pulsante ''attiva servizio'' qui in basso. Istantaneamente verrai catapultato in un mondo di giochi vastissimo che ti farà passare in maniera allegra le tue giornate. Categorie di giochi diverse per accontentare anche gli utenti più difficili e se hai un abbonamento internet scopri anche il multiplayer e confrontati con milioni di giocatori come te sparsi in tutto il mondo.', 'Posso giocare su quasiasi dispositivo?&\r\nSi può giocare su tutti i dispositivi compatibili elencati in basso.'),
+(4, 'seriea.jpg', 'Serie A TIM', 'Il calcio è di chi lo ama!\r\n\r\nVivi il meglio della Serie A TIM e i migliori momenti del Campionato 2015/2016\r\ncon tutte le notizie, i video-goal, le sintesi sul tuo Smartphone o Tablet\r\ne senza consumare GB. L’unica App ufficiale della Serie A TIM.', 'Vivi il meglio della Serie A TIM e i migliori momenti del Campionato 2015/2016 con tutte le notizie, i video-goal, le sintesi sul tuo Smartphone o Tablet e senza consumare GB. L’unica App ufficiale della Serie A TIM. Scarica l’App e vivi la magia del calcio!\r\nTutte le partite della tua squadra del cuore ovunque ti trovi, solo con TIM!', 1, 'Per attivare il servizio clicca sul pulsante in basso ''attiva servizio'' e catapultati in un mondo di goal e fantastiche partite con i tuoi idoli della serie A. ', 'Posso vedere tutte le partite in diretta?&\r\nSi.'),
+(5, 'wellup.jpg', 'TIM Wellup', 'Un''app gratuita sviluppata come fosse un diario personale, per disporre in ogni momento di tutte le informazioni sui controlli medici preventivi da effettuare periodicamente per sé e per tutta la famiglia', 'Un''app gratuita sviluppata come fosse un diario personale, per disporre in ogni momento di tutte le informazioni sui controlli medici preventivi da effettuare periodicamente per sé e per tutta la famiglia. Con TIM wellup non hai più scuse per non allenarti e per restare in forma ed in salute. Potrai essere sempre tranquillo di avere tutta la situazione famigliare sotto controllo e liberare la mente da tutte le date delle visite che avete in programma. Tutta la famiglia in un''unica app! WELLUP TIM!', 2, 'Per attivare il servizio clicca il pulsante ''attiva servizio'' qui in basso e controlla se il tuo dispositivo è presente tra quelli compatibili! L''attivazione è veloce e gratuita, perchè noi teniamo alla salute dei nostri clienti!', 'Quante persone possono essere aggiunte nell''applicazione?&\r\nWELLUP ha spazio per tutti i tuoi cari, sicuramente.'),
+(6, 'timtag.jpg', 'TIM TAG', 'TIMTag, è il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care. \r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.', 'TIMTag, è il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care. \r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.TIMTag è il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care.\r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.\r\n\r\nCon TIMTag hai un dispositivo di localizzazione GPS di ultima generazione, con 12 mesi di servizio TIMTag e una TIM Card inclusi e un'' App dedicata intuitiva e semplice da utilizzare!', 3, 'Acquista il Pack TIMTag\r\n\r\nAcquista subito online e ricevi direttamente a casa tua il pack oppure vai in uno dei negozi TIM.\r\n\r\nAttiva la TIM Card\r\n\r\nRegistra la TIM Card che trovi nel Pack in un negozio TIM (l''offerta TIMTag si attiverà automaticamente dopo la registrazione).\r\n\r\nScarica l''APP TIMTag sul tuo Smartphone\r\n\r\nInstalla l''app sul tuo smartphone ed associa il dispositivo di localizzazione (Android ed iOS).', 'Quali sono le caratteristiche di TIMTag?&\r\nÈ un''offerta TIM che ti offre un Tracker GPS con inclusi 12 mesi di servizio TIMTag. L’opzione TIMTag in promo, include il traffico sia dati che SMSs dal Tracker GPS verso la piattaforma di servizio (max 50MB e 100SMS ogni 30 giorni) e l’utilizzo dell’App TIMTag. Il Bundle dati e SMS previsto è calibrato per soddisfare le esigenze di un utilizzo continuativo del dispositivo.'),
+(7, 'timhomeconnect.jpg', 'TIM Home Connect', 'La soluzione ideale per gestire tutti i sistemi di domotica presenti nella tua casa, dalla semplice caldaia domestica, ai sistemi di protezione della casa, ai più avanzati sistemi di monitoraggio.', 'La soluzione ideale per gestire tutti i sistemi di domotica presenti nella tua casa, dalla semplice caldaia domestica, ai sistemi di protezione della casa, ai più avanzati sistemi di monitoraggio.\r\nTIM Home Connect è l’offerta pensata per essere utilizzata nei dispositivi di domotica presenti nella casa, la cui gestione prevede l''uso di una SIM\r\n\r\nCon Tim Home Connect infatti hai a disposizione minuti, MB e SMS da utilizzare per connettere e gestire il tuo antifurto, la tua caldaia o altri sistemi di domotica.\r\n', 3, 'Se sei già in possesso di una TIM Card, direttamente online cliccando sul tasto ''attiva servizio''\r\nPresso i Negozi TIM', 'L''offerta è compatibile con tutte le altre offerte?&\r\nL''offerta non prevede incompatibilità con altre opzioni. L''attivazione dell''offerta non comporta la disattivazione automatica di eventuali altre opzioni attive sul proprio numero; per gestire le opzioni presenti sulla linea basta accedere al Servizio Clienti 119 o chiamare il numero gratuito 409161.'),
+(8, 'trasporti.jpg', 'Trasporti', 'Acquista i biglietti dei trasporti della tua città, attraverso il servizio SMS ticketing. Verifica subito se il servizio è già disponibile nella tua città!', 'Compra un biglietto via SMS e pagalo direttamente con il tuo credito telefonico.\r\nSCEGLI LA CITTA’\r\n\r\nEntra nella Vetrina dei servizi e scopri se il servizio è già attivo nella tua città\r\nACQUISTA IL BIGLIETTO\r\n\r\nSeleziona la tipologia di biglietto e acquistalo direttamente con il tuo credito telefonico\r\nVISUALIZZA IL BIGLIETTO\r\n\r\nTrovi subito il biglietto valido nella sezione Trasporti del tuo TIM Wallet\r\nCOME FUNZIONA\r\nApri TIM Wallet e accedi alla Vetrina Servizi. \r\nSe la città che ti interessa é abilitata, clicca e acquista il biglietto. \r\nPaghi direttamente con il tuo credito telefonico (se sei un Cliente Ricaricabile) o con addebito in bolletta (se sei un Cliente con Abbonamento). \r\n\r\nAttenzione: ti verranno addebitati il costo del biglietto piu? il costo dell’SMS di richiesta (19,90 €cent IVA inclusa). \r\n\r\nRicevi un SMS, il biglietto è valido da quel momento senza necessità di ulteriori convalide. \r\nPuoi trovare il biglietto elettronico direttamente nel TIM Wallet nel tuo portafogli, puoi rinnovarlo quando scade. In caso di controllo, mostra l’SMS di conferma che hai ricevuto.\r\n\r\nA Milano puoi utilizzare anche la modalità QRCode. Dopo aver acquistato il biglietto della metropolitana e ricevuto l’SMS, ricevi anche il QRCode che permette di aprire i tornelli della metropolitana. E’ sufficiente visualizzare il QRCode e accostare il display dello smartphone all’apposito lettore.', 4, 'Il servizio sarà attivo non appena cliccherai su ''attiva servizio''. La tua sim sarà così abilitata all''acquisto di biglietti in maniera semplice, veloce e sicura.', 'Quanto costa il servizio?&\r\nL''utilizzo di TIM Wallet comporta il consumo di traffico Internet, per il quale si applica il tuo piano tariffario. Ti verranno inoltre addebitati il costo del biglietto più il costo dell’SMS di richiesta (19,90 € IVA inclusa).							Il costo totale verrà scalato dal tuo credito telefonico (se sei un Cliente Ricaricabile) o con addebito in bolletta (se sei un Cliente con Abbonamento).'),
+(9, 'phone-card-pagamenti.png', 'Pagamenti', 'Scegli le carte di pagamento di Intesa Sanpaolo, BNL o Mediolanum: pagare è semplice e conveniente!', 'Per utilizzare in pieno tutti i servizi offerti da TIM Wallet ti suggeriamo di utilizzare una TIM Card NFC.	Richiedi il cambio carta in un Negozio TIM, oppure diventa un cliente TIM acquistandone una nuova! Ricorda, il servizio di pagamenti è disponibile solo per le TIM Card NFC.\r\nScopri tutti gli smartphone che sono abilitati all’utilizzo dei servizi di pagamento. Controlla la lista dei terminali compatibili, certificati per garantire i requisiti di sicurezza di banche e circuiti di pagamento.\r\n', 4, 'Ricordati di scaricare l’app TIM Wallet e di attivarlo accedendo almeno una volta al servizio.', 'Quali sono i privilegi che si acquisiscono pagando con Tim?&\r\nPuoi ottenere molti sconti in vari negozi convenzionati, e al cinema entri gratis il lunedì'),
+(10, 'fidelity-card.jpg', 'Fidelity Card', 'Salva nel TIM Wallet le tue carte fedeltà per averle sempre con te', 'Con TIM Wallet puoi virtualizzare le tue carte fedeltà e portarle sempre con te. \r\nAccedi alla Vetrina Servizi e in pochi passaggi puoi acquisire tutte le tue carte fedeltà. \r\nInquadra la carta nel riquadro e attendi che venga riconosciuta. \r\nIl riconoscimento della tessera é automatico, tuttavia se la tessera non viene riconosciuta tra le carte presenti puoi comunque aggiungerla utilizzando la fotocamera del tuo smartphone: seleziona il tipo di codice riportato sulla tessera (codice a barre, QRCode o codice numerico) e inquadralo. Se il codice non viene riconosciuto automaticamente, può essere inserito anche manualmente. \r\nIn breve puoi vedere la tessera nel portafogli. \r\nPuoi mostrarla nei punti vendita abilitati direttamente dal tuo smartphone: se clicchi sull''immagine della carta in automatico ruota e ti mostra il codice a barre (attenzione: non tutti i punti vendita hanno i lettori di codice a barre abilitati!)', 4, 'Utilizza la fotocamera per aggiungere una carta.\r\nLa tessera viene riconosciuta in automatico e la trovi nel tuo TIM Wallet.\r\nApri il wallet e mostra le carte fedeltà nei punti vendita.', 'Come si aggiunge una carta fedeltà?&\r\nAccedi alla Vetrina Servizi e inquadra la carta nel riquadro. Il riconoscimento della carta è automatico nella maggior parte dei casi. Se la carta non è riconosciuta tra quelle presenti puoi aggiungerla utilizzando la fotocamera del tuo smartphone.&\r\nDove vengono memorizzate le carte?&\r\nTutte le carte sono memorizzate sul tuo smartphone, puoi mostrarle nel punto vendita anche senza avere connessione Internet.'),
+(11, 'coupon.jpg', 'Coupon', 'Risparmia su un’ampia gamma di prodotti e servizi selezionati da QUI! Group', 'Trova il collegamento al servizio “I coupon consigliati da TIM” dal menu laterale di TIM Wallet. Nella pagina informativa selezionando il tasto “SCOPRI” accedi al sito dove potrai scegliere tra tante offerte speciali. \r\n\r\nPuoi ricercare i prodotti delle migliori marche, viaggi da sogno e sconti sui locali piu? esclusivi della tua città navigando tra le categorie di offerte. \r\n\r\nUtilizzando il GPS del tuo smartphone puoi trovare sempre le migliori offerte intorno a te. ', 4, 'Il servizio è offerto ai clienti TIM da QUI! Group attraverso la propria rete commerciale. Il pagamento viene effettuato utilizzando il sistema di carta di credito di QUI! Group. In caso di necessità è necessario contattare il centro assistenza clienti di QUI! Group al numero 010/5389945 (opzione 3).', 'Come si attiva il servizio Coupon?&\r\nNel menu laterale di TIM Wallet trovi il collegamento al servizio “I Coupon consigliati da TIM”. Nella pagina informativa selezionando il tasto “SCOPRI” si accede al sito dove potrai scegliere tra tante offerte speciali.&\r\nTrovo solo le offerte della mia città?&\r\nSe imposti il GPS del tuo smartphone, automaticamente ti vengono mostrate le migliori offerte intorno a te, nella tua città.\r\nPuoi effettuare ricerche anche su altre città e categorie di tuo interesse e navigare tra le offerte.'),
+(12, 'dlink-smarthome.jpg', 'D-Link SmartHome', 'D-Link SmartHome Starter Kit ti offre la possibilità di impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.', 'Con lo Smart Home HD Starter Kit potrai impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.\r\nNel Kit sono inclusi:\r\n\r\nUn Monitor HD (DCS-935L) \r\nUn Wi-Fi Motion Sensor (DCH-S150)\r\nUna smart plug (DSP-W215) \r\nTramite l''App mydlink Home per smartphone e tablet hai a disposizione il controllo di tutti i dispositivi così da semplificarti la gestione della casa rendendola più sicura e intelligente.\r\n\r\nFacile configurazione e gestione dei tuoi dispositivi\r\n\r\nBasta semplicemente scaricare l’app mydlink Home e la configurazione guidata ti aiuterà a utilizzare al meglio tutti i dispositivi presenti nel kit in modo facile e intuitivo.\r\nCon l’app potrai creare tu stesso le regole per accendere e spegnere i tuoi elettrodomestici quando e ovunque vuoi. \r\n\r\nNotifiche automatiche e real time sul tuo smartphone\r\n\r\nL’app mydlink Home ti notificherà quando:\r\nUn movimento o un suono viene rilevato\r\nUn dispositivo è stato acceso o spento\r\nIl consumo elettrico è stato superato\r\nUn dispositivo non funziona correttamente o si surriscalda\r\nIl sensore di movimento a infrarossi passivo riduce di gran lunga i falsi allarmi garantendoti di essere avvisato solo quando necessario: rilevazione dei movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nMonitor HD\r\n\r\nCon il Monitor HD, potrai controllare la tua casa in alta definizione (720p) e grazie alla visione notturna anche in assenza di luce (fino a 5 mt). Il Monitor HD ti avvisa mediante notifica push ogni volta che verrà rilevato un suono o un movimento.\r\nSensore di movimento\r\n\r\nGrazie alla tecnologia a infrarossi passiva saranno ridotti i falsi allarmi e verrai avvisato solo quando necessario. Con il sensore di movimento rileverai i movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nSmart Plug\r\n\r\nPotrai accendere e spegnere i dispositivi dal tuo smartphone tablet, ovunque ti trovi. Essere avvisato se un elettrodomestico è stato acceso o spento. Impostare nuove regole di funzionamento in base alle tue esigenze.', 3, 'La configurazione è facilissima!\r\n\r\nBasta semplicemente scaricare la app mydlink Home e la configurazione guidata ti aiuterà a far funzionare tutti i dispositivi presenti nel kit.', 'Come s fa a configurare il dispositivo con la propria abitazione?&\r\nChiama il tecnico al 190 oppure controlla sul sito tim nel reparto assistenza tecnica');
 
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `categoriadispositivo`
+--
+ALTER TABLE `categoriadispositivo`
+  ADD PRIMARY KEY (`idcategoriadispositivo`);
+
+--
+-- Indici per le tabelle `categoriaservizioassistenza`
+--
+ALTER TABLE `categoriaservizioassistenza`
+  ADD PRIMARY KEY (`idservizio`);
+
+--
+-- Indici per le tabelle `categoriasmartlifeservice`
+--
+ALTER TABLE `categoriasmartlifeservice`
+  ADD PRIMARY KEY (`idsmartlife`);
+
+--
+-- Indici per le tabelle `dispositivo`
+--
+ALTER TABLE `dispositivo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `dispositivo_servizioassistenza`
+--
+ALTER TABLE `dispositivo_servizioassistenza`
+  ADD PRIMARY KEY (`id_dispositivo_dsa`,`id_servizioassistenza_dsa`);
+
+--
+-- Indici per le tabelle `dispositivo_smartlifeservice`
+--
+ALTER TABLE `dispositivo_smartlifeservice`
+  ADD PRIMARY KEY (`id_dispositivo_dss`,`id_smartlifeservice_dss`),
+  ADD KEY `id_smartlifeservice` (`id_smartlifeservice_dss`);
+
+--
+-- Indici per le tabelle `servizioassistenza`
+--
+ALTER TABLE `servizioassistenza`
+  ADD PRIMARY KEY (`idservizioassistenza`);
+
+--
+-- Indici per le tabelle `smartlifeservice`
+--
+ALTER TABLE `smartlifeservice`
+  ADD PRIMARY KEY (`idsmartlifeservices`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `categoriadispositivo`
+--
+ALTER TABLE `categoriadispositivo`
+  MODIFY `idcategoriadispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT per la tabella `categoriaservizioassistenza`
+--
+ALTER TABLE `categoriaservizioassistenza`
+  MODIFY `idservizio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT per la tabella `categoriasmartlifeservice`
+--
+ALTER TABLE `categoriasmartlifeservice`
+  MODIFY `idsmartlife` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT per la tabella `dispositivo`
+--
+ALTER TABLE `dispositivo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+--
+-- AUTO_INCREMENT per la tabella `servizioassistenza`
+--
+ALTER TABLE `servizioassistenza`
+  MODIFY `idservizioassistenza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+--
+-- AUTO_INCREMENT per la tabella `smartlifeservice`
+--
+ALTER TABLE `smartlifeservice`
+  MODIFY `idsmartlifeservices` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

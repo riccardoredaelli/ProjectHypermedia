@@ -38,12 +38,30 @@ function evan(){
             var featuresText =document.createTextNode(smartlifeservice[myParam-1].attivazionesmartlifeservices);
             features.appendChild(featuresText);
             containerFeatures.appendChild(features);
-
+            //FAQ
             var containerFeatures = document.getElementById("serviceFaq");
-            var features = document.createElement("h4");
-            var featuresText =document.createTextNode(smartlifeservice[myParam-1].faqsmartlifeservices);
-            features.appendChild(featuresText);
-            containerFeatures.appendChild(features);
+            
+            
+            var faqArray =smartlifeservice[myParam-1].faqsmartlifeservices.split("&");
+            
+            
+            for (var i = 0; i<faqArray.length; i++){
+                var q = document.createElement("b");
+                var r = document.createElement("h5");
+                
+                if (i%2==0){
+                    var question = document.createTextNode(faqArray[i]);
+                    q.appendChild(question);
+                    containerFeatures.appendChild(q);
+                }
+                else {
+                    var reply = document.createTextNode(faqArray[i]);
+                    r.appendChild(reply);
+                    containerFeatures.appendChild(r);
+                }
+            }
+            
+            
             
             //Orientation info
             var link=document.createElement("a");
