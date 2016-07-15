@@ -29,14 +29,6 @@ footer {
     text-align: justify;
 }
 
-.description-text{
-    white-space:nowrap;
-    overflow:hidden;
-   /* width:300px;*/
-    text-overflow:ellipsis;
-    -o-text-overflow:ellipsis;
-}
-
 /* --------------------------------------
    Typography
    -------------------------------------- */
@@ -301,4 +293,5 @@ ul.unstyled {
 	
 	#slide3 {
 		background: url('../../images/carousel_large_03.jpg') top center no-repeat;
-    }
+	}
+
