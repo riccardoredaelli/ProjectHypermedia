@@ -24,7 +24,7 @@ function ready(){
            
            
             for (i=0; i<dispositivo.length; i++){
-                if (dispositivo[i].categoria==myParam){
+                if (dispositivo[i].categoria==myParam && myParam<5){
                     panelTitle.appendChild(document.createTextNode(dispositivo[i].nomecategoriadispositivo));
                     var nome= document.createTextNode(dispositivo[i].nomecategoriadispositivo);
                     orientation.appendChild(nome);
@@ -32,6 +32,7 @@ function ready(){
                 }
                 if (myParam==5 && dispositivo[i].promozione == 1){
                     panelTitle.appendChild(document.createTextNode("Promozione"));
+                    orientation.appendChild(document.createTextNode("Promozione"));
                     
                     break;
                 }
