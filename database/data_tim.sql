@@ -19,14 +19,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `data_tim`
 --
-
+CREATE DATABASE IF NOT EXISTS `data_tim` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `data_tim`;
 -- --------------------------------------------------------
 
 --
 -- Struttura della tabella `categoriadispositivo`
 --
 
-CREATE TABLE `categoriadispositivo` (
+DROP TABLE IF EXISTS `categoriadispositivo`;
+CREATE TABLE IF NOT EXISTS `categoriadispositivo` (
   `idcategoriadispositivo` int(11) NOT NULL,
   `nomecategoriadispositivo` varchar(99) DEFAULT NULL,
   `descrizionecategoriadispositivo` text,
@@ -50,7 +52,8 @@ INSERT INTO `categoriadispositivo` (`idcategoriadispositivo`, `nomecategoriadisp
 -- Struttura della tabella `categoriaservizioassistenza`
 --
 
-CREATE TABLE `categoriaservizioassistenza` (
+DROP TABLE IF EXISTS `categoriaservizioassistenza`;
+CREATE TABLE IF NOT EXISTS `categoriaservizioassistenza` (
   `idservizio` int(11) NOT NULL,
   `nomeservizio` varchar(99) DEFAULT NULL,
   `descrizioneservizio` text,
@@ -72,8 +75,8 @@ INSERT INTO `categoriaservizioassistenza` (`idservizio`, `nomeservizio`, `descri
 --
 -- Struttura della tabella `categoriasmartlifeservice`
 --
-
-CREATE TABLE `categoriasmartlifeservice` (
+DROP TABLE IF EXISTS `categoriasmartlifeservice`;
+CREATE TABLE IF NOT EXISTS `categoriasmartlifeservice` (
   `idsmartlife` int(11) NOT NULL,
   `nomesmartlife` varchar(99) DEFAULT NULL,
   `descrizionesmartlife` text,
@@ -95,8 +98,8 @@ INSERT INTO `categoriasmartlifeservice` (`idsmartlife`, `nomesmartlife`, `descri
 --
 -- Struttura della tabella `dispositivo`
 --
-
-CREATE TABLE `dispositivo` (
+DROP TABLE IF EXISTS `dispositivo`;
+CREATE TABLE IF NOT EXISTS `dispositivo` (
   `id` int(11) NOT NULL,
   `nome` varchar(99) DEFAULT NULL,
   `descrizione` text NOT NULL,
@@ -161,7 +164,8 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 -- Struttura della tabella `dispositivo_servizioassistenza`
 --
 
-CREATE TABLE `dispositivo_servizioassistenza` (
+DROP TABLE IF EXISTS `dispositivo_servizioassistenza`;
+CREATE TABLE IF NOT EXISTS `dispositivo_servizioassistenza` (
   `id_dispositivo_dsa` int(11) NOT NULL,
   `id_servizioassistenza_dsa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -381,7 +385,8 @@ INSERT INTO `dispositivo_servizioassistenza` (`id_dispositivo_dsa`, `id_servizio
 -- Struttura della tabella `dispositivo_smartlifeservice`
 --
 
-CREATE TABLE `dispositivo_smartlifeservice` (
+DROP TABLE IF EXISTS `dispositivo_smartlifeservice`;
+CREATE TABLE IF NOT EXISTS `dispositivo_smartlifeservice` (
   `id_dispositivo_dss` int(11) NOT NULL,
   `id_smartlifeservice_dss` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -497,7 +502,8 @@ INSERT INTO `dispositivo_smartlifeservice` (`id_dispositivo_dss`, `id_smartlifes
 -- Struttura della tabella `servizioassistenza`
 --
 
-CREATE TABLE `servizioassistenza` (
+DROP TABLE IF EXISTS `servizioassistenza`;
+CREATE TABLE IF NOT EXISTS `servizioassistenza` (
   `idservizioassistenza` int(11) NOT NULL,
   `nomeservizioassistenza` varchar(99) DEFAULT NULL,
   `descrizioneservizioassistenza` text,
@@ -570,7 +576,8 @@ INSERT INTO `servizioassistenza` (`idservizioassistenza`, `nomeservizioassistenz
 -- Struttura della tabella `smartlifeservice`
 --
 
-CREATE TABLE `smartlifeservice` (
+DROP TABLE IF EXISTS `smartlifeservice`;
+CREATE TABLE IF NOT EXISTS `smartlifeservice` (
   `idsmartlifeservices` int(11) NOT NULL,
   `immaginesmartlifeservices` varchar(99) DEFAULT NULL,
   `nomesmartlifeservices` varchar(99) DEFAULT NULL,
