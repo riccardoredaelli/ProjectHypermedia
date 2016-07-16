@@ -42,6 +42,7 @@
                         </div>
 
                         <div id="filters">
+                            <h5><b>Sistema operativo</b></h5>
                             <div class="filterblock">
                                 <input id="check1" type="checkbox" name="check" value="iOS" class="filtro">
                                 <label for="check1">iOS</label>
@@ -49,6 +50,24 @@
                             <div class="filterblock">
                                 <input id="check2" type="checkbox" name="check" value="android" class="filtro">
                                 <label for="check2">Android</label>
+                            </div>
+                            <div class="filterblock">
+                                <input id="check3" type="checkbox" name="check" value="windows" class="filtro">
+                                <label for="check2">Windows Phone</label>
+                            </div>
+                        
+                            <h5><b>Prezzo</b></h5>
+                            <div class="filterblock">
+                                <input id="check1" type="checkbox" name="checkPrice" value="0" value2="200" class="filtro">
+                                <label for="check1">0 - 200 €</label>
+                            </div>
+                            <div class="filterblock">
+                                <input id="check2" type="checkbox" name="checkPrice" value="200" value2="500" class="filtro">
+                                <label for="check2">200 - 500 €</label>
+                            </div>
+                            <div class="filterblock">
+                                <input id="check3" type="checkbox" name="checkPrice" value="500" value2="1000" class="filtro">
+                                <label for="check3">500 - 1000 €</label>
                             </div>
                         </div>
                     </div>
@@ -88,44 +107,84 @@
     <script>
         $(function(){
            $("#filters div input").click(function() {
-            //var val = $.trim(this.value);
-            if (this.checked == true) console.log("zio");
+               
             var filters = document.getElementsByName("check");
             console.log(filters.length);
-               //console.log(val);
+            var filters1 = document.getElementsByName("checkPrice");
+            console.log(filters1.length);
+            
+            //Se un prezzo era già premuto lo disattivo
+            for (var i = 0; i<filters1.length; i++){
+                if (filters1[i].checked == true && filters[i].id != this.id && this.name=="checkPrice") {
+                    filters1[i].checked=false;
+                }
+            }
+               
             var pageDivs = document.getElementsByClassName("col-sm-4 feature");
                
-               var painted = false;
-               
+            var painted = false;
+              
             for (i = 0; i < pageDivs.length;i++){
                 pageDivs[i].style.display = 'none';
             }
-               
-               
-               for( j = 0; j < filters.length; j++)
-               {
-                   var val = filters[j].getAttribute('value');
+            // filters è il gruppo dei sistemi operativi     
+            for( j = 0; j < filters.length; j++){
+                var val = filters[j].getAttribute('value');
                    
-                   for (i = 0; i < pageDivs.length;i++) {
-                    var attribute = pageDivs[i].getAttribute('system');
+                for (i = 0; i < pageDivs.length;i++) {
+                var attribute = pageDivs[i].getAttribute('system');
                     
-                    //console.log(attribute);
-                       
-                       
-                       if (attribute.toLowerCase() == val.toLowerCase() && filters[j].checked == true){
-                          // console.log("dovrei cancellare");
-                               pageDivs[i].style.display = 'initial';
-                               painted = true;    
-                       }
+                    if (attribute.toLowerCase() == val.toLowerCase() && filters[j].checked == true){
+        
+                        pageDivs[i].style.display = 'initial';
+                        painted = true;    
+                    }
                    
-                   }
-               }
+                }
+            }
+            //filters1 è il gruppo dei prezzi   
+            var systemChecked = false; 
+            for( j = 0; j < filters.length; j++){
+                if (filters[j].checked == true){
+                    systemChecked = true;
+                }
+            }
                
-               if (!painted){
-                       for (i = 0; i < pageDivs.length;i++){
-                            pageDivs[i].style.display = 'initial';
-                        }
-                   }
+               
+            for( j = 0; j < filters1.length; j++){
+                var val = filters1[j].getAttribute('value');
+                var val2 = filters1[j].getAttribute('value2');
+                //se ci sono già i sistemi filtrati
+                if (systemChecked){
+                    for (i = 0; i < pageDivs.length;i++) {
+                    var attribute = pageDivs[i].getAttribute('price');
+                        
+                        if (parseInt(attribute) <= parseInt(val) ||            parseInt(attribute) >                 parseInt(val2) &&                             filters1[j].checked == true ){
+        
+                            pageDivs[i].style.display = 'none';   
+                        }   
+                    }
+                }
+                //se non ci sono i sistemi filtrati
+                else {
+                    for (i = 0; i < pageDivs.length;i++) {
+                    var attribute = pageDivs[i].getAttribute('price');
+                    
+                    if (parseInt(attribute) > parseInt(val) &&             parseInt(attribute) <= parseInt(val2) &&             filters1[j].checked == true ){
+        
+                        pageDivs[i].style.display = 'initial';
+                        painted = true;    
+                    }   
+                }
+                }
+            }
+               
+            // se nessun filtro ora è premuto, ridisegna tutto  
+            if (!painted){
+                for (i = 0; i < pageDivs.length;i++){
+                    pageDivs[i].style.display = 'initial';
+                }
+            }
            });
         }); 
     </script>
