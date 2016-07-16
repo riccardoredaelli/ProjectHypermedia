@@ -82,7 +82,9 @@ function ready(){
                     showedDevicePanel.appendChild(showedButton);
                     
                     showedDevice.appendChild(showedDevicePanel);
-
+                    
+                    showedDevice.setAttribute('system', dispositivo[i].os);
+                    showedDevice.setAttribute('price', dispositivo[i].prezzo);
                     container.appendChild(showedDevice);
                     }
                 }
