@@ -28,13 +28,13 @@ function evan(){
             containerName.appendChild(phoneName);
             
             var containerDescription = document.getElementById("serviceDescription");
-            var description = document.createElement("h4");
+            var description = document.createElement("h5");
             var descriptionText =document.createTextNode(smartlifeservice[myParam-1].descrizionesmartlifeservices);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
             
             var containerFeatures = document.getElementById("serviceActivationRules");
-            var features = document.createElement("h4");
+            var features = document.createElement("h5");
             var featuresText =document.createTextNode(smartlifeservice[myParam-1].attivazionesmartlifeservices);
             features.appendChild(featuresText);
             containerFeatures.appendChild(features);

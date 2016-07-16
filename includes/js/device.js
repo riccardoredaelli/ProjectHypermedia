@@ -28,7 +28,7 @@ function evan(){
             containerName.appendChild(phoneName);
             
             var containerDescription = document.getElementById("deviceDescription");
-            var description = document.createElement("h4");
+            var description = document.createElement("h5");
             var descriptionText =document.createTextNode(dispositivo[i].descrizione);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);

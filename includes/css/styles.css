@@ -28,6 +28,17 @@ footer {
 .text-justify {
     text-align: justify;
 }
+
+.text-left {
+    text-align: left;
+}
+
+.description-text{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+}
 /* --------------------------------------
    Price
    -------------------------------------- */
