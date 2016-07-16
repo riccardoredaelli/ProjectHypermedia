@@ -159,7 +159,7 @@
                     for (i = 0; i < pageDivs.length;i++) {
                     var attribute = pageDivs[i].getAttribute('price');
                         
-                        if (parseInt(attribute) <= parseInt(val) ||            parseInt(attribute) >                 parseInt(val2) &&                             filters1[j].checked == true ){
+                        if ((parseInt(attribute) <= parseInt(val) || parseInt(attribute) >                   parseInt(val2)) && filters1[j].checked == true ){
         
                             pageDivs[i].style.display = 'none';   
                         }   
