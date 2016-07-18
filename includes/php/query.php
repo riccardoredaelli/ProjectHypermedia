@@ -4,7 +4,9 @@ header("Access-Control-Allow-Origin: *");
 define('MYSQL_NUM',MYSQLI_NUM);
 define('MYSQL_ASSOC',MYSQLI_ASSOC);*/
 
-$mysqli = new mysqli("localhost", "root", "", "data_tim");
+/*FOR LOCAL USE
+$mysqli = new mysqli("localhost", "root", "", "data_tim");*/
+$mysqli = new mysqli("localhost", "hyp2016", "nurgemutdi32", "my_hyp2016");
 
 $query=$_POST["query"];
 
