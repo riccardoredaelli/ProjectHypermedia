@@ -245,6 +245,7 @@ function compatibleAssistant(){
             var containerImg = document.getElementById("compatibleAssistantServices");
             var row = document.createElement("div");
             row.setAttribute("class", "row");
+            row.setAttribute("class", "description-text");
             
             for (i = 0; i<compatibleassistant.length; i++){
                 if (compatibleassistant[i].id_dispositivo_dsa == myParam){
