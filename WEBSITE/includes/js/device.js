@@ -33,7 +33,7 @@ function evan(){
             var descriptionText =document.createTextNode(dispositivo[i].descrizione);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
-            containerDescriptionM.appendChild(description);
+            containerDescriptionM.appendChild(description.cloneNode(true));
             
             //inizio caratteristiche tecniche
             var listGroup = document.createElement("div");
@@ -120,7 +120,7 @@ function evan(){
             var containerFeaturesM = document.getElementById("deviceFeaturesM");
            
             containerFeatures.appendChild(listGroup);
-            containerFeaturesM.appendChild(listGroup);
+            containerFeaturesM.appendChild(listGroup.cloneNode(true));
             //prezzo
             var containerPrice = document.getElementById("devicePrice");
             var bottone=document.getElementById("buyButton");

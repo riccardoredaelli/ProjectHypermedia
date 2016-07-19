@@ -5,7 +5,7 @@ function evan(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
         data: {query:"SELECT * FROM smartlifeservice, categoriasmartlifeservice WHERE smartlifeservice.categoriasmartlifeservices=categoriasmartlifeservice.idsmartlife ORDER BY smartlifeservice.idsmartlifeservices"},
         success: function(response) {
             var smartlifeservice=JSON.parse(response);
@@ -28,18 +28,23 @@ function evan(){
             containerName.appendChild(phoneName);
             
             var containerDescription = document.getElementById("serviceDescription");
+            var containerDescriptionM = document.getElementById("serviceDescriptionM");
             var description = document.createElement("h5");
             var descriptionText =document.createTextNode(smartlifeservice[myParam-1].descrizionesmartlifeservices);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
+            containerDescriptionM.appendChild(description.cloneNode(true));
             
             var containerFeatures = document.getElementById("serviceActivationRules");
+             var containerFeaturesM = document.getElementById("serviceActivationRulesM");
             var features = document.createElement("h5");
             var featuresText =document.createTextNode(smartlifeservice[myParam-1].attivazionesmartlifeservices);
             features.appendChild(featuresText);
             containerFeatures.appendChild(features);
+            containerFeaturesM.appendChild(features.cloneNode(true));
             //FAQ
             var containerFeatures = document.getElementById("serviceFaq");
+            var containerFeaturesM = document.getElementById("serviceFaqM");
             
             
             var faqArray =smartlifeservice[myParam-1].faqsmartlifeservices.split("&");
@@ -53,11 +58,13 @@ function evan(){
                     var question = document.createTextNode(faqArray[i]);
                     q.appendChild(question);
                     containerFeatures.appendChild(q);
+                    containerFeaturesM.appendChild(q.cloneNode(true));
                 }
                 else {
                     var reply = document.createTextNode(faqArray[i]);
                     r.appendChild(reply);
                     containerFeatures.appendChild(r);
+                    containerFeaturesM.appendChild(r.cloneNode(true));
                 }
             }
             
@@ -87,7 +94,7 @@ function compatible(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo,dispositivo_smartlifeservice,smartlifeservice WHERE dispositivo.id=dispositivo_smartlifeservice.id_dispositivo_dss AND smartlifeservice.idsmartlifeservices=dispositivo_smartlifeservice.id_smartlifeservice_dss ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibledevice=JSON.parse(response);
