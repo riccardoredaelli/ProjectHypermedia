@@ -5,7 +5,7 @@ function ready(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //percorso file.php
+        url: "includes/php/query.php", //percorso file.php
         data: {query : "SELECT * FROM servizioassistenza, categoriaservizioassistenza WHERE servizioassistenza.categoriaservizioassistenza=categoriaservizioassistenza.idservizio ORDER BY categoriaservizioassistenza.idservizio"},
         success: function(response) {
         var assistanceservices=JSON.parse(response);

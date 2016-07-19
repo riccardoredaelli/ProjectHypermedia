@@ -4,7 +4,7 @@ function device(){
 $.ajax({
    method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo ORDER BY dispositivo.id"},
         success: function(response) {
             var dispositivo=JSON.parse(response);

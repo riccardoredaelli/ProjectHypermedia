@@ -7,7 +7,7 @@ function ready(){
         method: "POST",
         //dataType: "json", //type of data
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //percorso del file php
+        url: "includes/php/query.php", //percorso del file php
         data: {query : "SELECT * FROM `dispositivo`,`categoriadispositivo` WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo ORDER BY dispositivo.categoria ASC"},
         success: function(response) {
             var dispositivo=JSON.parse(response);
