@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.1.7
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Creato il: Lug 16, 2016 alle 12:26
--- Versione del server: 10.1.13-MariaDB
--- Versione PHP: 5.6.21
+-- Host: localhost
+-- Generation Time: Lug 19, 2016 alle 12:29
+-- Versione del server: 5.6.29-log
+-- PHP Version: 5.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `data_tim`
+-- Database: `my_hyp2016`
 --
-CREATE DATABASE IF NOT EXISTS `data_tim` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `data_tim`;
+CREATE DATABASE IF NOT EXISTS `my_hyp2016` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `my_hyp2016`;
 
 -- --------------------------------------------------------
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `categoriadispositivo` (
   `descrizionecategoriadispositivo` text,
   `immaginecategoriadispositivo` varchar(99) DEFAULT NULL,
   PRIMARY KEY (`idcategoriadispositivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dump dei dati per la tabella `categoriadispositivo`
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `categoriaservizioassistenza` (
   `descrizioneservizio` text,
   `immagineservizio` varchar(99) DEFAULT NULL,
   PRIMARY KEY (`idservizio`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dump dei dati per la tabella `categoriaservizioassistenza`
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `categoriasmartlifeservice` (
   `descrizionesmartlife` text,
   `immaginesmartlife` varchar(99) DEFAULT NULL,
   PRIMARY KEY (`idsmartlife`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dump dei dati per la tabella `categoriasmartlifeservice`
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `dispositivo` (
   `dimensioni` varchar(99) NOT NULL,
   `peso` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
 
 --
 -- Dump dei dati per la tabella `dispositivo`
@@ -133,7 +133,7 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 (2, 'iPhone 6s Plus', 'Con iPhone 6 e iPhone 6 Plus Apple ha completamente ripensato il suo storico smartphone. Si abbandonano le forme squadrate dei modelli precedenti – da iPhone 4 a iPhone 5S – per abbracciare un form factor arrotondato e sottilissimo. Il materiale di punta è sempre l’alluminio anodizzato, con una scocca dello spessore di 6,9 millimetri per il modello da 4,7 pollici e di 7,1 per quello da 5,5. Sul retro, una fotocamera lievemente sporgente per garantire una profondità così ridotta del terminale, quindi dei divisori che fungono sia da base d’appoggio per il device che da isolanti per le varie antenne WiFi, LTE e Bluetooth in dotazione.\r\nIl vetro frontale, dagli angoli avvolgenti e ammorbiditi, pur non essendo in cristallo di zaffiro garantisce un’estrema resistenza a urti e graffi grazie a un processo di rafforzamento agli ioni. Il jack per le cuffie si sposta sul fondo, così come nella linea iPod Touch, ed è accompagnato da un foro per la connessione Lightning nonché da una striscia per l’altoparlante integrata. Infine, una menzione anche per i tasti fisici, ora posti lateralmente, lievemente incassati nella scocca e dalle forme allungate.', 1, 0, NULL, 899, 'iPhone_6s_plus.jpg', 'iOS', 16, 'Retina Display 5.5”', 0, 'Chip A9X con architettura a 64 bit', '158.1x77.2x7.1 mm', 172),
 (3, 'Galaxy S7', 'Stiamo cambiando completamente il modo in cui condividerai le tue esperienze e i tuoi ricordi più importanti. Cancelleremo i limiti di ciò che uno smartphone può fare per te. E sarà il più grande cambiamento visto fino ad ora nel mondo degli smartphone.\r\nAbbiamo fatto grandi progressi, superando i limiti odierni e rendendo possibile quello che finora era impossibile, ascoltando sempre i vostri suggerimenti. Abbiamo trovato un perfetto equilibrio tra forma e tecnologia, sviluppando funzioni mai viste nei Galaxy precedenti, e di cui non potrete più farne a meno. Galaxy S7 e S7 edge.\r\nNella progettazione di Galaxy S7 e S7 edge non siamo scesi a compromessi. Il risultato è una semplicità d''uso senza precedenti, grazie a funzionalità avanzate che si integrano alla perfezione nelle forme eleganti. Smartphone belli da guardare e piacevoli da usare.', 1, 1, 22, 499, 'galaxy_s7.jpg', 'android', 32, 'QuadHD/5.5pollici/534ppi', 3, 'SnapDragon 831', '143x70.5x7.2 mm', 174),
 (4, 'Nexus 5x', 'LG Nexus 5X è uno smartphone Android avanzato e completo sotto tutti i punti di vista con alcune eccellenze. Dispone di un grande display da 5.2 pollici e di una risoluzione da 1920x1080 pixel che è la più elevata attualmente in circolazione. Le funzionalità offerte da questo LG Nexus 5X sono veramente tante e all''avanguardia. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente. \r\nDi tutto rispetto la fotocamera da 12 megapixel che permette al LG Nexus 5X di scattare foto con una risoluzione di 4608x2592 pixel e di registrare video in 4K alla risoluzione di 3840x2160 pixel. Lo spessore di 7.9mm è veramente contenuto e rende questo LG Nexus 5X ancora più spettacolare. ', 1, 0, NULL, 299, 'nexus_5x.jpg', 'android', 16, '1080 x 1920 pixel', 4, 'Quad core 1.44 GHz Cortex-A53 + Dual core 1.8 GHz Cortex-A57', '147 x 72.6 x 7.9 mm', 136),
-(5, 'Lumia 950XL', 'Microsoft Lumia 950 XL è indubbiamente uno degli cellulare Touchscreen più avanzati e completi disponibili sul mercato, grazie alla ricca dotazione e all''elevata multimedialità. Dispone di un grande display da 5.7 pollici e di una risoluzione da 2560x1440 pixel che è fra le più elevate attualmente in circolazione. Le funzionalità offerte da questo Microsoft Lumia 950 XL sono veramente tante e all''avanguardia. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente. \r\nL''eccellenza di questo Microsoft Lumia 950 XL è completata da una fotocamera con un sensore da ben 20 megapixel che permette al Microsoft Lumia 950 XL di scattare foto di alta qualità con una risoluzione di 4992x3744 pixel e di registrare video in 4K alla risoluzione di 3840x2160 pixel. Lo spessore di 8.1mm è contenuto e rende questo Microsoft Lumia 950 XL molto interessante. ', 1, 0, NULL, 545, 'Lumia_950xl.jpg', 'Windows', 32, '5.7 pollici 1440 x 2560 pixel', 1, 'Quad core 1.5 GHz Cortex-A53 + Quad core 2.0 GHz Cortex-A57', '151.9 x 78.4 x 8.1 mm', 165),
+(5, 'Lumia 950XL', 'Microsoft Lumia 950 XL è indubbiamente uno degli cellulare Touchscreen più avanzati e completi disponibili sul mercato, grazie alla ricca dotazione e all''elevata multimedialità. Dispone di un grande display da 5.7 pollici e di una risoluzione da 2560x1440 pixel che è fra le più elevate attualmente in circolazione. Le funzionalità offerte da questo Microsoft Lumia 950 XL sono veramente tante e all''avanguardia. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente. \r\nL''eccellenza di questo Microsoft Lumia 950 XL è completata da una fotocamera con un sensore da ben 20 megapixel che permette al Microsoft Lumia 950 XL di scattare foto di alta qualità con una risoluzione di 4992x3744 pixel e di registrare video in 4K alla risoluzione di 3840x2160 pixel. Lo spessore di 8.1mm è contenuto e rende questo Microsoft Lumia 950 XL molto interessante. ', 1, 0, NULL, 545, 'lumia_950xl.jpg', 'Windows', 32, '5.7 pollici 1440 x 2560 pixel', 1, 'Quad core 1.5 GHz Cortex-A53 + Quad core 2.0 GHz Cortex-A57', '151.9 x 78.4 x 8.1 mm', 165),
 (6, 'Huawei G7', 'Huawei Ascend G7 è un smartphone Android di buon livello, fortemente votato all''imaging, in grado di soddisfare anche l''utente più esigente. Dispone di un enorme display Touchscreen da 5.5 pollici con una risoluzione di 1280x720 pixel non particolarmente elevata. Sul versante delle funzionalità a questo Huawei Ascend G7 non manca davvero nulla. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente, passando per la connettività Wi-fi e il GPS. \r\nQuesto Huawei Ascend G7 è un prodotto con pochi competitor per ciò che riguarda la multimedialità grazie alla fotocamera da ben 13 megapixel che permette al Huawei Ascend G7 di scattare foto di alta qualità con una risoluzione di 4128x3096 pixel e di registrare video in fullHD alla risoluzione di 1920x1080 pixel. Lo spessore di 7.6mm è veramente contenuto e rende questo Huawei Ascend G7 ancora più spettacolare. ', 1, 0, NULL, 169, 'huawei_g7.jpg', 'android', 16, '5.5 pollici 720 x 1280 pixel', 0, '1.2 GHz Quad Core', '153.5 x 77.3 x 7.6 mm', 165),
 (7, 'iPad Pro', 'Con iPad hai scoperto un mondo completamente nuovo, semplice e coinvolgente. Oggi iPad Pro, con la tecnologia Multi?Touch perfezionata, il suo grande display Retina da 12,9" e prestazioni della CPU quasi raddoppiate rispetto a iPad Air 2, è pronto ad allargare ancora una volta i tuoi orizzonti. Non è solo più grande. È un iPad che ti permetterà di lavorare e creare in una dimensione tutta nuova, come non hai mai fatto prima.\r\n\r\nCon 5,6 milioni di pixel, iPad Pro ha il display Retina a più alta risoluzione mai visto su un dispositivo iOS. Montare video 4K, creare presentazioni, gestire un’azienda: sul display da 12,9" tutto è più facile, veloce e coinvolgente. E con il Multi?Touch riprogettato scoprirai nuovi modi per interagire con il tuo iPad.\r\n\r\nNonostante il suo grande display, iPad Pro è sorprendentemente sottile e leggero: solo 6,9 mm di spessore e appena 713 grammi. Grazie al guscio unibody, è anche resistente e ben bilanciato. Ma forse l’aspetto più incredibile di iPad Pro è un altro: è talmente comodo che quasi ti dimentichi di averlo in mano\r\n\r\n', 2, 0, NULL, 1249, 'ipad_pro.jpg', 'iOS', 128, 'Retina Display 12.9”', 4, '\r\nChip A9X con architettura a 64 bit\r\nCoprocessore M9', '305,7 mm x 220,6 mm x 6,9 mm', 723),
 (8, 'Mediapad 10', 'HUAWEI MediaPad 10 Link+ è un tablet da 10,1 pollici con microprocessore quad-core HiSilicon Kirin 910 e supporto per le reti mobili 3G.\r\n\r\nCon un design unibody ultra-sottile di 9,9 millimetri in lega di alluminio, è elegante e portatile. MediaPad 10 Link+ ha uno schermo IPS HD con risoluzione di 1280×800 pixel.\r\n\r\nMonta una fotocamera frontale da 0,3 megapixel e una fotocamera posteriore da 3 megapixel. L''ottimo display in combinazione con la tecnologia audio DTS del MediaPad 10 Link+ offre una superba qualità audiovisiva, sia che si voglia scattare foto, giocare, guardare film in HD, o ascoltare musica', 2, 1, 20, 200, 'huawei_mediapad10.jpg', 'android', 8, '10.1" (1280x800) IPS 16M di colori', 1, 'Balon Cortex A9 Quad-Core 1.6GHz', '257.4x175.9x9.9mm', 630),
@@ -142,24 +142,24 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 (11, 'ZTE SPRO 2', 'Un proiettore moderno e bello da vedere.', 3, 0, NULL, 699, 'zte_spro2.jpg', 'android', 16, ' 20” - 100”, Luminosità 200 Lumen, Contrasto 5000:1', 0, 'Qualcomm® Snapdragon™ 800 Quad-Core 2.0 GHz', '134x131x33 mm', 526),
 (12, 'TIM Powerline Adapter', 'Colleghi PC, modem e console sfruttando la rete elettrica\r\n\r\nVuoi trasformare la rete elettrica di casa tua in una rete per navigare e trasmettere, dove il wi-fi non arriva, dati in formato digitale?\r\n\r\nCon Powerline Adpter puoi farlo.\r\n\r\nColleghi tra loro PC, modem e console senza problemi di copertura, distanza, né cablaggi: ti basta inserire Powerline Adapter nelle prese elettriche per creare una rete domestica che connette i vari apparati, con prestazioni fino a 200 Mbps.\r\n\r\nE la riservatezza dei dati che trasmetti e ricevi è garantita mediante un sistema di crittografia.\r\n\r\nAcquista Powerline Adapter in coppia direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.', 4, 0, NULL, 49, 'tim_powerline_adapter.png', NULL, NULL, '', 0, '', '', 0),
 (13, 'TIM Modem ADSL Wifi', 'Navigazione veloce e senza fili\r\n\r\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l''interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\r\n\r\nNavigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione(1).\r\nProtezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\r\nTutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\r\nInstallazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\r\nRisparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo (2).\r\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).\r\n\r\nAcquista il Modem ADSL Wi-Fi direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.\r\n\r\nNote:\r\n(1) La tecnologia Wi-Fi 802.11n migliora le prestazioni rispetto ai prodotti della generazione precedente 802.11b/g di Telecom Italia.Per utilizzare la rete senza fili è necessario disporre di un computer con interfaccia Wi-Fi. Le prestazioni effettive possono variare a seconda del computer, della distanza, della velocità di connessione ADSL e di altri fattori.\r\n(2) I valori sono misurati nei laboratori Telecom Italia. ', 4, 0, NULL, 69, 'tim_modem_adsl_wifi.jpg', NULL, NULL, '', 0, '', '', 0),
-(14, 'Tecnoware ERA Plus 900', 'ERA PLUS 900 è un UPS (Uninterruptible Power Supply), cioè un gruppo di continuità, di tipo Line Interactive, realizzato appositamente per proteggere il Modem Fibra di TIM da qualsiasi avaria della rete elettrica (black-out, sottotensioni, sovratensioni, microinterruzioni), causa dei frequenti danneggiamenti di Hardware e Software.\r\n\r\nQuando è presente la tensione di rete elettrica, ERA PLUS 900 svolge le funzioni di stabilizzatore e filtra i disturbi frequentemente presenti sulla linea elettrica (transienti, spike, interferenze, etc.), preservando in tal modo il modem ed eventuali altri dispositivi collegati alla sua uscita ad esempio il telefono cordless acquistato insieme all’offerta Fibra di TIM; inoltre ricarica le batterie in modo ottimale.\r\n\r\nIn caso di avaria della rete elettrica o caduta di tensione, l’UPS continua ad alimentare il modem ed altre apparecchiature protette ad esempio il telefono cordless garantendo per un lasso di tempo variabile il servizio telefonico e la connettività che sono compromesse in caso di black-out.\r\n\r\nERA PLUS presenta tutte le moderne caratteristiche che garantiscono massima affidabilità e sicurezza:\r\n\r\nControllo a microprocessore di tutte le funzioni, garanzia di alta affidabilità.\r\nStabilizzazione in uscita tramite AVR (Automatic Voltage Regulation).\r\nProtezione da sovraccarico sia nel modo di funzionamento normale che in modo batterie.\r\nCarica batterie di alte prestazioni che prolunga il tempo medio di vita delle batterie e ne garantisce una ricarica ottimale.\r\nAccensione anche in condizioni di rete elettrica assente.\r\nRiaccensione automatica dopo lo spegnimento per fine autonomia al ritorno della tensione di rete.\r\nAdattabilità automatica alla frequenza d’ingresso 50 o 60 Hz. Segnalazioni acustiche di vario tipo durante il normale funzionamento e che evidenziano le eventuali condizioni di allarme.\r\nAlta affidabilità.\r\nElevato rendimento e basso costo d’esercizio.\r\nDimensioni compatte.\r\nDesign curato ed ergonomico.\r\nSemplicità d’uso.\r\nAcquista ERA Plus 900 direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.\r\n\r\nCaratteristiche tecniche', 4, 0, NULL, 80, 'tecnoware_era_plus_900.jpg', NULL, NULL, '', 0, '', '', 0),
+(14, 'Tecnoware ERA Plus 900', 'ERA PLUS 900 è un UPS (Uninterruptible Power Supply), cioè un gruppo di continuità, di tipo Line Interactive, realizzato appositamente per proteggere il Modem Fibra di TIM da qualsiasi avaria della rete elettrica (black-out, sottotensioni, sovratensioni, microinterruzioni), causa dei frequenti danneggiamenti di Hardware e Software.\r\n\r\nQuando è presente la tensione di rete elettrica, ERA PLUS 900 svolge le funzioni di stabilizzatore e filtra i disturbi frequentemente presenti sulla linea elettrica (transienti, spike, interferenze, etc.), preservando in tal modo il modem ed eventuali altri dispositivi collegati alla sua uscita ad esempio il telefono cordless acquistato insieme all’offerta Fibra di TIM; inoltre ricarica le batterie in modo ottimale.\r\n\r\nIn caso di avaria della rete elettrica o caduta di tensione, l’UPS continua ad alimentare il modem ed altre apparecchiature protette ad esempio il telefono cordless garantendo per un lasso di tempo variabile il servizio telefonico e la connettività che sono compromesse in caso di black-out.\r\n\r\nERA PLUS presenta tutte le moderne caratteristiche che garantiscono massima affidabilità e sicurezza:\r\n\r\nControllo a microprocessore di tutte le funzioni, garanzia di alta affidabilità.\r\nStabilizzazione in uscita tramite AVR (Automatic Voltage Regulation).\r\nProtezione da sovraccarico sia nel modo di funzionamento normale che in modo batterie.\r\nCarica batterie di alte prestazioni che prolunga il tempo medio di vita delle batterie e ne garantisce una ricarica ottimale.\r\nAccensione anche in condizioni di rete elettrica assente.\r\nRiaccensione automatica dopo lo spegnimento per fine autonomia al ritorno della tensione di rete.\r\nAdattabilità automatica alla frequenza d’ingresso 50 o 60 Hz. Segnalazioni acustiche di vario tipo durante il normale funzionamento e che evidenziano le eventuali condizioni di allarme.\r\nAlta affidabilità.\r\nElevato rendimento e basso costo d’esercizio.\r\nDimensioni compatte.\r\nDesign curato ed ergonomico.\r\nSemplicità d’uso.\r\nAcquista ERA Plus 900 direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.\r\n\r\nCaratteristiche tecniche', 4, 0, NULL, 510, 'tecnoware_era_plus_900.jpg', 'android', NULL, '', 0, '', '', 0),
 (15, 'Galaxy View 18.4', 'Dal punto di vista hardware, il Galaxy View integra un processore Exynos 7580, un octa-core da 1.6GHz con GPU Mali T720, 2GB di memoria RAM, 32/64GB di memoria integrata espandibile, doppio speaker stereo (4Wx2), Bluetooth 4.1 BLE, Wi-Fi ac, supporto alle reti LTE opzionale ed una fotocamera frontale da 2.1 megapixel. Come sensori e presente solo quello di luminosità. La batteria integrata da 5700mAh offre fino ad 8 ore di visualizzazioni di video.\r\n\r\nStiamo parlando quindi di un prodotto interessante e completo il cui unico limite è la memoria RAM. Inutile dire che per un prodotto del genere 3GB sarebbero stati perfetti ma Samsung probabilmente sa che questo strumento è indirizzato ad un pubblico non solo di nicchia ma che non è particolarmente smanettone e il ricaricamento di un''app di pochi istanti non viene considerato un problema.\r\nParlare di Ergonomia è impossibile per questo prodotto in quanto il peso e la dimensione lo collocano molto lontano da i parametri che fino ad oggi utilizziamo per definire Mobile un dispositivo. View è infatti un oggetto da scrivania che può essere portato da una stanza all''altra grazie ad un maniglione posteriore.\r\n\r\nProprio questo accorgimento è molto particolare in quanto il meccanismo posteriore non solo agevola il trasporto, ma consente anche si mantenere verticale il View o ancora di posizionarlo su un piano orizzontale con un''inclinazione tale da permetterne l''utilizzo in comodità.', 2, 0, NULL, 799, 'Samsung-Galaxy-View-White_Angle-1_760x760.jpg', 'android', 64, 'Display 18.4” TFT, 1920x1080 Full HD', 3, 'Processore OctaCore 1.6 GHz', '230x158x11 mm', 289),
 (17, 'Galaxy TabPro S 12 ', 'DESIGN SOTTILE&LEGGERO\r\nGalaxy TabPro S rappresenta il perfetto connubio tra design e tecnologia. Estremamente sottile e leggero, stupisce per la ricercatezza dei dettagli e la qualità dei materiali.\r\nELEGANTE PROTEZIONE\r\nLa book cover protegge perfettamente Galaxy TabPro S, mantenendone intatta l''eleganza.\r\nDISPLAY SUPER AMOLED\r\nGalaxy TabPro S è il primo prodotto Windows 10 al mondo dotato di display SUPER AMOLED. Lavorare in mobilità è davvero comodo, grazie al display touchscreen da 12 pollici. Indipendentemente dal contenuto visualizzato, che sia una immagine o un video, i colori e la brillantezza delle immagini saranno esaltate dalla definizione e dalla qualità del display SUPER AMOLED di Galaxy TabPro S\r\nINTRATTENIMENTO XBOX ONE GAME STREAMING\r\nCon questa rivoluzionaria funzione, utilizzando la stessa connessione WiFi, potrai giocare in streaming ai giochi della tua XBOX ONE direttamente su Galaxy TabPro S.\r\nPERFORMANCE SENZA COMPROMESSI\r\nIl sistema operativo Windows 10, supportato dalla potenza del nuovo processore Intel Core M, sono una garanzia per lavorare professionalmente in qualunque situazione e in qualsiasi momento.\r\n2-IN-1\r\nNessun compromesso: potente come un PC e portatile come un tablet. Galaxy TabPro S è perfetto in qualunque situazione.\r\nDURATA BATTERIA & RICARICA\r\nLa batteria a lunga durata di Galaxy TabPro S permette di focalizzarsi solamente sulle proprie attività. Completamente carico in sole due ore e mezza, consente un uso continuativo di oltre 10 ore', 2, 0, NULL, 1300, '0_start_012_front3_black.jpg', 'Windows', 128, 'Display 12” FHD+, 2160x1440 SuperAmoled', 4, 'intel core i5', '290x120x22', 564),
 (18, 'Galaxy Tab S2 9.7', 'Samsung Galaxy Tab S2 8.0 è un tablet Android di buon livello, fortemente votato all''imaging, in grado di soddisfare anche l''utente più esigente. Sorprende il display Touchscreen da 8 pollici che pone questo Samsung al vertice della categoria. Anche la risoluzione è fra le più elevate attualmente in circolazione: 2048x1536 pixel. Sul versante delle funzionalità a questo Samsung Galaxy Tab S2 8.0 non manca davvero nulla. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente, passando per la connettività Wi-fi e il GPS. \r\nOttima la fotocamera da 8 megapixel che permette al Samsung Galaxy Tab S2 8.0 di scattare foto con una risoluzione di 3264x2448 pixel e di registrare video in fullHD alla risoluzione di 2560x1440 pixel. Lo spessore di appena 5.6mm rende questo Samsung Galaxy Tab S2 8.0 un prodotto completo e tra i più sottili sul mercato. ', 2, 0, NULL, 550, 'samsung-t815_lte_black_front.jpg', 'android', 16, '1536 x 2048 pixel Super AMOLED', 1, 'Quad-core 1.9 GHz Cortex-A57 + Quad-core 1.3 GHz Cortex-A53', '134.8 x 198.6 x 5.6 mm', 272),
 (19, 'Apple iPad mini 4 16GB', 'La mini superpotenza.\r\nA vederlo sembra davvero piccolo, ma è pronto a stupirti con prestazioni eccezionali: il nuovo iPad mini 4, più sottile e leggero che mai, ha tutta la potenza che ti serve per fare grandi cose.\r\nSottile come sempre. Leggero come mai.\r\niPad mini 4 contiene tutto quello che ami dell’iPad in un design ancora più leggero e portatile. Chiama gli amici con FaceTime o portati avanti con il lavoro: puoi farlo ovunque, in qualsiasi momento.\r\nPiccolo, ma con i superpoteri.\r\niPad mini 4 ha un chip A8 di seconda generazione con architettura a 64 bit di livello desktop, per gestire anche le app più elaborate. Puoi montare un film, sfogliare le tue foto o fare entrambe le cose contemporaneamente: tutto è fluido e immediato.\r\nDue fotocamere straordinarie. Abilmente camuffate da iPad.\r\nLa fotocamera iSight di iPad mini 4 ha un’ottica sofisticata, un sensore ancora più evoluto e un processore di immagine ISP progettato da Apple. Include comode funzioni come Panorama, Time-lapse, Moviola e le modalità scatto in sequenza e Timer. Anche la videocamera frontale FaceTime HD è stata riprogettata con un sensore perfezionato e pixel più grandi, per riprendere ancora meglio negli ambienti poco illuminati. Risultato? Le foto e i video, per non parlare delle videochiamate e dei selfie, saranno incredibilmente brillanti.\r\nAncora più sicuro. Ancora più alla mano.\r\nGrazie alla tecnologia Touch ID, iPad mini 4 è protetto da una password inattaccabile e a prova di memoria: la tua impronta digitale. Ti basterà un tocco per sbloccarlo, ma i tuoi dati non corrono alcun pericolo, anche se lo presti a un amico o un collega. E con Touch ID fare acquisti su iTunes, iBooks e App Store è ancora più facile e sicuro.\r\nWireless ultraveloce.\r\nCon iPad mini ti colleghi alle reti Wi?Fi e cellulari ad alta velocità, per scaricare contenuti, navigare il web e condividere documenti praticamente ovunque. Se non c’è il Wi?Fi, con il modello Wi?Fi + Cellular* puoi connetterti alle reti dati cellulari ad alta velocità in tutto il mondo. E con la Apple SIM puoi scegliere un piano dati a breve termine in oltre 90 Paesi e territori, in modo facile e veloce.\r\nTap dopo tap, lo amerai sempre di più.\r\nCon iPad mini 4 hai iOS 9, il sistema operativo mobile più intuitivo, evoluto e sicuro al mondo. iOS 9 è stato creato su misura per iPad. App ancora migliori e nuove funzioni come Slide Over, Split View e Picture in Picture ti aiutano a fare molto di più, più facilmente. Devi controllare un messaggio mentre rispondi a un’email? O preparare una presentazione dando un occhio alla partita? Con iOS 9, tu e il tuo iPad potete fare un mondo di cose in più.\r\nApp fatte per iPad. E per fare di tutto.\r\niPad mini 4 nasce con potenti app incluse per fare tutto quello che fai ogni giorno: navigare, controllare le email, modificare foto e video, prendere appunti o anche leggere un libro. E sull’App Store ne trovi tantissime altre che non si limitano a ingrandire la versione per iPhone, ma sono create apposta per lo splendido display Retina dell’iPad. Fotografia, giochi, viaggi, cucina, arredamento, hobby, sport: ci sono app per fare di tutto. E per farlo al meglio.\r\nCover fatte apposta per lui. Colori fatti apposta per te.\r\nLa Smart Cover e la custodia in silicone per iPad mini 4 proteggono il tuo dispositivo in ogni situazione. Sono progettate per essere usate insieme: la Smart Cover aderisce perfettamente allo schermo, mentre la custodia in silicone avvolge la parte posteriore. Ed entrambe sono disponibili in dieci splendidi colori.', 2, 0, NULL, 458, 'slider-ipad-mini-4-spacegrey-1.jpg', 'iOS', 32, 'Display Retina 7.9” (2048x1536) Led IPS', 2, 'A8 con architettura a 64bit a 1.6GHz', '203,2x134,8x6,1mm.', 304),
 (21, 'Galaxy Tab S2 9.7', 'La linea Galaxy Tab S2 è facile da recensire. Riesce ad essere tutto quel che Samsung ha la pretesa di farla diventare e rappresenta l''alternativa più credibile, l''equivalente Android, ad iPad. I prezzi di listino restano alti per la categoria, ma le configurazioni sono più convenienti di quelle Apple.\r\n\r\nDa due settimane provo la versione da 8 pollici 32 GB LTE e credo, senza mezzi termini, che sia il miglior tablet Android in vendita. Anche il modello da 9.7 pollici merita, ma il confronto con Sony Xperia Z4 Tablet ha contorni molto meno nitidi e, comunque, ci sono differenze tecniche e funzionali che possono far preferire l''uno o l''altro senza per forza decidere.', 2, 1, 7, 540, 'samsung_galaxy_tab_S2_gold-1.png', 'android', 64, '9.7" 2048x1536 SAMOLED', 2, '4x Cortex A53 @ 1.3GHz', '169 x 237.3 x 5.6 mm', 389),
-(23, 'Videocamera D-Link', 'La Videocamera cloud Wireless Pan/Tilt/Zoom (DCS-5010L) è una soluzione di monitoring versatile per la casa o il piccolo ufficio.\r\n\r\nGrazie alla funzione Pan/Tilt (motorizzazione), è possibile monitorare un’intera stanza a prescindere dalla posizione in cui viene collocata, perché ha un raggio d’azione pari a 360 gradi.\r\n\r\nLa DCS-5010L garantisce, immagini video VGA e audio, anche in completa oscurità, grazie ai LED a infrarossi.\r\n\r\nCon mydlink™ Home è, inoltre, possibile accedere alla maschera di gestione e configurazione della videocamera tramite Internet o tramite connessione 4G da tablet e smartphone, grazie all’app gratuita mydlink ™ Home, disponibile per iOS e Android.\r\n\r\nSpecifiche tecniche', 3, 0, NULL, 100, 'ipcam-motorizzata-01.jpg', NULL, NULL, '', 0, '', '', 0),
+(23, 'Videocamera D-Link', 'La Videocamera cloud Wireless Pan/Tilt/Zoom (DCS-5010L) è una soluzione di monitoring versatile per la casa o il piccolo ufficio.\r\n\r\nGrazie alla funzione Pan/Tilt (motorizzazione), è possibile monitorare un’intera stanza a prescindere dalla posizione in cui viene collocata, perché ha un raggio d’azione pari a 360 gradi.\r\n\r\nLa DCS-5010L garantisce, immagini video VGA e audio, anche in completa oscurità, grazie ai LED a infrarossi.\r\n\r\nCon mydlink™ Home è, inoltre, possibile accedere alla maschera di gestione e configurazione della videocamera tramite Internet o tramite connessione 4G da tablet e smartphone, grazie all’app gratuita mydlink ™ Home, disponibile per iOS e Android.\r\n\r\nSpecifiche tecniche', 3, 0, NULL, 100, 'ipcam-motorizzata-01.jpg', 'windows', NULL, '', 0, '', '', 0),
 (24, 'TIMTag', 'TIMTag, il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care. \r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.\r\n\r\nCon TIMTag hai un dispositivo di localizzazione GPS di ultima generazione, un’ App dedicata intuitiva e semplice da utilizzare, inclusi 12 mesi di servizio TIMTag e una TIM Card!\r\nTutto a soli 129€!\r\n\r\n', 3, 0, NULL, 129, 'TIM-Tag-Device-new-logo.jpg', NULL, NULL, '', 0, '', '49 x 47 x 17 mm', 234),
 (25, 'D-Link SmartHome Kit', 'Con lo Smart Home HD Starter Kit potrai impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.\r\nNel Kit sono inclusi:\r\n\r\nUn Monitor HD (DCS-935L) \r\nUn Wi-Fi Motion Sensor (DCH-S150)\r\nUna smart plug (DSP-W215) \r\nTramite l''App mydlink Home per smartphone e tablet hai a disposizione il controllo di tutti i dispositivi così da semplificarti la gestione della casa rendendola più sicura e intelligente.\r\n\r\nFacile configurazione e gestione dei tuoi dispositivi\r\n\r\nBasta semplicemente scaricare l’app mydlink Home e la configurazione guidata ti aiuterà a utilizzare al meglio tutti i dispositivi presenti nel kit in modo facile e intuitivo.\r\nCon l’app potrai creare tu stesso le regole per accendere e spegnere i tuoi elettrodomestici quando e ovunque vuoi. \r\n\r\nNotifiche automatiche e real time sul tuo smartphone\r\n\r\nL’app mydlink Home ti notificherà quando:\r\nUn movimento o un suono viene rilevato\r\nUn dispositivo è stato acceso o spento\r\nIl consumo elettrico è stato superato\r\nUn dispositivo non funziona correttamente o si surriscalda\r\nIl sensore di movimento a infrarossi passivo riduce di gran lunga i falsi allarmi garantendoti di essere avvisato solo quando necessario: rilevazione dei movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nMonitor HD\r\n\r\nCon il Monitor HD, potrai controllare la tua casa in alta definizione (720p) e grazie alla visione notturna anche in assenza di luce (fino a 5 mt). Il Monitor HD ti avvisa mediante notifica push ogni volta che verrà rilevato un suono o un movimento.\r\nSensore di movimento\r\n\r\nGrazie alla tecnologia a infrarossi passiva saranno ridotti i falsi allarmi e verrai avvisato solo quando necessario. Con il sensore di movimento rileverai i movimenti fino a 8 metri (100° orizzontale, 80° verticale).\r\n\r\nSmart Plug\r\n\r\nPotrai accendere e spegnere i dispositivi dal tuo smartphone tablet, ovunque ti trovi. Essere avvisato se un elettrodomestico è stato acceso o spento. Impostare nuove regole di funzionamento in base alle tue esigenze.\r\nConnettività Mobile\r\n\r\nVuoi monitorare la tua casa al mare o in montagna quando non ci sei? Vuoi avere sempre sott’occhio la tua macchina quando è in garage? \r\nLa tua barca o il tuo camper nei mesi in cui non li utilizzi? \r\nAnche se non disponi di una connessione ADSL in questi luoghi puoi utilizzare D-Link Smart Home Starter Kit con una connessione mobile 3G o 4G Wi-Fi. ', 3, 1, 4, 160, 'DLinkHD.jpg', NULL, NULL, '', 0, '', '23x532x232 mm', 231),
 (26, 'Cassa Nokia MD 12', 'Speaker bluetooth Nokia MD-12 colore bianco. NFC. Ascoltare la tua musica preferita è ora più semplice chemai. Con il suo design ultra - compatto ed una vasta gamma di bellissimi colori , MD -12 è abbastanza piccoloda stare in tasca. Grande esperienza bassi. Non lasciate che la sua piccola dimensione vi inganni . Questopiccolo altoparlante dispone di un grande carico di energia . Progettato con le ultime tecnologie , MD -12 èstato progettato con un attuatore integrato, creando un grande effetto dei bassi quando è impostato su quasiqualsiasi superficie . La durata della batteria superiore per un più divertente ascolto. Con NFC incluso , bastatoccare il tuo telefono cellulare abilitato NFC al diffusore e siete a posto. Oppure utilizzare il Bluetooth edascoltate in streaming i propri brani in modalità wireless e ballate tutta la notte con 15 ore di riproduzionemusicale garantite.', 3, 0, NULL, 50, 'Nokia-md-12_760x760.png', NULL, NULL, '', 0, '', '589x580x489', 934),
 (27, 'Beats Solo2 On-Ear', 'Audio potenziato con la nuova qualità sonora Beats, il suono delle cuffie Solo2 è più nitido e più pulito e sprigiona una più vasta gamma di emozioni. Le cuffie Solo2 offrono un''ampia gamma di frequenze alte e bassi profondi per un''esperienza di ascolto equilibrata per tutti i generi musicali.\r\n\r\nVestibilità e stile: comfort, durevolezza e stile. Padiglioni curvati di 15 gradi per un comfort prolungato; la flessibilità rotazionale consente ai padiglioni di flettersi per una vestibilità ancor più personalizzata', 3, 0, NULL, 200, 'beats-solo2-on-ear-red-1.jpg', NULL, NULL, '', 0, '', '424x345x12 mm', 98),
 (28, 'Samsung Galaxy Gear S', 'I materiali sono ottimi e la costruzione molto solida con elementi in plastica che si alternano ad una cornice in metallo che rende più elegante e solito il prodotto. L''ergonomia è discreta: si tratta di un prodotto indubbiamente grande ma che non risulta essere cosi esagerato come potrebbe apparire in video o foto. Il peso è di 84grammi e a lungo andare sicuramente pesa più di un Gear più piccolo o di un indossabile come le smartband e simili. Inoltre il cinturino largo e la connettività fa sudare un po'' il polso e se in inverso il problema è relativo, in estate diventa più fastidioso.\r\n\r\nMolto bello infine il display che risulta leggibile in tutte le condizioni di luminosità, con un ottimo sensore automatico e con la tecnologia Amoled che permette di contenere i consumi su schermate nere.', 3, 1, 50, 350, 'samsung-galaxy-gear-s-2_0.jpg', NULL, 4, '3,3 pollici', 1, '', '39,9 x 58,1 x 12,5 mm', 84),
-(29, 'WLAN Repeater 1750E', 'Più rete wireless nel giro di secondi\r\nCon il nuovo FRITZ!WLAN Repeater 1750E si estende la portata delle reti wireless esistenti, creando connessioni veloci e stabili che arrivano a 1300 Mbit/s con lo standard AC sulla banda di frequenza da 5 GHz e a 450 Mbit/s con lo standard N su quella da 2,4 GHz.\r\nPer installarlo basta premere un pulsante\r\nI FRITZ!WLAN Repeater 1750E supportano la facile registrazione automatica con il cosiddetto metodo WPS come i router TIM, come il FRITZ!Box o la maggior parte dei router in commercio. Per la configurazione basta premere un pulsante: i ripetitori e i router WPS come il FRITZ!Box si collegano quindi automaticamente.\r\nLibertà senza fili\r\nCon la sua porta Gigabit LAN, questo ripetitore integra nella rete domestica perfino i dispositivi di rete senza funzione wireless. Il FRITZ!WLAN Repeater 1750E copre via radio la distanza fino al router senza richiedere i cavi anteriormente necessari. E se già esistono cavi, in alternativa si può collegare al router nella modalità "ponte LAN" con un cavo di rete. In questo modo, nemmeno le distanze considerevoli rappresentano più alcun problema.', 4, 0, NULL, 90, 'slider-repeater-fritz-1750e-01.jpg', NULL, NULL, '', 0, '', '76,5 x 155 x 62,6 mm', 151),
+(29, 'WLAN Repeater 1750E', 'Più rete wireless nel giro di secondi\r\nCon il nuovo FRITZ!WLAN Repeater 1750E si estende la portata delle reti wireless esistenti, creando connessioni veloci e stabili che arrivano a 1300 Mbit/s con lo standard AC sulla banda di frequenza da 5 GHz e a 450 Mbit/s con lo standard N su quella da 2,4 GHz.\r\nPer installarlo basta premere un pulsante\r\nI FRITZ!WLAN Repeater 1750E supportano la facile registrazione automatica con il cosiddetto metodo WPS come i router TIM, come il FRITZ!Box o la maggior parte dei router in commercio. Per la configurazione basta premere un pulsante: i ripetitori e i router WPS come il FRITZ!Box si collegano quindi automaticamente.\r\nLibertà senza fili\r\nCon la sua porta Gigabit LAN, questo ripetitore integra nella rete domestica perfino i dispositivi di rete senza funzione wireless. Il FRITZ!WLAN Repeater 1750E copre via radio la distanza fino al router senza richiedere i cavi anteriormente necessari. E se già esistono cavi, in alternativa si può collegare al router nella modalità "ponte LAN" con un cavo di rete. In questo modo, nemmeno le distanze considerevoli rappresentano più alcun problema.', 4, 0, NULL, 215, 'slider-repeater-fritz-1750e-01.jpg', 'iOS', NULL, '', 0, '', '76,5 x 155 x 62,6 mm', 151),
 (33, 'Repeater Wi-Fi AC750', 'ZyXEL WRE6505 Wireless AC750 Range Extender consente di estendere facilmente reti esistenti wireless 802.11 b / g / n / ac in modo facile e veloce. Basta collegare il Repeater direttamente alla presa di corrente e l''indicatore di potenza del segnale LED consente di determinare la posizione di installazione ideale. Il one-click Wi-Fi Protected Setup (WPS Button a pagina 12), prevede l''installazione del client wireless senza frustrazione e completa in pochi passi la configurazione di accesso alla rete.\r\n\r\nTre funzionalità in 1 unico prodotto\r\nCon Zyxel AC750 puoi:\r\n\r\nestendere la rete Wi-Fi nella modalità Repeater\r\ncreare una rete Wi-Fi indipendente da quella, del modem, mediante la funzionalità Access Point\r\ntrasformare in Wi-Fi un device non dotato di tale feature, sfruttando la funzionalità di Terminal Adapter\r\nAcquista il repeater ZyXEL AC750 direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.', 5, 1, 34, 50, 'slider-repeater-zyxel-ac750-front.jpg', NULL, NULL, '1', 1, '1', '46,5 x 62,3 x 90,9 mm', 98),
 (34, 'Wi-Fi Bridge Technicolor', 'Tre funzionalità in unico prodotto\r\n\r\nCon il multimedia connect puoi:\r\n\r\nCollegare al modem tramite il Wi-Fi AC a 5GHz una TV, un decoder od un altro apparato\r\nAssociarlo ad un altro Multimedia Connect (TG234) e creare un ponte Wi-Fi AC a 5GHz\r\nCreare una rete Wi-Fi AC a 5 GHz indipendente da quella del modem (funzionalità access point)', 4, 0, NULL, 80, 'wifi-bridge-technicolor_01.jpg', NULL, NULL, '', 0, '', '342x54x423', 343),
 (35, 'Powerline Adapter', 'Colleghi PC, modem e console sfruttando la rete elettrica\r\n\r\nVuoi trasformare la rete elettrica di casa tua in una rete per navigare e trasmettere, dove il wi-fi non arriva, dati in formato digitale?\r\n\r\nCon Powerline Adpter puoi farlo.\r\n\r\nColleghi tra loro PC, modem e console senza problemi di copertura, distanza, né cablaggi: ti basta inserire Powerline Adapter nelle prese elettriche per creare una rete domestica che connette i vari apparati, con prestazioni fino a 200 Mbps.\r\n\r\nE la riservatezza dei dati che trasmetti e ricevi è garantita mediante un sistema di crittografia.\r\n\r\nAcquista Powerline Adapter in coppia direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.', 4, 1, 9, 49, 'PowerlineAdapter-1.png', NULL, NULL, '', 0, '', '342x33x541', 754),
 (36, 'Modem Wi-Fi 4GPLUS', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, NULL, 100, 'TIM-Pack-M-Modem-4Gplus-760x760.jpg', NULL, NULL, '', 0, '', '64x346x643 mm', 643),
-(37, 'Modem 4G WI-FI', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, NULL, 80, 'TIM-Pack-M-Modem-4G-760x760_0.jpg', NULL, NULL, '', 0, '', '64x346x643 mm', 63),
+(37, 'Modem 4G WI-FI', 'L''innovativa tecnologia LTE (Long Term Evolution) consente di raggiungere fino a 70 Mbps in ricezione e 50 Mbps in trasmissione. Il Modem wifi TIM 4G LTE consente anche il collegamento Wi-Fi fino a 10 dispositivi. Il supporto memoria MicroSD Card fino a 32GB rende possibile condividere file tra gli utenti collegati.\r\n\r\nLe foto sul sito tim.it riportano tutti i tipi di Modem Wifi 4G: i Modem inclusi nelle confezioni possono essere diversi per forma, peso e colore ma hanno le stesse caratteristiche indicate nella scheda Dettaglio. Acquistando da questo sito, ti verrà spedito uno dei Modem riportati nelle foto secondo le disponibilità del momento', 4, 0, NULL, 80, 'TIM-Pack-M-Modem-4G-760x760_0.jpg', 'windows', NULL, '', 0, '', '64x346x643 mm', 63),
 (38, 'Sony XPERIA X', 'Il capolavoro\r\nUno smartphone dalle prestazioni inimitabili che integra una sensazionale fotocamera in grado di predire il prossimo movimento del soggetto..\r\nUna fotocamera senza rivali\r\nXperia X Performance integra la nuova fotocamera firmata Sony, più veloce e smart che mai. Tempi di risposta più rapidi, messa a fuoco più intelligente e rivoluzionaria velocità di otturazione adattiva: avrai tutto il necessario per scatti incredibilmente nitidi, in qualsiasi condizione. La messa a fuoco automatica ibrida intuitiva di Xperia X Performance utilizza le tecnologie delle fotocamere Sony e ti permette di cogliere qualsiasi movimento. Basta scegliere il soggetto da mettere a fuoco e la fotocamera lo seguirà automaticamente, anche quando si muove. La messa a fuoco è sempre chiara e il soggetto sempre nitido: non dovrai più preoccuparti di seguire la scena. Pensa a tutto il tuo smartphone.\r\nLa fotocamera da 23 MP che non teme i movimenti improvvisi\r\nLa nostra rapidissima fotocamera è in grado di passare dallo standby allo scatto in meno di 0,6 secondi. Grazie all''incredibile rapidità di avvio, messa a fuoco automatica ibrida ed elaborazione dell''immagine, potrai cogliere i momenti più inattesi.\r\n\r\nUn tocco di classe\r\nBasta prendere Xperia X Performance in mano per accorgersi di quanto sia speciale: lasciati conquistare dal display curvo e dalla parte posteriore monoblocco in metallo. Scegli fra Nero grafite o Bianco per un esclusivo effetto satinato. Oppure le versioni Oro lime e Oro rosa per un tocco di eleganza. Xperia X Performance riflette i tuoi gusti e il tuo stile di vita. L''ultima versione del classico modello Sony è caratterizzata da un design straordinariamente semplice, ancora più comodo grazie ai bordi ricurvi e al display da 5". E l''interfaccia utente non è da meno, con un look sempre più personalizzato e un approccio più intuitivo.\r\n\r\nInarrestabile potenza\r\nXperia X Performance è dotato di un rapidissimo processore Snapdragon 820 e di velocità di connessione Cat91 per prestazioni senza rivali. Preparati a restare a bocca aperta.\r\n\r\nStreaming alla velocità della luce\r\nConnettività ultra rapida per un intrattenimento ininterrotto. Vuoi guardare un film in streaming su Netflix o scaricare il tuo podcast preferito? Dì addio ai tempi di attesa. Grazie all''ultimo processore Snapdragon 820 e a una connettività senza rivali, Xperia X Performance ti permette di accedere ai contenuti multimediali desiderati in un batter d''occhio e con estrema facilità, senza buffering o ritardi.', 1, 1, 11, 629, 'sony-xperia-x-grphblk-double.jpg', 'android', 16, 'Full HD da 5” 1080p, Display TRILUMINOS', 2, 'Processore Snapdragon® 650 HexaCore 1.8+1.4 Ghz', '143,7 x 70,5 x 8,6 mm', 165),
 (39, 'Huawei P9', 'PREMIUM. ELEGANT. STYLISH.\r\nHuawei P9 presenta un design con linee dal forte impatto visivo, caratterizzate da spigoli tagliati a diamante e arrotondati a regola d’arte. Lo smartphone ha una struttura unibody in alluminio aerospaziale e vetro 2.5D di categoria superiore, ed è disponibile in due varianti cromatiche: Titanium Grey e Mystic Silver.\r\n\r\nDISPLAY LUMINOSO E DAI COLORI INTENSI\r\nCon una resa cromatica del 96%, il sensazionale display IPS Full HD da 5,2" porta alla scoperta di un mondo ricco di colori intensi e ancora più naturali.\r\n\r\nUN INNOVATIVO SISTEMA CON DOPPIA FOTOCAMERA, UNA COLLABORAZIONE UNICA\r\nLa collaborazione tra Huawei e Leica ha dato vita a uno smartphone con doppia fotocamera. Il risultato: maggiore luminosità e nitidezza per foto e video sensazionali.\r\n\r\nINNOVATIVO SISTEMA CON DOPPIA FOTOCAMERA\r\nHuawei P9 è in grado di catturare immagini dai colori luminosi e garantire al contempo una resa in bianco e nero straordinaria; il tutto con lo stile senza tempo di Leica.La tecnologia con doppia fotocamera di Huawei P9 consente di catturare una maggiore quantità di luce, combinando al meglio la qualità del colore acquisito dal sensore RGB con i dettagli ottenuti dal sensore in bianco e nero. Il tutto per garantire il massimo risultato ad ogni scatto.', 1, 1, 12, 599, 'huawei-p9-grey-01.jpg', 'android', 8, 'Display IPS Full HD da 5.2’’', 4, 'Kirin 955 - Octa-Core (4x2,5 GHz + 4x1,8 GHz)', '145 x 70,9 x 6,95 mm', 144),
 (40, 'Samsung Galaxy J5', 'Samsung Galaxy J5 è un smartphone Android di buon livello, fortemente votato all''imaging, in grado di soddisfare anche l''utente più esigente. Dispone di un grande display Touchscreen da 5 pollici con una risoluzione di 1280x720 pixel non particolarmente elevata. Sul versante delle funzionalità a questo Samsung Galaxy J5 non manca davvero nulla. A cominciare dal modulo LTE 4G che permette un trasferimento dati e una navigazione in internet eccellente, passando per la connettività Wi-fi e il GPS. \r\nQuesto Samsung Galaxy J5 è un prodotto con pochi competitor per ciò che riguarda la multimedialità grazie alla fotocamera da ben 13 megapixel che permette al Samsung Galaxy J5 di scattare foto di alta qualità con una risoluzione di 4128x3096 pixel e di registrare video in fullHD alla risoluzione di 1920x1080 pixel. Lo spessore di 8.5mm è contenuto e rende questo Samsung Galaxy J5 molto interessante.', 1, 0, NULL, 269, 'sgh-galaxy-j5_6-blkfront.png', 'android', 32, ' 5.2” 16 Milioni colori Touch', 2, 'QuadCore 1.2 Ghz', '145,8x72,3x8,1 mm', 158),
@@ -171,7 +171,14 @@ INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione
 (46, 'iPhone 6 Plus', 'iPhone 6 Plus non è solo più grande: è ancora migliore, da ogni punto di vista. Più grande, eppure più sottile. Più potente, ma attento nei consumi. È una nuova generazione di iPhone.', 1, 1, 10, 849, 'apple-iphone-6-plus-space-grey-1.jpg', 'iOS', 128, 'Display Retina HD da 5,5"', 1, 'Chip A8 con coprocessore di movimento M8', '5.9x127.2x120 mm', 392),
 (47, 'Lumia 950', 'Funzionalità di livello superiore, design eccellente e la migliore esperienza con Windows 10: scegli Lumia 950 e trasforma un momento qualsiasi in una grande conquista.\r\n\r\nScopri tutto quello che puoi fare con il tuo Microsoft Lumia', 1, 0, NULL, 449, 'microsoft-LUMIA950_blk-1_0.jpg', 'Windows', 32, '5.2” 16 Milioni colori', 1, 'HexaCore 1.8 GHz', '45x73,2x8,25 mm', 150),
 (48, 'Lumia 650', 'Design raffinato, prestazioni eccellenti e Windows 10 integrato. Lumia 650 offre un’esperienza unica su tutti i dispositivi con il nuovo sistema operativo: per una nuova straordinaria avventura. Ecco perché è la scelta giusta per ogni tuo progetto.\r\nLumia 650 sarà il tuo complice ideale. Perché il futuro può portarti ovunque, ma sul tuo compagno di viaggi devi poter contare. Così, abbiamo creato il nuovo Lumia 650: dotato del sistema operativo più avanzato, che offre un’esperienza unica su tutti i dispositivi Windows 10, e con tutte le app Microsoft Office preinstallate. Per essere sempre produttivo, connesso e pronto a tutto.', 1, 1, 12, 169, 'LUMIA650-black-front.jpg', 'Windows', 8, 'Display 5”', 1, 'Processore Snapdragon™ 212 QuadCore 1.3 Ghz', '142x70,9x6,9 mm', 112),
-(49, 'Lumnia 550', 'Vivi tutta la potenza di Windows 10 a un prezzo conveniente. Con la connessione 4G LTE e il nuovo browser Microsoft Edge, puoi fare molto di più, più velocemente.', 1, 1, 21, 119, 'microsoft-LUMIA550_wht-1_4.jpg', 'Windows', 16, 'Display 4.7”', 4, 'Snapdragon™ 210 QuadCore 1.1 Ghz ', '136,1x67,8x9,9 mm', 141);
+(49, 'Lumnia 550', 'Vivi tutta la potenza di Windows 10 a un prezzo conveniente. Con la connessione 4G LTE e il nuovo browser Microsoft Edge, puoi fare molto di più, più velocemente.', 1, 1, 21, 119, 'microsoft-LUMIA550_wht-1_4.jpg', 'Windows', 16, 'Display 4.7”', 4, 'Snapdragon™ 210 QuadCore 1.1 Ghz ', '136,1x67,8x9,9 mm', 141),
+(51, 'Alcatel Pixi3 10', 'Tablet con Sistema Operativo Android 5.1\nDisplay 10.1” Touch\nMediateKMT8321 Quad-Core da 1.3 GHz molto consigliato e di ottime dimensioni', 2, 0, 0, 140, 'PIXI-3.jpg', 'android', 8, '10.5"', 1, 'MediateKMT8321 Quad-Core da 1.3 GHz', '255x155x8,9 mm', 365);
+INSERT INTO `dispositivo` (`id`, `nome`, `descrizione`, `categoria`, `promozione`, `sconto`, `prezzo`, `immagine`, `os`, `memoria`, `schermo`, `ram`, `processore`, `dimensioni`, `peso`) VALUES
+(53, 'Alcatel\r\nONE TOUCH Pixi3', 'Tablet con Sistema Operativo Android 5.1\r\nDisplay 10.1” Touch\r\nMediateKMT8321 Quad-Core da 1.3 GHz molto consigliato e di ottime dimensioni', 2, 0, 0, 99, 'alcatel-pixi-3.jpg', 'android', 4, '8"', 1, 'MediateKMT8312 DualCore da 1.3 GHz', '209 x 124 x 9,2 mm', 355),
+(54, 'Galaxy Note 10.1 4G', 'Samsung Galaxy Note 10.1" 4G amplia, con connettività 4G LTE, la gamma dei tablet con schermo 10.1'''' permettendo di condividere foto e video ancora più velocemente. Si evidenzia anche un chipset Quad-core da 1.4 GHz , fotocamera posteriore da 5.0 Mpixel con flash led, utilizza micro-SIM (formato 3FF) ed è caratterizzato dal Sistema Operativo Android 4.1.2 (Jelly Bean) presentando al suo interno l''integrazione del Google Mobile Suite, oltre che una serie di applicativi specifici Samsung per esaltare l''efficienza e la praticità della S Pen integrata nella scocca. Il tablet è un dispositivo all''ultimo grido per connettività (tra DLNA e Bluetooth 4) e versatilità, con uno slot per schede microSD e interfaccia a infrarossi per controllare i dispositivi di casa.\r\n', 2, 0, 0, 479, 'galaxy_note_101.png', 'android', 16, '10.1"', 4, 'Exynos 4412 Quad-Core 1.4GHz', '262 x 180 x 8.9 mm', 600),
+(55, 'Loop Activity Tracker', 'Misura l’attività fisica 24h/24 - 7gg/7 \r\nConta passi \r\nCalcola le calorie consumate \r\nDefinisce obiettivi giornalieri  personalizzati.', 3, 0, 0, 99, 'Polar_loop_blk_760x760.png', NULL, NULL, '', 0, '', '23x 23x 2 cm', 200),
+(56, 'Flash drive Wi-Fi (32GB)', 'L’unità flash wireless SanDisk Connect aggiunge istantaneamente fino a 32 GB di spazio di memorizzazione per il tuo dispositivo iPad, iPhone, Kindle Fire e Android™. Portatile e di facile uso, questa unità ti offre accesso mobile wireless ai tuoi film, foto, musica e documenti. Puoi collegare in modalità wireless fino a 8 dispositivi e inviare contenuti multimediali in streaming simultaneamente a più dispositivi, fino a 3, senza bisogno di una connessione Internet. La batteria dell’unità è ricaricabile da una porta USB e offre sino a 4 ore di streaming continuo con una sola carica', 3, 0, 0, 69, 'ProductShot1_16GB.jpg', NULL, 32, '', 0, '', '', 50),
+(57, 'iHealth® - HS5', 'iHEALTH ha sviluppato una linea di prodotti innovativi, per la gestione della salute personale su smartphone o tablet. I prodotti wireless iHealth con connessione bluetooth per iPad, iPhone, iPod e Android consentono di misurare facilmente, memorizzare e condividere immediatamente i risultati con la famiglia o il medico. La potente applicazione iHealth MyVitals permette di gestire tutti i dati relativi alla propria salute con grafici, statistiche e tendenze. Questa applicazione, unica nel suo genere, traccia la relazione tra vari parametri come la pressione sanguigna, il peso, l’apporto calorico e l’attività fisica. Compatibile con tutte le piattaforme Apple e Android. Comprende un servizio gratuito iHealth Cloud.\r\n', 3, 0, 0, 119, 'iHealth_760x760.png', NULL, 0, '', 0, '', '380 x 310 x 35 mm', 500);
 
 -- --------------------------------------------------------
 
@@ -433,7 +440,35 @@ INSERT INTO `dispositivo_servizioassistenza` (`id_dispositivo_dsa`, `id_servizio
 (49, 29),
 (49, 30),
 (49, 34),
-(49, 39);
+(49, 39),
+(51, 3),
+(51, 15),
+(51, 24),
+(51, 28),
+(53, 8),
+(53, 20),
+(53, 27),
+(53, 41),
+(54, 2),
+(54, 3),
+(54, 10),
+(54, 12),
+(54, 21),
+(54, 32),
+(55, 22),
+(55, 27),
+(55, 33),
+(55, 36),
+(56, 1),
+(56, 2),
+(56, 8),
+(56, 17),
+(56, 29),
+(57, 13),
+(57, 18),
+(57, 19),
+(57, 23),
+(57, 26);
 
 -- --------------------------------------------------------
 
@@ -455,148 +490,164 @@ CREATE TABLE IF NOT EXISTS `dispositivo_smartlifeservice` (
 
 INSERT INTO `dispositivo_smartlifeservice` (`id_dispositivo_dss`, `id_smartlifeservice_dss`) VALUES
 (1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 10),
-(1, 12),
-(1, 13),
 (2, 1),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 7),
 (3, 1),
-(3, 4),
-(3, 6),
-(3, 9),
-(3, 10),
 (4, 1),
-(4, 4),
-(4, 7),
-(4, 12),
-(4, 13),
-(5, 3),
-(5, 4),
-(5, 6),
-(5, 8),
-(6, 4),
-(6, 6),
-(6, 7),
-(6, 9),
-(7, 2),
-(7, 3),
-(7, 4),
-(7, 11),
 (8, 1),
-(8, 2),
-(8, 3),
-(8, 4),
 (9, 1),
-(9, 5),
-(9, 7),
 (10, 1),
-(10, 4),
-(10, 7),
-(10, 12),
-(11, 4),
-(11, 7),
-(11, 12),
-(11, 13),
-(12, 7),
-(12, 12),
-(12, 13),
-(13, 7),
-(13, 12),
-(14, 7),
-(14, 12),
 (15, 1),
-(15, 2),
-(15, 4),
-(15, 10),
-(16, 6),
-(16, 8),
-(16, 10),
 (17, 1),
-(17, 6),
-(17, 8),
-(17, 11),
-(17, 13),
 (18, 1),
-(18, 2),
-(18, 4),
-(18, 12),
-(18, 13),
-(19, 2),
-(19, 3),
-(19, 7),
-(19, 8),
-(19, 9),
-(21, 3),
-(21, 4),
-(21, 11),
-(21, 13),
-(23, 7),
-(23, 12),
-(24, 6),
-(24, 7),
-(24, 12),
-(25, 6),
-(25, 7),
-(25, 12),
-(26, 7),
-(26, 12),
-(27, 13),
 (38, 1),
-(38, 3),
-(39, 1),
-(39, 4),
-(39, 5),
-(39, 7),
-(39, 9),
 (40, 1),
-(40, 4),
-(40, 7),
-(40, 8),
-(40, 11),
-(40, 12),
 (41, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(49, 1),
+(55, 1),
+(1, 2),
+(2, 2),
+(7, 2),
+(8, 2),
+(15, 2),
+(18, 2),
+(19, 2),
+(43, 2),
+(44, 2),
+(49, 2),
+(51, 2),
+(1, 3),
+(2, 3),
+(5, 3),
+(7, 3),
+(8, 3),
+(19, 3),
+(21, 3),
+(38, 3),
+(43, 3),
+(55, 3),
+(1, 4),
+(2, 4),
+(3, 4),
+(4, 4),
+(5, 4),
+(6, 4),
+(7, 4),
+(8, 4),
+(10, 4),
+(11, 4),
+(15, 4),
+(18, 4),
+(21, 4),
+(39, 4),
+(40, 4),
+(48, 4),
+(57, 4),
+(2, 5),
+(9, 5),
+(39, 5),
 (41, 5),
+(46, 5),
+(57, 5),
+(3, 6),
+(5, 6),
+(6, 6),
+(16, 6),
+(17, 6),
+(24, 6),
+(25, 6),
+(45, 6),
+(52, 6),
+(2, 7),
+(4, 7),
+(6, 7),
+(9, 7),
+(10, 7),
+(11, 7),
+(12, 7),
+(13, 7),
+(14, 7),
+(19, 7),
+(23, 7),
+(24, 7),
+(25, 7),
+(26, 7),
+(39, 7),
+(40, 7),
+(48, 7),
+(51, 7),
+(54, 7),
+(55, 7),
+(5, 8),
+(16, 8),
+(17, 8),
+(19, 8),
+(40, 8),
+(47, 8),
+(48, 8),
+(53, 8),
+(56, 8),
+(3, 9),
+(6, 9),
+(19, 9),
+(39, 9),
+(47, 9),
+(48, 9),
+(54, 9),
+(1, 10),
+(3, 10),
+(15, 10),
+(16, 10),
+(34, 10),
 (41, 10),
+(46, 10),
+(47, 10),
+(49, 10),
+(7, 11),
+(17, 11),
+(21, 11),
+(40, 11),
 (41, 11),
 (42, 11),
-(42, 13),
-(43, 1),
-(43, 2),
-(43, 3),
 (43, 11),
-(43, 13),
-(44, 1),
-(44, 2),
 (44, 11),
-(44, 12),
-(44, 13),
-(45, 1),
-(45, 6),
 (45, 11),
-(45, 13),
-(46, 5),
-(46, 10),
 (46, 11),
-(46, 12),
-(47, 8),
-(47, 9),
-(47, 10),
 (47, 11),
-(48, 4),
-(48, 7),
-(48, 8),
-(48, 9),
-(49, 1),
-(49, 2),
-(49, 10),
-(49, 13);
+(56, 11),
+(1, 12),
+(4, 12),
+(10, 12),
+(11, 12),
+(12, 12),
+(13, 12),
+(14, 12),
+(18, 12),
+(23, 12),
+(24, 12),
+(25, 12),
+(26, 12),
+(34, 12),
+(40, 12),
+(44, 12),
+(46, 12),
+(52, 12),
+(57, 12),
+(1, 13),
+(4, 13),
+(11, 13),
+(12, 13),
+(17, 13),
+(18, 13),
+(21, 13),
+(27, 13),
+(42, 13),
+(43, 13),
+(44, 13),
+(45, 13),
+(53, 13);
 
 -- --------------------------------------------------------
 
@@ -612,7 +663,7 @@ CREATE TABLE IF NOT EXISTS `servizioassistenza` (
   `categoriaservizioassistenza` int(11) DEFAULT NULL,
   `highlightservizioassistenza` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idservizioassistenza`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Dump dei dati per la tabella `servizioassistenza`
@@ -622,7 +673,7 @@ INSERT INTO `servizioassistenza` (`idservizioassistenza`, `nomeservizioassistenz
 (1, 'Configurazione Mail iOS', 'Guida per la configurazione delle mail su sistemi operativi iOS', 2, 1),
 (2, 'Configurazione Mail android', 'Guida per la configurazione delle mail su sistemi operativi android', 2, 0),
 (3, 'Tutti i modi di ricaricare', 'Ricarica online\r\n\r\nCon autenticazione: se sei registrato al sito puoi scegliere l''importo da ricaricare, inserire i dati della tua carta di credito e la ricarica è subito effettuata! (Circuiti abilitati: American Express, Diners, Aura, Visa, Mastercard, PayPal).\r\n\r\nSenza autenticazione: ricarica il tuo telefonino senza bisogno di registrarti al sito. Usa la tua carta di credito personale e la ricarica è fatta! (Circuiti abilitati: Visa, Mastercard, American Express, Diners, carta Aura e PayPal).', 1, 0),
-(4, 'Scopri come consultare i consumi della tua linea con abbonamento', 'Puoi consultare i consumi del tuo abbonamento\r\n \r\n\r\nDirettamente online\r\nRegistrandoti a MyTIM Mobile potrai verificare, aggiornate alla data riportata sul sito:\r\n\r\n   1. Traffico VOCE, che è composto da:\r\n\r\n"Traffico Voce Nazionale": è l''importo che comprende le chiamate effettuate dall’Italia verso numerazioni nazionali e verso numerazioni speciali.\r\n"Traffico Voce Internazionale": è l''importo che comprende le chiamate effettuate dall''Italia verso numeri esteri.\r\n"Traffico Voce PayForMe" : è l’importo complessivo del traffico voce effettuato utilizzando il servizio di addebito della chiamata "4088 PayForMe".\r\n"Traffico Roaming (Voce)": è l''importo delle chiamate effettuate e ricevute all’estero.\r\n   2. Traffico SMS/MMS, che include:\r\n\r\n"Traffico SMS": è l''importo che comprende i messaggi di testo inviati verso numerazioni mobili e di rete fissa.\r\n"Traffico MMS": è l''importo che comprende i messaggi multimediali (mms) inviati verso numerazioni mobili e di rete fissa.\r\n   3. Altro traffico dati / Servizi Interattivi, che comprende:\r\n\r\n"Navigazione wap" è l''importo che comprende il traffico effettuato per la trasmissione di dati/connessione ad internet utilizzando la modalità wap (punto di accesso alla rete dati per la connessione: wap.tim.it).\r\n"Altro traffico dati" è l''importo che comprende il traffico effettuato per la trasmissione di dati/connessione ad internet utilizzando tutti gli altri punti di accesso alla rete dati.\r\n"Wifi" è l’importo complessivo del traffico effettuato da accesso Wifi.\r\n"Servizi interattivi" è l’importo che comprende gli addebiti per la ricezione/invio di sms/mms da numerazioni brevi a contenuto speciale (esempio: logo, suoneria, sfondo), gli sms utilizzati attraverso il servizio "4088 PayForMe sms", e tutti i servizi supplementari non inclusi nei contatori precedenti.\r\n\r\nChiamando dal tuo telefonino il numero gratuito 40915: \r\nE'' importante sapere che il "traffico online" si riferisce ai consumi non inclusi nel costo di eventuali offerte e promozioni attive sulla tua linea. I consumi si riferiscono al periodo che intercorre dal primo giorno del bimestre di riferimento alla data comunicata dalla fonia. \r\nSe hai attivato una o più promozioni, al tasto 2 puoi verificare il residuo dei bonus corrispondenti e i numeri amici. Questo fa riferimento al periodo compreso tra il primo giorno del mese in corso e la data comunicata dalla fonia della voce guida. \r\n\r\nPuoi contattare il 40915 anche solo inviando un sms gratuito con le seguenti sintassi:\r\n\r\nSALTOT    per conoscere il saldo complessivo ed eventuale bonus.\r\nSALNAZ    per conoscere il saldo del traffico nazionale.\r\nSALITZ     per conoscere il saldo del traffico internazionale.\r\nSALROA   per conoscere il saldo del traffico roaming.\r\nSALSMS   per conoscere il saldo del traffico sms.\r\nSALMMS  per conoscere il saldo del traffico mms.\r\nSALWAP  per conoscere il saldo del traffico wap.\r\nSALDATI  per conoscere il saldo del traffico dati web (punto di accesso ibox.tim.it).\r\nSALWIFI  per conoscere il saldo del traffico wifi.\r\nSALVAS   per conoscere il saldo del traffico di tutti i servizi supplementari (esempio: sms interattivi).Riceverai un sms di risposta con le informazioni richieste.\r\n\r\nNavigando dal telefonino:\r\nSul sito TIM.it ottimizzato per il tuo smartphone, oppure attraverso l''App MyTIM Mobile , attualmente disponibile in download gratuito nelle versioni per iPhone e per smartphone con sistema operativo Android.', 1, 1),
+(4, 'Scopri come consultare i consumi della tua linea', 'Puoi consultare i consumi del tuo abbonamento\r\n \r\n\r\nDirettamente online\r\nRegistrandoti a MyTIM Mobile potrai verificare, aggiornate alla data riportata sul sito:\r\n\r\n   1. Traffico VOCE, che è composto da:\r\n\r\n"Traffico Voce Nazionale": è l''importo che comprende le chiamate effettuate dall’Italia verso numerazioni nazionali e verso numerazioni speciali.\r\n"Traffico Voce Internazionale": è l''importo che comprende le chiamate effettuate dall''Italia verso numeri esteri.\r\n"Traffico Voce PayForMe" : è l’importo complessivo del traffico voce effettuato utilizzando il servizio di addebito della chiamata "4088 PayForMe".\r\n"Traffico Roaming (Voce)": è l''importo delle chiamate effettuate e ricevute all’estero.\r\n   2. Traffico SMS/MMS, che include:\r\n\r\n"Traffico SMS": è l''importo che comprende i messaggi di testo inviati verso numerazioni mobili e di rete fissa.\r\n"Traffico MMS": è l''importo che comprende i messaggi multimediali (mms) inviati verso numerazioni mobili e di rete fissa.\r\n   3. Altro traffico dati / Servizi Interattivi, che comprende:\r\n\r\n"Navigazione wap" è l''importo che comprende il traffico effettuato per la trasmissione di dati/connessione ad internet utilizzando la modalità wap (punto di accesso alla rete dati per la connessione: wap.tim.it).\r\n"Altro traffico dati" è l''importo che comprende il traffico effettuato per la trasmissione di dati/connessione ad internet utilizzando tutti gli altri punti di accesso alla rete dati.\r\n"Wifi" è l’importo complessivo del traffico effettuato da accesso Wifi.\r\n"Servizi interattivi" è l’importo che comprende gli addebiti per la ricezione/invio di sms/mms da numerazioni brevi a contenuto speciale (esempio: logo, suoneria, sfondo), gli sms utilizzati attraverso il servizio "4088 PayForMe sms", e tutti i servizi supplementari non inclusi nei contatori precedenti.\r\n\r\nChiamando dal tuo telefonino il numero gratuito 40915: \r\nE'' importante sapere che il "traffico online" si riferisce ai consumi non inclusi nel costo di eventuali offerte e promozioni attive sulla tua linea. I consumi si riferiscono al periodo che intercorre dal primo giorno del bimestre di riferimento alla data comunicata dalla fonia. \r\nSe hai attivato una o più promozioni, al tasto 2 puoi verificare il residuo dei bonus corrispondenti e i numeri amici. Questo fa riferimento al periodo compreso tra il primo giorno del mese in corso e la data comunicata dalla fonia della voce guida. \r\n\r\nPuoi contattare il 40915 anche solo inviando un sms gratuito con le seguenti sintassi:\r\n\r\nSALTOT    per conoscere il saldo complessivo ed eventuale bonus.\r\nSALNAZ    per conoscere il saldo del traffico nazionale.\r\nSALITZ     per conoscere il saldo del traffico internazionale.\r\nSALROA   per conoscere il saldo del traffico roaming.\r\nSALSMS   per conoscere il saldo del traffico sms.\r\nSALMMS  per conoscere il saldo del traffico mms.\r\nSALWAP  per conoscere il saldo del traffico wap.\r\nSALDATI  per conoscere il saldo del traffico dati web (punto di accesso ibox.tim.it).\r\nSALWIFI  per conoscere il saldo del traffico wifi.\r\nSALVAS   per conoscere il saldo del traffico di tutti i servizi supplementari (esempio: sms interattivi).Riceverai un sms di risposta con le informazioni richieste.\r\n\r\nNavigando dal telefonino:\r\nSul sito TIM.it ottimizzato per il tuo smartphone, oppure attraverso l''App MyTIM Mobile , attualmente disponibile in download gratuito nelle versioni per iPhone e per smartphone con sistema operativo Android.', 1, 1),
 (5, 'Tariffa base per navigare da Smartphone, PC e Tablet - Flat Day', 'Flat Day è la tariffa base per la navigare in Internet da Smartphone, PC e Tablet per un massimo di 500MB al giorno al costo di 4€ (IVA inclusa).\r\n\r\nLa tariffa base Flat Day interviene in assenza di un’offerta dati attiva sulla tua linea. In questa circostanza se effettui una connessione Internet scatta un gettone giornaliero di 4€ per 500MB di traffico dati da utilizzare nell’arco della stessa giornata (fino alle 23:59).\r\n\r\nIl costo della Flat Day viene addebitato solo nei giorni di effettivo utilizzo al primo evento di connessione. Al raggiungimento di 500MB di traffico dati nella giornata, la velocità di navigazione si riduce a 32 Kbps senza ulteriori costi aggiuntivi. I MB di traffico a disposizione nel giorno vengono conteggiati a scatti unitari anticipati di 1KB. L''eventuale traffico Internet non consumato nella giornata viene azzerato.\r\n\r\nNota bene:\r\n\r\nLa tariffa base giornaliera è valida per la navigazione Internet in Italia su tutti gli APN (ibox.tim.it, wap.tim.it e blackberry.net).\r\nIl gettone di traffico acquistato è fruibile solo su territorio nazionale fino alle 23:59 della stessa giornata.\r\nSe hai attiva sulla tua linea un’offerta dati TIM per navigare da Smatphone, Tablet e PC, che prevede il rinnovo automatico settimanale o mensile, ricorda che il rinnovo avviene entro 4 ore dalla mezzanotte della data di scadenza, ma se effettui traffico dati prima che l’offerta si sia rinnovata, ti sarà applicata la Flat Day. Ricorda quindi di verificare sempre l’avvenuto rinnovo della tua offerta dati tramite il 40916 (per Clienti Ricaricabili) o il 40915 (clienti con Abbonamento), attraverso l''app MyTIM Mobile o via web accedendo alla sezione MyTIM Mobile.\r\nRicorda che TIM ti permette di proteggere la tua spesa mensile per navigare in Internet con Smartphone, PC e Tablet. Clicca qui per maggiori dettagli.\r\nSe pensi di utilizzare il servizio di navigazione Internet, in alternativa alla Flat Day, ti consigliamo di attivare una delle offerte dati TIM scegliendo quella più corrispondente alle tue esigenze. Per maggiori informazioni sulle offerte disponibili clicca qui o recati in un Negozio TIM.', 1, 1),
 (6, 'Tariffa base per navigare da Smartphone, PC e Tablet - Flat Day', 'Flat Day è la tariffa base per la navigare in Internet da Smartphone, PC e Tablet per un massimo di 500MB al giorno al costo di 4€ (IVA inclusa).\r\n\r\nLa tariffa base Flat Day interviene in assenza di un’offerta dati attiva sulla tua linea. In questa circostanza se effettui una connessione Internet scatta un gettone giornaliero di 4€ per 500MB di traffico dati da utilizzare nell’arco della stessa giornata (fino alle 23:59).\r\n\r\nIl costo della Flat Day viene addebitato solo nei giorni di effettivo utilizzo al primo evento di connessione. Al raggiungimento di 500MB di traffico dati nella giornata, la velocità di navigazione si riduce a 32 Kbps senza ulteriori costi aggiuntivi. I MB di traffico a disposizione nel giorno vengono conteggiati a scatti unitari anticipati di 1KB. L''eventuale traffico Internet non consumato nella giornata viene azzerato.', 1, 0),
 (7, 'Soglia di protezione e blocco del traffico dati', 'TIM ti permette di proteggere la tua spesa mensile per navigare su internet con il telefonino, tablet o chiavetta dandoti, inoltre, la possibilità di bloccare il traffico dati.\r\nIn caso tu non abbia attivato una delle nostre offerte dati ed effettui navigazione internet, la soglia di protezione, che è attiva automaticamente su tutte le linee, monitorerà la tua spesa mensile e in caso di raggiungimento dell’importo di 60€ (IVA inclusa) la linea verrà bloccata al traffico dati per tutelarti, mentre il servizio di fonia e sms continuerà a funzionare.', 1, 0),
@@ -657,9 +708,9 @@ INSERT INTO `servizioassistenza` (`idservizioassistenza`, `nomeservizioassistenz
 (36, 'Ibox diventa TIM Mail', 'A Novembre la tua Mail @tim.it diventa molto più capiente, efficiente e sicura.\r\n\r\nMolte sono le novità, fra cui:\r\n\r\nfino a 3 GB di spazio per archiviare i messaggi nella tua mailbox;\r\nla possibilità di inviare fino a 2 GB con il servizio di GigaAllegati ed una protezione automatica da virus e spam.\r\nPotrai inoltre accedere alla tua posta via webmail con una nuova interfaccia ricca di nuovi servizi, come la possibilità di navigare tra gli Allegati e di accedere ai servizi mobili, gestire una rubrica unificata con possibilità di importare contatti da Gmail, Outlook e altre rubriche.\r\n\r\nLa posta potrà inoltre essere gestita coi principali programmi di posta (come ad es. MS Outlook), continuando ad utilizzare le consuete impostazioni per la Posta in arrivo:\r\n\r\nServer POP3: box.posta.tim.it (porta 110)\r\noppure\r\n\r\nServer IMAP: box.posta.tim.it (porta 143).\r\n\r\nPer le impostazioni della Posta in uscita e per il Server SMTP potrai continuare ad utilizzare mail.posta.tim.it ma dovrai inserire la richiesta di autenticazione e specificare la porta 587.\r\n \r\n\r\nCon la tua mail @tim.it potrai continuare ad utilizzare la password abituale e, se necessario, recuperarla tramite cellulare in self-care dal link “recupera username e password” presente sulla webmail, poi nella pagina di recupero password dovrai inserire nel campo “username” il tuo numero di cellulare e scegliere il dominio @tim.it. Così potrai usufruire, fin dal primo cambio password, delle regole più sicure già valide per Alice Mail. Non sarà più possibile invece accedere al servizio di modifica password tramite SMS e l’ascolto in vocale delle mail sarà possibile dal numero 41919 (invece che 41901). Infine verrà conservato, se presente, un alias precedentemente configurato che potrai utilizzare per accedere alla posta elettronica ma non agli altri servizi.\r\n \r\n\r\nImportante: Ti ricordiamo che, se la tua mail @tim.it era utilizzata solo per l’inoltro automatico ad una mail @alice.it e non hai provveduto a disassociare quest’ultima dal numero di linea mobile entro i termini comunicati da TIM, la mail @tim.it è stata cancellata e non vi è più l’inoltro automatico dei messaggi alla casella @alice.it: ricorda quindi di comunicare ai tuoi corrispondenti come unica mail quella di Alice.', 3, 0),
 (37, 'Sicurezza traffico dati', 'Le promozioni che utilizzi abitualmente valgono esclusivamente all’interno del territorio nazionale, pertanto, quando sei all’estero, sarai soggetto ai costi previsti per il Paese in cui ti recherai.\r\n\r\nDovrai prestare particolare attenzione se possiedi un BlackBerry, un iPhone oppure uno Smartphone con Sistema Operativo Android: grazie alla funzione “ALWAYS ON” questi telefonini effettuano continui accessi ad Internet.\r\nPer alcuni terminali è prevista la possibilità di bloccare lo scambio dati all’estero; per maggiori informazioni clicca qui.\r\nPer gli altri telefonini sarà sufficiente non avviare nessuna connessione o disattivare, con l’ausilio del manuale o recandoti presso un Negozio TIM, il controllo periodico delle mail.\r\n\r\nInoltre, grazie al servizio gratuito Protezione dati dall’estero, sarà molto più facile tenere sotto controllo la spesa per il traffico dati generato fuori dal territorio nazionale. Questo servizio infatti ti permette di navigare quando sei all’estero in piena libertà con il tuo Smartphone o Tablet in quanto, al raggiungimento di una soglia di spesa massima di 61€ al mese, la connessione dati viene sospesa automaticamente. Sarà comunque possibile disabilitare temporaneamente il servizio ed avere una navigazione illimitata; basta farne richiesta al Servizio Clienti 119. Per tutti i dettagli sul servizio, leggi l’informativa alla pagina TIM Protezione dati dall’estero', 3, 0),
 (38, 'Ricarica su Misura', 'La Ricarica su Misura di TIM è una modalità di ricarica che consente di scegliere liberamente quanto credito acquistare sfruttando così anche la disponibilità di monete. Con la Ricarica su Misura infatti è possibile effettuare ricariche del taglio che preferisci, a partire da 5€, con flessibilità finanche di 1 cent.\r\n\r\nAd avvenuta ricarica, sarà inviato un SMS di notifica.\r\nLa Ricarica su Misura è disponibile presso i seguenti canali:\r\n\r\nNegozi TIM (a partire dal taglio di 5€ fino a quello di 200€ con flessibilità di 1 cent).\r\n\r\nPuntoLIS, Bar, Tabaccherie, Ricevitorie Lotto e Ricevitorie Sisal-Superenalotto, Edicole, Autogrill, Aree di Servizio, Phone Center ed Internet Point (a partire dal taglio di 5€ fino a quello di 200€ con flessibilità di 1 cent).\r\n\r\nTutti i valori sono da considerarsi IVA inclusa.\r\n\r\nIl servizio è completamente gratuito e tutto l''importo ricaricato potrà essere utilizzato come traffico telefonico senza scadenza.', 3, 0),
-(39, 'Ricarica Veloce dal sito tim.it', 'Il servizio Ricarica Veloce dal sito tim.it ti permette di ricaricare il tuo telefonino senza bisogno di registrarti:\r\nè sufficiente inserire i tuoi dati e in 3 click la tua linea è ricaricata!\r\n\r\nI tagli di ricarica partono da un minimo di 6€ ad un massimo di 150€.\r\n\r\nTi verranno richieste alcune semplici informazioni quali:\r\n\r\nil numero TIM da ricaricare.\r\nun indirizzo mail al quale inviarti la notifica di operazione effettuata.\r\ni dati della tua carta di credito o di PayPal.\r\nSono accettate le principali carte di credito emesse in Italia aderenti ai circuiti Visa, Mastercard (tra cui CartaSì, Postepay, Clarima e Bankamericard Deutsche Credit Card), American Express, Diners e carta Aura.\r\n\r\nN.B. Ti ricordiamo che se scegli la ricarica da 6€ avrai a disposizione 5€ di credito e 500 MMS da inviare verso tutti entro 30 giorni. Per tutti i dettagli sulla Ricarica+ clicca qui.', 3, 0),
-(40, 'Gestione Posta', 'Per consultare la tua casella di posta elettronica @tim.it o @alice.it accedi all''indirizzo https://mail.alice.it con qualsiasi collegamento ad Internet e qualsiasi browser ed inserisci il tuo indirizzo di posta elettronica e la relativa password.\r\n\r\nPer accedere ai tuoi messaggi clicca su POSTA IN ARRIVO  nel menu in alto della tua webmail o dall’indicazione dei messaggi da leggere nella pagina principale di TIM Mail.', 2, 0);
+(39, 'Ricarica Veloce dal sito tim.it', 'Il servizio Ricarica Veloce dal sito tim.it ti permette di ricaricare il tuo telefonino senza bisogno di registrarti:\r\nè sufficiente inserire i tuoi dati e in 3 click la tua linea è ricaricata!\r\n\r\nI tagli di ricarica partono da un minimo di 6€ ad un massimo di 150€.\r\n\r\nTi verranno richieste alcune semplici informazioni quali:\r\n\r\nil numero TIM da ricaricare.\r\nun indirizzo mail al quale inviarti la notifica di operazione effettuata.\r\ni dati della tua carta di credito o di PayPal.\r\nSono accettate le principali carte di credito emesse in Italia aderenti ai circuiti Visa, Mastercard (tra cui CartaSì, Postepay, Clarima e Bankamericard Deutsche Credit Card), American Express, Diners e carta Aura.\r\n\r\nN.B. Ti ricordiamo che se scegli la ricarica da 6€ avrai a disposizione 5€ di credito e 500 MMS da inviare verso tutti entro 30 giorni. Per tutti i dettagli sulla Ricarica+ clicca qui.', 3, 0);
 INSERT INTO `servizioassistenza` (`idservizioassistenza`, `nomeservizioassistenza`, `descrizioneservizioassistenza`, `categoriaservizioassistenza`, `highlightservizioassistenza`) VALUES
+(40, 'Gestione Posta', 'Per consultare la tua casella di posta elettronica @tim.it o @alice.it accedi all''indirizzo https://mail.alice.it con qualsiasi collegamento ad Internet e qualsiasi browser ed inserisci il tuo indirizzo di posta elettronica e la relativa password.\r\n\r\nPer accedere ai tuoi messaggi clicca su POSTA IN ARRIVO  nel menu in alto della tua webmail o dall’indicazione dei messaggi da leggere nella pagina principale di TIM Mail.', 2, 0),
 (41, 'Gestione Rubrica', 'La Rubrica  ti consente di avere a disposizione l''elenco dei tuoi contatti personali.\r\n\r\nPer ogni contatto puoi memorizzare uno o più indirizzi di posta elettronica , i numeri di telefono fisso e mobile , pagine web, etc. \r\nE'' possibile ordinare e raggruppare i contatti in gruppi e puoi effettuare la ricerca mediante informazioni parziali.\r\nPer creare un nuovo contatto, clicca sulla voce  Aggiungi accanto a Contatti nella colonna di sinistra oppure sul pulsante  Nuovo sulla barra in alto a sinistra, si aprirà una colonna a destra dove inserire le informazioni ralative al Nuovo contatto.  \r\nAl termine dell''inserimento, clicca sul pulsante Salva .', 2, 0),
 (42, 'Gestione - Allegati', 'Dalla pagina principale di TIM Mail è possibile accedere al menu Allegati.\r\nIn alternativa è possibile accedere dal tab in alto presente sulla barra di navigazione.\r\nNella pagina Allegati sono presenti tutti i file allegati alle mail inviate e ricevute organizzati per tipologia (immagini, video, audio, documenti, archivi, altro) e rappresentati attraverso icone specifiche.\r\nL’anteprima del file allegato selezionato si aprirà in una nuova pagina e, in base alla modalità di visualizzazione consentita dal media server, verrà presentata nel caso di immagini, l’immagine nelle sue dimensioni reali, nel caso di documenti, il documento con la possibilità di sfogliare le pagine, mentre nel caso di file audio, il player audio con la possibilità di ascoltare il file. \r\nAnche da questa pagina è possibile salvare il file, condividerlo via mail e, per le immagini, condividerle su Facebook \r\nSi possono inoltre scorrere gli allegati attraverso i tasti allegato precedente e allegato successivo \r\n\r\nSe un messaggio di posta contiene allegati, sotto il corpo del messaggio è presente una sezione dedicata, in cui sono rappresentati i file con la possibilità di salvarli o, per quelli su cui è disponibile l’anteprima, visualizzarli in anteprima.', 2, 0),
 (43, 'Gestione contatti Facebook', 'All''interno della tua TIM Mail puoi visualizzare gli aggiornamenti del tuo profilo Facebook , la tua bacheca, ed avere la notifica dell’arrivo di nuovi messaggi di posta e di inviti ad eventi.\r\n\r\nPer iniziare clicca su Connettiti a Facebook\r\nClicca su Procedi\r\nPer evitare accessi indesiderati al tuo account Facebook ti consigliamo di non selezionare l''opzione Resta Collegato nella schermata successiva, soprattutto se il PC che stai utilizzando è condiviso da più utenti.\r\n\r\nLeggi attentamente la richiesta alle autorizzazioni richieste e clicca su Consenti e poi sulla X in alto a destra nella finestra successiva\r\nNel riquadro visualizzerai tutte le notifiche di nuovi aggiornamenti dei tuoi amici, di messaggi privati ed inviti ad eventi.\r\nPer rimuovere il collegamento tra la tua TIM Mail ed il tuo account Facebook clicca su Impostazioni', 2, 0),
@@ -690,7 +741,7 @@ CREATE TABLE IF NOT EXISTS `smartlifeservice` (
   `attivazionesmartlifeservices` text,
   `faqsmartlifeservices` text NOT NULL,
   PRIMARY KEY (`idsmartlifeservices`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dump dei dati per la tabella `smartlifeservice`
