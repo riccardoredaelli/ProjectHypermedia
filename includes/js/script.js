@@ -30,3 +30,7 @@ function sendMail() {
     var mail="mailto:indirizzodellatim@timhypermedia2016.it?subject="+subject+"&body="+yourMessage;
     window.location.href = mail;
 }
+
+$(document).bind("mobileinit", function () { 
+$.support.cors = true; 
+$.mobile.allowCrossDomainPages = true; });
