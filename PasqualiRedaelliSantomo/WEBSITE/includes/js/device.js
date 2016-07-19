@@ -171,7 +171,7 @@ function compatibleServices(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo,dispositivo_smartlifeservice,smartlifeservice WHERE dispositivo.id=dispositivo_smartlifeservice.id_dispositivo_dss AND smartlifeservice.idsmartlifeservices=dispositivo_smartlifeservice.id_smartlifeservice_dss ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibleservice=JSON.parse(response);
@@ -239,7 +239,7 @@ function compatibleAssistant(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo,dispositivo_servizioassistenza,servizioassistenza WHERE dispositivo.id=dispositivo_servizioassistenza.id_dispositivo_dsa AND servizioassistenza.idservizioassistenza=dispositivo_servizioassistenza.id_servizioassistenza_dsa ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibleassistant=JSON.parse(response);
