@@ -5,7 +5,7 @@ function evan(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo, categoriadispositivo WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo ORDER BY categoriadispositivo.idcategoriadispositivo"},
         success: function(response) {
             var dispositivo=JSON.parse(response);
@@ -28,10 +28,12 @@ function evan(){
             containerName.appendChild(phoneName);
             
             var containerDescription = document.getElementById("deviceDescription");
+            var containerDescriptionM = document.getElementById("deviceDescriptionM");
             var description = document.createElement("h5");
             var descriptionText =document.createTextNode(dispositivo[i].descrizione);
             description.appendChild(descriptionText);
             containerDescription.appendChild(description);
+            containerDescriptionM.appendChild(description);
             
             //inizio caratteristiche tecniche
             var listGroup = document.createElement("div");
@@ -115,8 +117,10 @@ function evan(){
 
            
             var containerFeatures = document.getElementById("deviceFeatures");
+            var containerFeaturesM = document.getElementById("deviceFeaturesM");
            
             containerFeatures.appendChild(listGroup);
+            containerFeaturesM.appendChild(listGroup);
             //prezzo
             var containerPrice = document.getElementById("devicePrice");
             var bottone=document.getElementById("buyButton");
@@ -167,7 +171,7 @@ function compatibleServices(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo,dispositivo_smartlifeservice,smartlifeservice WHERE dispositivo.id=dispositivo_smartlifeservice.id_dispositivo_dss AND smartlifeservice.idsmartlifeservices=dispositivo_smartlifeservice.id_smartlifeservice_dss ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibleservice=JSON.parse(response);
@@ -235,7 +239,7 @@ function compatibleAssistant(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
+        url: "includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo,dispositivo_servizioassistenza,servizioassistenza WHERE dispositivo.id=dispositivo_servizioassistenza.id_dispositivo_dsa AND servizioassistenza.idservizioassistenza=dispositivo_servizioassistenza.id_servizioassistenza_dsa ORDER BY dispositivo.id"},
         success: function(response) {
             var compatibleassistant=JSON.parse(response);
@@ -245,7 +249,6 @@ function compatibleAssistant(){
             var containerImg = document.getElementById("compatibleAssistantServices");
             var row = document.createElement("div");
             row.setAttribute("class", "row");
-            row.setAttribute("class", "description-text");
             
             for (i = 0; i<compatibleassistant.length; i++){
                 if (compatibleassistant[i].id_dispositivo_dsa == myParam){
