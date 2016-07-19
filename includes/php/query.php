@@ -5,7 +5,7 @@ define('MYSQL_NUM',MYSQLI_NUM);
 define('MYSQL_ASSOC',MYSQLI_ASSOC);*/
 
 $server = "localhost";
-$username = "";
+$username = "root";
 $password = "";
 $database = "my_hyp2016";
 
