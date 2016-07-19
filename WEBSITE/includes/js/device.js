@@ -5,7 +5,7 @@ function evan(){
     $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-        url: "includes/php/query.php", //Relative or absolute path to file.php file
+        url: "http://hyp2016.altervista.org/includes/php/query.php", //Relative or absolute path to file.php file
         data: {query : "SELECT * FROM dispositivo, categoriadispositivo WHERE dispositivo.categoria=categoriadispositivo.idcategoriadispositivo ORDER BY categoriadispositivo.idcategoriadispositivo"},
         success: function(response) {
             var dispositivo=JSON.parse(response);
